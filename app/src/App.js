@@ -1,7 +1,7 @@
 import React from 'react';
-import Home from './home/home'
-import Header from './header/header'
-import Footer from './footer/footer'
+import Home from '../../app-tsc/src/components/home/home'
+import Header from '../../app-tsc/src/components/header/header'
+import Footer from '../../app-tsc/src/components/footer/footer'
 
 function App() {
   return (

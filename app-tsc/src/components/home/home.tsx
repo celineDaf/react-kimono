@@ -1,9 +1,9 @@
 import React from 'react';
-import './home.css';
+import './home.scss';
 import Menu from  './menu/menu'
-import codePic from '../assets/code.png'
+import codePic from '../../assets/pictures/code.png'
 
-function Home() {
+const Home = () => {
   return (
     <div className="Home">
       <div className="Home-header text-center Home-photo">

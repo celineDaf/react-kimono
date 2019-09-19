@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
-import './menu.css'
-import '../../App.css';
+import './menu.scss'
 
-export class Menu extends Component {
-    render() {
+const Menu = () => {
         return (
             <div className="menu">
                 <div className="menu-item right blue">
@@ -19,8 +17,7 @@ export class Menu extends Component {
                     Job
                 </div>
             </div>
-        )
-    }
+        );
 }
 
 export default Menu
