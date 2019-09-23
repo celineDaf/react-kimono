@@ -8,6 +8,7 @@ import Admin from './components/admin/admin';
 
 const App: React.FC = () => {
   return (
+    <div className="app">
       <BrowserRouter>
           <Switch>
             <Redirect from='/' exact to='/home'/>
@@ -16,6 +17,7 @@ const App: React.FC = () => {
             <Route render={() => <div className="noMatch-404">404</div>} />
           </Switch>
       </BrowserRouter>
+      </div>
   );
 }
 

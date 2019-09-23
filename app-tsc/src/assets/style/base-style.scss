@@ -1,5 +1,6 @@
 @import "variables";
 
+
 a:link {
   text-decoration: none;
 }
@@ -28,4 +29,15 @@ a:link {
 
   .white-text {
     color: white;
+  }
+
+  // block
+
+  .full-width {
+    width: 100%;
+  }
+
+  .flex-container {
+    display: flex;
+    flex-direction: row;
   }
