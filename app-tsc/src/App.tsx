@@ -10,9 +10,9 @@ const App: React.FC = () => {
   return (
       <BrowserRouter>
           <Switch>
-            <Route path="/home"  component={Home}/>
-            <Route path="admin" exact component={Admin}/>
             <Redirect from='/' exact to='/home'/>
+            <Route path="/home"  component={Home}/>
+            <Route path="/admin" exact component={Admin}/>
             <Route render={() => <div className="noMatch-404">404</div>} />
           </Switch>
       </BrowserRouter>
