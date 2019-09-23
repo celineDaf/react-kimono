@@ -1,16 +1,21 @@
 import React from 'react';
+import { BrowserRouter, Route, Switch, Redirect} from "react-router-dom";
 import './App.scss';
 import Home from './components/home/home';
-import Footer from './components/footer/footer';
-import Header from './components/header/header';
+import Admin from './components/admin/admin';
+
+
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-     <Header></Header>
-      <Home></Home>
-      <Footer></Footer>
-    </div>
+      <BrowserRouter>
+          <Switch>
+            <Route path="/home"  component={Home}/>
+            <Route path="admin" exact component={Admin}/>
+            <Redirect from='/' exact to='/home'/>
+            <Route render={() => <div className="noMatch-404">404</div>} />
+          </Switch>
+      </BrowserRouter>
   );
 }
 
