@@ -1,19 +1,28 @@
-// colors
+@import "variables";
 
-.red {
-    background-color: red;
+
+// colors
+.red-bc {
+    background-color: $red;
   }
-  .yellow {
-    background-color: yellow;
+  .yellow-bc {
+    background-color: $yellow;
   }
-  .blue {
-    background-color: blue;
+  .blue-bc {
+    background-color: $blue;
   }
-  .violet {
-    background-color: violet;
+  .violet-bc {
+    background-color: $violet;
+  }
+  .green-bc {
+    background-color: $green;
   }
   
 //  text style
   .text-center {
     text-align: center;
+  }
+
+  .white-text {
+    color: white;
   }
