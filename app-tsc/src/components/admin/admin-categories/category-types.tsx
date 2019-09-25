@@ -1,12 +1,14 @@
 
-export enum Categories  {
+export enum CategoriesEnum  {
     JAPAN = 'Japan', JOB ='Job', KIMONO = 'kimono', BOOKS = 'books'
 };
 
-export const CategoryTypes: Categories[] = [ 
-    Categories.BOOKS,
-    Categories.JAPAN,
-    Categories.JOB,
-    Categories.KIMONO
+export type Categories = CategoriesEnum.BOOKS | CategoriesEnum.JAPAN |CategoriesEnum.JOB | CategoriesEnum.KIMONO;
+
+export const CategoriesList: Categories[] = [ 
+    CategoriesEnum.BOOKS,
+    CategoriesEnum.JAPAN,
+    CategoriesEnum.JOB,
+    CategoriesEnum.KIMONO
 ];
 
