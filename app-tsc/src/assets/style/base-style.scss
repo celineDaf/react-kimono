@@ -5,7 +5,7 @@ a:link {
   text-decoration: none;
 }
 
-// colors
+// colors background
 .red-bc {
     background-color: $red;
   }
@@ -40,4 +40,21 @@ a:link {
   .flex-container {
     display: flex;
     flex-direction: row;
+  }
+
+  // text color
+  .red {
+    color: $red;
+  }
+  .yellow {
+    color: $yellow;
+  }
+  .blue {
+    color: $blue;
+  }
+  .violet {
+    color: $violet;
+  }
+  .green {
+    color: $green;
   }
