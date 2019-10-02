@@ -1,0 +1,23 @@
+@import "../../../assets/style/base-style.scss";
+
+.admin-article {
+
+    .section {
+        width: 100%;
+        padding: 2% 0 2% 0;
+    }
+
+    .selected-tag {
+        border: 2px solid yellow;
+        border-radius: 20%;
+        padding: 10px;
+        margin: 1% 1%;
+        display: inline-block;
+    }
+
+    .tag-to-remove {
+        color: $red;
+        padding-left: 20px;
+        display: inline-flex;
+    }
+}
