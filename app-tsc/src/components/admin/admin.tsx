@@ -1,18 +1,21 @@
-import React from 'react';
+import React, { useState }  from 'react';
 import "./admin.scss"
-import AdminCategories from './admin-categories/admin-categories';
 import AdminArticle from './admin-article/admin-article';
+import { Link } from 'react-router-dom';
 
-interface Props {
+interface PropsType {
+    
 }
 
-const Admin = (props: Props) => {
+const Admin = (props: PropsType) => {
+    const [values, setValues] = useState(null);
+
     return (
         <div className="admin">
+            <Link className="button-float-right" to="/">&lsaquo;</Link>
             <div className="title">Gestion des contenus</div>
-            <AdminCategories></AdminCategories>
-
-            <AdminArticle></AdminArticle>
+            
+            <AdminArticle />
             
         </div>
     );
