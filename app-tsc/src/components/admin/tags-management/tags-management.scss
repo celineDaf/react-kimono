@@ -1,0 +1,16 @@
+@import "../../../assets/style/variables.scss";
+
+.tags-management {
+
+    .tag {
+        border: 2px solid $yellow;
+        border-radius: 30%;
+        padding: 5px;
+    }
+    
+    .tag-to-remove {
+        color: $red;
+        padding-left: 20px;
+        display: inline-flex;
+    }
+}
