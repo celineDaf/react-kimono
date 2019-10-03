@@ -1,9 +1,7 @@
 @import "variables";
+@import "./shared-style.scss";
 
 
-a:link {
-  text-decoration: none;
-}
 
 // colors background
 .red-bc {
@@ -31,17 +29,6 @@ a:link {
     color: white;
   }
 
-  // block
-
-  .full-width {
-    width: 100%;
-  }
-
-  .flex-container {
-    display: flex;
-    flex-direction: row;
-  }
-
   // text color
   .red {
     color: $red;
@@ -57,4 +44,8 @@ a:link {
   }
   .green {
     color: $green;
+  }
+
+  .margin-l {
+    margin-left: 20px;
   }
