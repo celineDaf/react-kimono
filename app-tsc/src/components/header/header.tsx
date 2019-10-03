@@ -7,7 +7,7 @@ const Header = () => {
         return (
             <div>
                 <header className="header">
-                <Link className="header-admin-button" to="/admin">+</Link>
+                <Link className="header-access-button" to="/admin">+</Link>
                     <div className="header-buttons ">
                         <button className="header-button red-bc white-text">Books</button>
                         <button className="header-button red-bc white-text">Kimono</button>
