@@ -1,0 +1,15 @@
+@import "../../assets/style/variables.scss";
+
+
+    .category-element {
+        color: $brown;
+        padding: 6px;
+        margin: 10px;
+        border: 2px solid $grey;
+        border-radius: 20%;
+        
+        &.is-selected {
+            border-color: $yellow;
+        }
+
+    }
