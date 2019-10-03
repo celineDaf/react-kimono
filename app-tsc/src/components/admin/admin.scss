@@ -1,12 +1,14 @@
-@import "../../assets/style/base-style.scss";
+@import "../../assets/style/variables.scss";
 
 .admin {
     
     padding: 0 2% 0 2%;
+    
      
     .title {
         text-align: center;
         color: $red;
-        font-size: 3rem;
+        font-size: 3em;
+        height: 100%;
     }
 }

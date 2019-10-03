@@ -1,6 +1,6 @@
 import React from 'react';
 import "./admin-categories.scss";
-import { CategoriesList, Categories } from './category-types';
+import { CategoriesList, Categories } from '../../../domain/category-types';
 
 
 

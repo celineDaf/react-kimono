@@ -1,4 +1,4 @@
-import { Categories } from '../admin-categories/category-types'
+import { Categories } from '../../../domain/category-types'
 
 
 export interface Article {
