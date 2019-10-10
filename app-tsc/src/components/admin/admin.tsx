@@ -2,20 +2,19 @@ import React, { useState }  from 'react';
 import "./admin.scss"
 import AdminArticle from './admin-article/admin-article';
 import { Link } from 'react-router-dom';
+import { IArticle } from '../../domain/article-type'
 
-interface PropsType {
+const Admin = () => {
+
+    let article: IArticle;
     
-}
-
-const Admin = (props: PropsType) => {
-    const [values, setValues] = useState(null);
-
+    const onChangeArticle = (updatedArticle:IArticle) => article = updatedArticle;
     return (
         <div className="admin">
             <Link className="button-float-right" to="/">&lsaquo;</Link>
             <div className="title">Gestion des contenus</div>
             
-            <AdminArticle />
+            <AdminArticle onChangeArticle={onChangeArticle}/>
             
         </div>
     );
