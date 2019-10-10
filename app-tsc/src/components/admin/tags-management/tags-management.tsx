@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./tags-management.scss";
 import TagsDisplayer from "./tags-displayer/tags-displayer";
 
-interface Props {}
+interface Props {
+  onChangeTags: (tags: string[]) => void
+}
 
 const TagsManagement = (props: Props) => {
   const [tag, setTag] = useState<string>("");
@@ -27,11 +29,16 @@ const TagsManagement = (props: Props) => {
   const removeTag = (index: number) => {
     tags.splice(index, 1);
     setTags([...tags]);
-  }
+  };
+
+  useEffect (() => {
+    props.onChangeTags(tags);
+  }, [tags]);
 
   return (
     <div className="tags-management">
       <div className="section">
+      <span className='input-gradient'>
         <input
           type="text"
           name="tag"
@@ -44,6 +51,7 @@ const TagsManagement = (props: Props) => {
           }}
           onChange={event => setTag(event.target.value)}
         />
+        </span>
       </div>
 
       <TagsDisplayer tags={tags} onRemove={removeTag} />
