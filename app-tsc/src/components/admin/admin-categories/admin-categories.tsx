@@ -1,10 +1,10 @@
 import React from 'react';
 import "./admin-categories.scss";
-import { CategoriesList, Categories } from '../../../domain/category-types';
+import { CategoriesList, Category } from '../../../domain/category-types';
 
 
 
-const categories: Categories[]  = CategoriesList;
+const categories: Category[]  = CategoriesList;
 
 interface Props {
     
