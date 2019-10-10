@@ -1,21 +1,26 @@
-import React, { useState } from "react";
-import { CategoriesList, Categories } from "../../domain/category-types";
+import React, { useState, useCallback, useEffect } from "react";
 import "./category-selector.scss";
+import { CategoriesList, Category } from '../../domain/category-types'
 
-interface Props {}
+interface Props {
+  onChangeCategory: (selectedCategory: Category) => void
+}
 
 const CategorySelector = (props: Props) => {
-  const categories: Categories[] = CategoriesList;
-  const [category, setCategory] = useState<Categories>();
+  const categories: Category[] = CategoriesList;
+  const [category, setCategory] = useState<Category>();
 
-  const handleSelection = (selectedCategory: Categories): void => {
+  const handleSelection = (selectedCategory: Category): void => {
     setCategory(selectedCategory);
-    console.log("selected category: " + selectedCategory + "  " + category);
   };
+
+  useEffect((): void => {
+    if (category) {props.onChangeCategory(category);}
+  }, [category]);
 
   return (
     <div>
-      <div className="sub-title">Sélectionner une catégorie</div>
+      <div className="sub-title">- Sélectionner une catégorie</div>
       <div className="flex-row-container">
         {categories.map(i => {
           return (
