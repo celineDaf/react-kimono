@@ -1,3 +1,10 @@
+// text
+
+.sub-title {
+        color: white;
+        font-size:15;
+    }
+
 // block
 
 .container {
@@ -51,6 +58,10 @@
   padding: 10px 0 10px 0;
 }
 
+.sub-section {
+  padding: 10px 0 10px 0;
+}
+
 // button
 
 .button-float-right {
@@ -61,4 +72,35 @@
   text-align: center;
   float: right;
   color: $yellow;
+}
+
+// input
+.input-gradient {
+  position:relative;
+  background: linear-gradient(21deg, $red, $yellow);
+  padding: 3px;
+  display: inline-block;
+  border-radius: 9999em;
+  width: 100%;
+
+  *:not(span) {
+		position: relative;
+		display: inherit;
+		border-radius: inherit;
+		margin: 0;
+		border: none;
+		outline: none;
+    z-index: 1;
+    line-height:1.5;
+    color: $grey;
+    
+  font-size:1em;
+  width: inherit;
+  text-align: center
+  
+  }
+  &:focus + span {
+    opacity: 1;
+    transform: scale(2);
+  }
 }

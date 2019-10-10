@@ -2,14 +2,18 @@
 
 
     .category-element {
-        color: $brown;
+        color: lighten($grey, 10%);
         padding: 6px;
-        margin: 10px;
-        border: 2px solid $grey;
-        border-radius: 20%;
+        border: 2px solid $violet;
+        border-radius: 999em;
+        background-color: white;
         
         &.is-selected {
-            border-color: $yellow;
+            border-color: white;
+            color: $yellow;
+            font-display: bold; 
         }
 
     }
+
+    
