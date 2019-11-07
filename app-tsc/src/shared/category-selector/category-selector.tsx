@@ -20,8 +20,8 @@ const CategorySelector = (props: Props) => {
 
   return (
     <div>
-      <div className="sub-title">- Sélectionner une catégorie</div>
-      <div className="flex-row-container">
+      <div className="sub-title">Sélectionner une catégorie</div>
+      <div className="flex-row-container center">
         {categories.map(i => {
           return (
             <div
