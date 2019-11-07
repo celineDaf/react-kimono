@@ -38,7 +38,7 @@ const AdminArticle = (props: Props) => {
     <div className="admin-article container">
       <form className="row violet-bc">
         <div className="column">
-          <div className="section">
+          <div className="section text-center">
             <div className="sub-section">
               <span className="input-gradient">
                 <input
@@ -60,7 +60,7 @@ const AdminArticle = (props: Props) => {
             </div>
 
             <div className="sub-section">
-              <div className="sub-title"> - Ajouter des photos</div>
+              <div className="sub-title">Photos</div>
             </div>
           </div>
         </div>
