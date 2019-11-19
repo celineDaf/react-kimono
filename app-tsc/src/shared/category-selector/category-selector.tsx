@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./category-selector.scss";
 import { CategoriesList, Category } from '../../domain/category-types'
 

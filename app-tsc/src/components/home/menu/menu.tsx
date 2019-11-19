@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import './menu.scss'
 import SubMenu from './sub-menu/sub-menu'
 
