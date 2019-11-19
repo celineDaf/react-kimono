@@ -2,7 +2,8 @@ import React from "react";
 
 interface Props {
   tags: string[];
-  onRemove: (i: number) => void;
+  canRemove?: boolean | false;
+  onRemove?: (i: number) => void;
 }
 
 const TagsDisplayer = (props: Props) => {
@@ -12,9 +13,10 @@ const TagsDisplayer = (props: Props) => {
         return (
           <div className="tag" key={i}>
             {tag}
-            <div className="tag-to-remove" onClick={() => props.onRemove(i)}>
-              x
-            </div>
+           {props.canRemove && 
+            <div className="tag-to-remove" onClick={() => props.onRemove && props.onRemove(i)}>
+            x
+          </div>}
           </div>
         );
       })}

@@ -11,7 +11,7 @@ const TagsManagement = (props: Props) => {
   const [tags, setTags] = useState<string[]>([]);
 
   const handleAddTag = (): void => {
-    if (!tag || tag.length == 0) {
+    if (!tag || tag.length === 0) {
       return;
     }
     if (checkIfTagDuplicate()) {
@@ -54,7 +54,7 @@ const TagsManagement = (props: Props) => {
         </span>
       </div>
 
-      <TagsDisplayer tags={tags} onRemove={removeTag} />
+      <TagsDisplayer tags={tags} onRemove={removeTag} canRemove={true} />
     </div>
   );
 };
