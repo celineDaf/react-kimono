@@ -1,20 +1,22 @@
-import React, { useState }  from 'react';
+import React from 'react';
 import "./admin.scss"
-import AdminArticle from './admin-article/admin-article';
 import { Link } from 'react-router-dom';
 import { IArticle } from '../../domain/article-type'
+import ArticlesList from '../articles/article-list';
 
 const Admin = () => {
 
-    let article: IArticle;
-    
-    const onChangeArticle = (updatedArticle:IArticle) => article = updatedArticle;
+    let articles: IArticle[] = [];
+        
     return (
         <div className="admin">
             <Link className="button-float-right" to="/">&lsaquo;</Link>
-            <div className="title">Gestion des contenus</div>
+            <Link className="button-float-right" to="/admin/add-article">+</Link>
+            <div className="title">Liste des articles</div>
+
+            <ArticlesList articles={articles} />
             
-            <AdminArticle onChangeArticle={onChangeArticle}/>
+            
             
         </div>
     );
