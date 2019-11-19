@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from "react";
 import "./admin-article.scss";
-import CategorySelector from "../../../shared/category-selector/category-selector";
 import TagsManagement from "../tags-management/tags-management";
-import { IArticle, ArticleInit } from "../../../domain/article-type";
+import { IArticle } from "../../../domain/article-type";
 import { Category } from "../../../domain/category-types";
 import AdminTextManagement from "../admin-text-management/admin-text-management";
+import CategorySelector from "../../../shared/category-selector/category-selector";
 
 interface Props {
-  onChangeArticle: (article: IArticle) => void;
+  onChangeArticle: (article: IArticle) => void,
+  article: IArticle
 }
 
-const AdminArticle = (props: Props) => {
-  const [article, setArticle] = useState<IArticle>(ArticleInit);
+const AdminArticleUpdate = (props: Props) => {
+  const [article, setArticle] = useState<IArticle>(props.article);
 
   const onChangeCategory = (selectedCategory: Category) => {
     setArticle({ ...article, category: selectedCategory });
@@ -28,7 +29,7 @@ const AdminArticle = (props: Props) => {
 
   useEffect(() => {
     props.onChangeArticle(article);
-  }, [article]);
+  });
 
   const handleCreation = () => {
     console.log(article);
@@ -87,4 +88,4 @@ const AdminArticle = (props: Props) => {
   );
 };
 
-export default AdminArticle;
+export default AdminArticleUpdate;
