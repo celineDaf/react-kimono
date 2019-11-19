@@ -12,7 +12,7 @@ const Home = () => {
     <div className="Home">
       <div className="Home-header text-center Home-photo">
         <div className="home-title">
-          <img src={codePic} className="home-title-image" alt="picture of me, smiling wearing sunglasses, in japan, in a middle of a temple's garden"/>
+          <img src={codePic} className="home-title-image" alt="Selfie of me, smiling wearing sunglasses, in japan, in a middle of a temple's garden"/>
           <div>Céline DAFFE</div>
         </div>
       </div>
