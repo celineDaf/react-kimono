@@ -1,6 +1,6 @@
 import React from 'react';
-import { IArticle } from '../../domain/article-type'
-import TagsDisplayer from '../admin/tags-management/tags-displayer/tags-displayer';
+import { IArticle } from '../domain/article-type'
+import TagsDisplayer from './tags-displayer/tags-displayer';
 
 interface PropsType {
     article: IArticle;

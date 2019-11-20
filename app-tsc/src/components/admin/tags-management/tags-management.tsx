@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./tags-management.scss";
-import TagsDisplayer from "./tags-displayer/tags-displayer";
+import TagsDisplayer from "../../../shared/tags-displayer/tags-displayer";
 
 interface Props {
   onChangeTags: (tags: string[]) => void

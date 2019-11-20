@@ -2,7 +2,7 @@ import React from 'react';
 import "./admin.scss"
 import { Link } from 'react-router-dom';
 import { IArticle } from '../../domain/article-type'
-import ArticlesList from '../articles/article-list';
+import ArticlesList from '../app-container/articles/article-list';
 
 const Admin = () => {
 
@@ -15,8 +15,6 @@ const Admin = () => {
             <div className="title">Liste des articles</div>
 
             <ArticlesList articles={articles} />
-            
-            
             
         </div>
     );

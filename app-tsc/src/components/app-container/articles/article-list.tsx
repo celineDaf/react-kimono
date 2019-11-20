@@ -1,6 +1,6 @@
 import React from 'react';
-import { IArticle } from '../../domain/article-type'
-import ArticleCard from './article-card';
+import { IArticle } from '../../../domain/article-type'
+import ArticleCard from '../../../shared/article-card';
 
 interface PropsType {
     articles: IArticle[];
