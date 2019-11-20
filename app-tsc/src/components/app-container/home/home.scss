@@ -1,0 +1,35 @@
+.Home {
+   width: 100%;
+   
+   .Home-photo{
+     background-image: url('./../../../assets/pictures/home.jpg');
+     background-repeat: no-repeat;
+     background-size: cover;
+     background-position: center;
+       pointer-events: none;
+     }
+     
+     .Home-header {
+       min-height: 100vh;
+       max-width: 100%;
+       
+     }
+   
+     .Home-menu {
+       min-height: 120vh;
+     }
+   
+     .home-title {
+       padding-top: 20vh;
+       width: 100%;
+       font-size: 50px;
+       font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+       font-weight: bold; 
+       color: white;
+     }
+   
+     .home-title-image {
+       height: 50vh;
+     }
+}
+
