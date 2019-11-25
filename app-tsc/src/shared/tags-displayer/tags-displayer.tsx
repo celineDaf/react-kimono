@@ -1,4 +1,5 @@
 import React from "react";
+import './tag-displayer.scss'
 
 interface Props {
   tags: string[];
@@ -8,7 +9,7 @@ interface Props {
 
 const TagsDisplayer = (props: Props) => {
   return (
-    <div className="flex-row-container">
+    <div className="flex-row-container tags-displayer">
       {props.tags.map((tag: string, i : number) => {
         return (
           <div className="tag" key={i}>
