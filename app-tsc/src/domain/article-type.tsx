@@ -1,6 +1,6 @@
 import { Category } from './category-types'
 export interface IArticle {
-    id?: string;
+    id: string;
     tags: any[];
     title: string | null;
     category: Category | null;
@@ -9,4 +9,4 @@ export interface IArticle {
     photos: string[];
 }
 
-export let ArticleInit: IArticle = {tags: [], title: null, category: null, text: null, photos: []};
+export let ArticleInit: IArticle = {id: '', tags: [], title: null, category: null, text: null, photos: []};
