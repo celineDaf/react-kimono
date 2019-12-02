@@ -8,6 +8,7 @@ import CategorySelector from '../../shared/category-selector/category-selector'
 const Admin = () => {
 
     const [articles, setArticles]  = useState();
+    const [filtererdArticles, setFilteredArticles]  = useState();
     
     useEffect(() => {
         firebase.firestore().collection('articles')
@@ -16,18 +17,17 @@ const Admin = () => {
                 id: doc.id,
                 ...doc.data()
             }));
-            console.log('admin articles', articles)
             setArticles(articles);
+            setFilteredArticles(articles);
         })
-    })
-    
+    }, [])
+
     const onCategoryChoice = (category: string) => {
-        if (category === undefined) {
-            setArticles(articles)
+        if (category === "null") {
+            setFilteredArticles(articles);
         } else {
             const filteredArticles = articles.filter((art) => art.category === category);
-            setArticles(filteredArticles)
-            console.log('filteredArticles', filteredArticles)
+            setFilteredArticles(filteredArticles)
         }
        
     }
@@ -40,7 +40,7 @@ const Admin = () => {
 
             <CategorySelector onChangeCategory={onCategoryChoice} unselectAvailable={true} />
 
-            <ArticlesList articles={articles} />
+            <ArticlesList articles={filtererdArticles} />
             
         </div>
     );

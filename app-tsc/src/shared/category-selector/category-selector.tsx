@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./category-selector.scss";
-import { CategoriesList, Category } from '../../domain/category-types'
+import { CategoriesList, Category, CategoriesEnum } from '../../domain/category-types'
 
 interface Props {
   onChangeCategory: (selectedCategory: Category) => void
@@ -13,7 +13,7 @@ const CategorySelector = (props: Props) => {
 
   const handleSelection = (selectedCategory: Category): void => {
     if (props.unselectAvailable && category === selectedCategory) {
-      setCategory(undefined);
+      setCategory(CategoriesEnum.NULL);
     } else {setCategory(selectedCategory);}
     
   };
@@ -27,7 +27,7 @@ const CategorySelector = (props: Props) => {
       <div className="sub-title">Sélectionner une catégorie</div>
       <div className="flex-row-container center">
         {categories.map(i => {
-          return (
+          return ( i != 'null' &&
             <div
               className={`category-element ${category === i && 'is-selected'}`}
               key={i}
