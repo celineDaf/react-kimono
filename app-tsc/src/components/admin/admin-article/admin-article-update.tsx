@@ -5,10 +5,16 @@ import { IArticle } from "../../../domain/article-type";
 import { Category } from "../../../domain/category-types";
 import AdminTextManagement from "../admin-text-management/admin-text-management";
 import CategorySelector from "../../../shared/category-selector/category-selector";
+import firebase from '../../../firebase'
+import { History, Location } from 'history';
+import { withRouter, match } from 'react-router';
 
 interface Props {
   onChangeArticle: (article: IArticle) => void,
-  article: IArticle
+  article: IArticle,
+  history: History,
+  location: Location;
+  match: match;
 }
 
 const AdminArticleUpdate = (props: Props) => {
@@ -33,6 +39,9 @@ const AdminArticleUpdate = (props: Props) => {
 
   const handleCreation = () => {
     console.log(article);
+    firebase.firestore().collection('articles')
+    .add(article);
+    props.history.push('/home')
   };
 
   return (
@@ -88,4 +97,4 @@ const AdminArticleUpdate = (props: Props) => {
   );
 };
 
-export default AdminArticleUpdate;
+export default withRouter(AdminArticleUpdate);
