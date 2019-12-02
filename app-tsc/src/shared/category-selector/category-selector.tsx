@@ -27,7 +27,7 @@ const CategorySelector = (props: Props) => {
       <div className="sub-title">Sélectionner une catégorie</div>
       <div className="flex-row-container center">
         {categories.map(i => {
-          return ( i != 'null' &&
+          return ( i !== 'null' &&
             <div
               className={`category-element ${category === i && 'is-selected'}`}
               key={i}
