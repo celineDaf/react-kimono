@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { IArticle } from '../../../domain/article-type'
 import ArticleCard from '../../../shared/article-card';
 import './articles.scss'
@@ -11,9 +11,9 @@ const ArticlesList = (props: PropsType) => {
     return (
         <div className="articles-list">
 
-            {props.articles && props.articles.length > 0 && props.articles.map(article => {
+            {props.articles && props.articles.length > 0 && props.articles.map((article, index) => {
                 return (
-                    <ArticleCard article={article} key={article.id} />
+                    <ArticleCard article={article} key={index} />
                 )
             })} 
             

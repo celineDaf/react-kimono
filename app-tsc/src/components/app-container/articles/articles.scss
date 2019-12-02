@@ -1,21 +1,40 @@
+@import "../../../assets/style/variables.scss";
+
 .articles-list-container {
-    width: 100%;
+  width: 100%;
 }
 
 .articles-list {
-    padding: 10px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  
+  
+  .article-card {
+    flex: 1 1 46%;
+    margin: 10px;
+    padding: 8px;
+    border: solid 2px $violet;
+    border-radius: 10px;
 
-    .article-card {
-        .title {
 
-        }
-
-        .category {
-
-        }
-
-        .preview {
-            color: grey;
-        }
+    .title {
+      color: $red;
+      font-weight: 600;
+      font-size: 2rem;
     }
+
+    .category {
+      float: right;
+      color: $green;
+    padding: 6px;
+    font-weight: 800;
+    }
+
+    .preview {
+      color: grey;
+      height: 110px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
 }

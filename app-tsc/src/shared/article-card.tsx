@@ -8,10 +8,10 @@ interface PropsType {
 const ArticleCard = (props: PropsType) => {
     return (
         <div className="article-card">
-                    <p>{props.article.title}</p>
-                    <p>{props.article.category} </p>
+                    <div className="category">{props.article.category}</div>
+                    <div className="title">{props.article.title}</div>
                     <TagsDisplayer tags={props.article.tags} canRemove={false} />
-                    <div>{props.article.text}</div>
+                    <div className="preview">{props.article.text}</div>
         </div>
     );
 };
