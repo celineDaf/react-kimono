@@ -1,5 +1,5 @@
 import React from "react";
-import './tag-displayer.scss'
+import './tags-displayer.scss'
 
 interface Props {
   tags: string[];
