@@ -2,16 +2,20 @@
 
 
     .category-element {
-        color: lighten($grey, 10%);
+        color: $grey;
         padding: 6px;
-        border: 2px solid $violet;
+        font-weight: 500;
         border-radius: 999em;
         background-color: white;
+        cursor: pointer;
         
         &.is-selected {
-            border-color: white;
-            color: $yellow;
+            color: white;
+            background-color: $yellow;
             font-display: bold; 
+            border-radius: 999em;
+            padding: 10px;
+            font-weight: 600;
         }
 
     }

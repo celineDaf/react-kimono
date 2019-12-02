@@ -4,6 +4,7 @@ import { CategoriesList, Category } from '../../domain/category-types'
 
 interface Props {
   onChangeCategory: (selectedCategory: Category) => void
+  unselectAvailable?: boolean
 }
 
 const CategorySelector = (props: Props) => {
@@ -11,7 +12,10 @@ const CategorySelector = (props: Props) => {
   const [category, setCategory] = useState<Category>();
 
   const handleSelection = (selectedCategory: Category): void => {
-    setCategory(selectedCategory);
+    if (props.unselectAvailable && category === selectedCategory) {
+      setCategory(undefined);
+    } else {setCategory(selectedCategory);}
+    
   };
 
   useEffect((): void => {
