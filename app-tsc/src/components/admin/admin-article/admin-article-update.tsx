@@ -8,6 +8,7 @@ import CategorySelector from "../../../shared/category-selector/category-selecto
 import firebase from '../../../firebase'
 import { History, Location } from 'history';
 import { withRouter, match } from 'react-router';
+import { Link } from 'react-router-dom'
 
 interface Props {
   onChangeArticle: (article: IArticle) => void,
@@ -45,8 +46,13 @@ const AdminArticleUpdate = (props: Props) => {
   };
 
   return (
-    <div className="admin-article container">
-      <form className="row violet-bc">
+    <div className="admin-article">
+      <div className="admin-button">
+      <Link className="button-float-right" to="/">&lsaquo;</Link>
+       <Link className="header-icon-list button-float-right ajust-icon" to="/admin"></Link>
+      </div>
+            <div className="admin-title">Nouvel Article</div>
+      <form className="row violet-bc admin-article-update-form">
         <div className="column">
           <div className="section text-center">
             <div className="sub-section">

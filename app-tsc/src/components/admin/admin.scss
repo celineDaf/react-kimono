@@ -12,4 +12,20 @@
         height: 100%;
         margin-left: 8%;
     }
+
+    .admin-button {
+        float: right;
+        padding-right: 10px;
+        a {
+          color: $yellow;
+        }
+
+        .ajust-icon {
+            margin-top: 27px;
+        }
+      }
+
+      .admin-article-update-form {
+          border-radius: 20px;
+      }
 }

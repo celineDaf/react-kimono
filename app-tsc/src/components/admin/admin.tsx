@@ -34,8 +34,10 @@ const Admin = () => {
         
     return (
         <div className="admin">
-            <Link className="button-float-right" to="/">&lsaquo;</Link>
+            <div className="admin-button">
+                <Link className="button-float-right" to="/">&lsaquo;</Link>
             <Link className="button-float-right" to="/admin/add-article">+</Link>
+            </div>
             <div className="admin-title">Liste des articles</div>
 
             <CategorySelector onChangeCategory={onCategoryChoice} unselectAvailable={true} />
