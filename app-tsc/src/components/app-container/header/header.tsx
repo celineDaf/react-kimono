@@ -1,6 +1,7 @@
 import React from "react";
 import "./header.scss";
 import { Link } from "react-router-dom";
+import { CategoriesEnum } from '../../../domain/category-types'
 
 const Header = () => {
   return (
@@ -21,16 +22,16 @@ const Header = () => {
 
         <div className="header-buttons ">
           <button className="header-button red-bc white-text">
-            <Link className="header-icon-books" to="/articles/books"></Link>
+            <Link className="header-icon-books" to={`/articles/${CategoriesEnum.BOOKS}`}></Link>
           </button>
           <button className="header-button red-bc white-text">
-            <Link className="header-icon-kimono" to="/articles/kimono"></Link>
+            <Link className="header-icon-kimono" to={`/articles/${CategoriesEnum.KIMONO}`}></Link>
           </button>
           <button className="header-button red-bc white-text">
-            <Link className="header-icon-japan" to="/articles/japan"></Link>
+            <Link className="header-icon-japan" to={`/articles/${CategoriesEnum.JAPAN}`}></Link>
           </button>
           <button className="header-button red-bc white-text">
-            <Link className="header-icon-job" to="/articles/job"></Link>
+            <Link className="header-icon-job" to={`/articles/${CategoriesEnum.JOB}`}></Link>
           </button>
         </div>
       </header>
