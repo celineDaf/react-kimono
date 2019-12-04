@@ -3,13 +3,21 @@ import ArticlesList from './article-list';
 import { useState } from 'react'
 import firebase from './../../../firebase'
 import './articles.scss'
+import { match } from 'react-router'
 
-function useArticles() {
+interface Props {
+    match: match
+}
 
+function useArticles(params) {
+
+   
     const [articles, setArticles]  = useState();
-// FIXME: need to add an unsubcribe
+
     useEffect(() => { 
-            firebase.firestore().collection('articles')
+        const unsubscribe = firebase
+            .firestore().collection('articles')
+            .where('category', '==', params.category)
             .onSnapshot((snapshot)=> {
                 const articles = snapshot.docs.map((doc)=> ({
                     id: doc.id,
@@ -17,13 +25,14 @@ function useArticles() {
                 }));
                 setArticles(articles);
             })
-    }, []); 
+            return () => unsubscribe()
+    }, [params]); 
 
     return articles
 }
 
-const ArticlesListContainer = () => {
-    const articles = useArticles()
+const ArticlesListContainer = (props: Props) => {
+    const articles = useArticles(props.match.params)
     
         return (
             <div className="articles-list-container">
