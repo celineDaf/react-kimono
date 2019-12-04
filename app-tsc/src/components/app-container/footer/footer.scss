@@ -1,13 +1,17 @@
 @import "./../../../assets/style/variables.scss";
 
 .footer {
-    padding: 1%;
-    height: 20vh;
-    min-height: 60px;
+    height: $footer;
     background-color: $brown;
     text-align: center;
     font-size: 0.8rem;
-    a {
-        color: white;
+    .content {
+        padding: 1%;
+        a {
+            color: white;
+        }
     }
+
+    
+    
 }
