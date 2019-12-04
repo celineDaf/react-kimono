@@ -1,11 +1,17 @@
+@import "./variables.scss";
+
 // text
 
 .sub-title {
         color: white;
         font-size:15;
-    }
+    };
 
 // block
+.main-section {
+  min-height: calc(100vh - #{$footer} - #{$header});
+  width: 100%;
+}
 
 .container {
   padding: 10px;

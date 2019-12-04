@@ -10,15 +10,15 @@ const AppContainer = () => {
   return (
     <Fragment>
         <Header />
-        
 
+        <div className="main-section">
         <Switch>
         <Redirect from='/' exact to='/home'/>
           <Route  path='/home'  component={Home} />
           <Route path="/articles/:category" component={ArticlesListContainer} />
           <Route render={() => <div className="noMatch-404">404</div>} />
         </Switch>
-
+        </div>
         <Footer />
     </Fragment>
   );
