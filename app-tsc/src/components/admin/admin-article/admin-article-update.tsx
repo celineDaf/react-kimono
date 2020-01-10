@@ -52,18 +52,17 @@ const AdminArticleUpdate = (props: Props) => {
        <Link className="header-icon-list button-float-right ajust-icon" to="/admin"></Link>
       </div>
             <div className="admin-title">Nouvel Article</div>
-      <form className="row violet-bc admin-article-update-form">
+      <form className="row admin-article-update-form">
         <div className="column">
           <div className="section text-center">
             <div className="sub-section">
-              <span className="input-gradient">
+              <span className="input-yellow">
                 <input
                   type="text"
                   name="title"
-                  className=""
-                  placeholder="Nom de l'article"
                   onChange={event => onChangeTitle(event.target.value)}
                 />
+                <label className="label">Nom de l'article</label>
               </span>
             </div>
 

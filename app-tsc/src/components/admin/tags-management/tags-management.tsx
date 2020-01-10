@@ -38,12 +38,12 @@ const TagsManagement = (props: Props) => {
   return (
     <div className="tags-management">
       <div className="section">
-      <span className='input-gradient'>
+      <div className='input-yellow'>
         <input
           type="text"
           name="tag"
           value={tag}
-          placeholder="Ajouter des tags en pressant entrer"
+          maxLength={25}
           onKeyDown={event => {
             if (event.keyCode === 13) { // Enter key
               handleAddTag();
@@ -51,7 +51,8 @@ const TagsManagement = (props: Props) => {
           }}
           onChange={event => setTag(event.target.value)}
         />
-        </span>
+        <label className="label">Ajouter des tags</label>
+        </div>
       </div>
 
       <TagsDisplayer tags={tags} onRemove={removeTag} canRemove={true} />

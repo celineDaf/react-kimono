@@ -23,8 +23,7 @@ const CategorySelector = (props: Props) => {
   }, [category]);
 
   return (
-    <div>
-      <div className="sub-title">Sélectionner une catégorie</div>
+    <div className="inner-space-10 min-width-100" >
       <div className="flex-row-container center">
         {categories.map(i => {
           return ( i !== 'null' &&
