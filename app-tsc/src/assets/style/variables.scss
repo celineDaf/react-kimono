@@ -9,13 +9,15 @@ $brown: #3f3229;
 $grey: #9ca6a7;
 
 // breakpoints
-
-$screen-m: 800px;
-$screen-l: 1000px;
-$screen-xl: 1441px;
+// The container horizontal gap, which acts as the offset for breakpoints
+$gap: 32px !default;
+$screen-s: 300px;
+$screen-m: 769px !default;
+$screen-l: 960px + (2 * $gap) !default;
+$screen-xl: 1344px + (2 * $gap) !default;
 
 // container sizes
-
+$base-header-size: 60px;
+$mobile-header-size: 40px;
+$header-height: $base-header-size;
 $footer : 20vh;
-$header: 60px;
-

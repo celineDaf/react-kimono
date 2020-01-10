@@ -22,13 +22,13 @@ const Header = () => {
 
         <div className="header-buttons ">
           <button className="header-button red-bc white-text">
-            <Link className="header-icon-books" to={`/articles/${CategoriesEnum.BOOKS}`}></Link>
+            <Link className="header-icon-books"  to={`/articles/${CategoriesEnum.BOOKS}`}></Link>
           </button>
           <button className="header-button red-bc white-text">
             <Link className="header-icon-kimono" to={`/articles/${CategoriesEnum.KIMONO}`}></Link>
           </button>
           <button className="header-button red-bc white-text">
-            <Link className="header-icon-japan" to={`/articles/${CategoriesEnum.JAPAN}`}></Link>
+            <Link className="header-icon-japan" to={`/articles/${CategoriesEnum.JAPAN}`}> </Link>
           </button>
           <button className="header-button red-bc white-text">
             <Link className="header-icon-job" to={`/articles/${CategoriesEnum.JOB}`}></Link>

@@ -1,15 +1,15 @@
 @import "./variables.scss";
+@import './mixins.scss';
 
 // text
-
 .sub-title {
-        color: white;
+        color: $red;
         font-size:15;
     };
 
 // block
 .main-section {
-  min-height: calc(100vh - #{$footer} - #{$header});
+  min-height: calc(100vh - #{$footer} - #{header()});
   width: 100%;
 }
 
@@ -29,7 +29,7 @@
     width: 100%;
   }
 
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: $screen-m) {
   .column {
     display: flex;
     flex-direction: column;
@@ -39,7 +39,7 @@
 }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: $screen-m) {
     .column {
         all: none;
         padding: 10px;
@@ -82,16 +82,23 @@
   text-align: center;
   float: right;
   color: $yellow;
+
+  @media screen and (min-width: $screen-s) and (max-width: $screen-m) {
+    font-size: 200%;
+  height: 30px;
+  width: 30px;
+  }
+  
 }
 
 // input
-.input-gradient {
+.input-yellow {
   position:relative;
-  background: linear-gradient(21deg, $red, $yellow);
+  background: $yellow;
   padding: 3px;
   display: inline-block;
   border-radius: 9999em;
-  width: 100%;
+  width: 95%;
 
   *:not(span) {
 		position: relative;
@@ -112,5 +119,9 @@
   &:focus + span {
     opacity: 1;
     transform: scale(2);
+  }
+
+  .label {
+    color: white;
   }
 }

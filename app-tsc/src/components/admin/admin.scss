@@ -11,6 +11,10 @@
         font-size: 3em;
         height: 100%;
         margin-left: 8%;
+        @media screen and (min-width: 300px) and (max-width: 800px) {
+            margin-left: 18%;
+            font-size: 2em;
+          }
     }
 
     .admin-button {
@@ -23,6 +27,13 @@
         .ajust-icon {
             margin-top: 27px;
         }
+
+        @media screen and (min-width: 300px) and (max-width: 800px) {
+            padding-right: 0px;
+            .ajust-icon {
+                margin-top: 0px;
+            }
+          }
       }
 
       .admin-article-update-form {

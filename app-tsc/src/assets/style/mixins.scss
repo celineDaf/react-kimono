@@ -1,0 +1,14 @@
+@mixin header-size() {
+    @media only screen and (min-width: $screen-m){
+      $header-height: $mobile-header-size;
+    }
+  
+    @media only screen and (max-width: $screen-m - 1px){
+      $header-height: $base-header-size;
+    }
+  
+  }
+  
+  @function header() {
+    @return $header-height;
+  }
