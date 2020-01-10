@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch} from "react-router-dom";
-import './App.scss';
 import Admin from './components/admin/admin';
 import AdminArticleUpdateContainer from './components/admin/admin-article/admin-article-update-container';
 import AppContainer from './components/app-container/app-container';
