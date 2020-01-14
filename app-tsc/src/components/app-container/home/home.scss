@@ -1,3 +1,5 @@
+@import "../../../assets/style/variables.scss";
+
 .Home {
    width: 100%;
    
@@ -30,6 +32,9 @@
    
      .home-title-image {
        height: 50vh;
+       @media only screen and (max-width: $screen-m)  {
+        height: 40vh;
+       }
      }
 }
 
