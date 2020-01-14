@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react';
 import ArticlesList from './article-list';
-import { useState } from 'react'
-import firebase from './../../../firebase'
-import './articles.scss'
-import { match } from 'react-router'
+import { useState } from 'react';
+import firebase from './../../../firebase';
+import './articles.scss';
+import { match } from 'react-router';
 
 interface Props {
     match: match

@@ -4,6 +4,7 @@ import Footer from "./footer/footer";
 import { Switch, Route, Redirect } from 'react-router-dom'
 import Home from "./home/home";
 import ArticlesListContainer from "./articles/articles-list-container";
+import ArticlesDisplay from "./articles/article-diplay"
 
 const AppContainer = () => {
 
@@ -15,7 +16,8 @@ const AppContainer = () => {
         <Switch>
         <Redirect from='/' exact to='/home'/>
           <Route  path='/home'  component={Home} />
-          <Route path="/articles/:category" component={ArticlesListContainer} />
+          <Route path="/articles/category/:category" component={ArticlesListContainer} />
+          <Route path="/articles/:id" component={ArticlesDisplay} />
           <Route render={() => <div className="noMatch-404">404</div>} />
         </Switch>
         </div>
