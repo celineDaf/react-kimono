@@ -11,7 +11,6 @@ interface Props {
 
 function useArticle(params) {
     const [article, setArticle] = useState();
-    console.log('params', params);
     useEffect(() => {
         const unsubscribe = firebase
             .firestore().collection('articles').doc(params.id)
@@ -32,22 +31,28 @@ const ArticlesDisplay = (props) => {
 
     const article: IArticle = useArticle(props.match.params);
 
-    if (!article) return null; 
+    if (!article) return null;
+    const date: string = article.creationDate ? new Date(article.creationDate).toLocaleDateString() : '';
             return (
                 <div className="article-display">
-                    <div>{article.title}</div>
-                    <div>{article.category}</div>
-                    <div>{article.creationDate}</div>
-                    <div>
+                    <div className="heading">
+                        <div className="title">{article.title}</div>
+                        <div className="tags">
                         {
                             article.tags && article.tags.map((tag: string, i : number) => {
                                 return (
-                                <span  key={i}>{tag}</span>
+                                <span className="tag"  key={i}>{tag}</span>
                                 );
                             })
                         }
+                        </div>
+                        <div className="row">
+                            <div className="date">{date}</div>
+                            <div className="category">{article.category}</div>
+                        </div>
                     </div>
-                    <div>
+                   
+                    <div className="full-width">
                         {
                             article.photos && article.photos.map((photo: string, i : number) => {
                                 return (
@@ -56,7 +61,7 @@ const ArticlesDisplay = (props) => {
                             })
                         }
                     </div>
-                    <div>{article.text}</div>
+                    <div className="body">{article.text}</div>
                 </div>
             );
 };
