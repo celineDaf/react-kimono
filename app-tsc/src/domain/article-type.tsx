@@ -4,9 +4,9 @@ export interface IArticle {
     tags: string[];
     title: string | null;
     category: Category | null;
-    creationDate?: Date;
+    creationDate: string;
     text: string | null;
     photos: string[];
 }
 
-export let ArticleInit: IArticle = {id: '', tags: [], title: null, category: null, text: null, photos: []};
+export let ArticleInit: IArticle = {id: '', tags: [], title: null, category: null, creationDate: new Date().toDateString(), text: null, photos: []};

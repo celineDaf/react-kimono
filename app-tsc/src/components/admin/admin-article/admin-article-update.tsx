@@ -39,7 +39,6 @@ const AdminArticleUpdate = (props: Props) => {
   });
 
   const handleCreation = () => {
-    console.log(article);
     firebase.firestore().collection('articles')
     .add(article);
     props.history.push('/home')
@@ -90,8 +89,7 @@ const AdminArticleUpdate = (props: Props) => {
             <button
               type="button"
               className="button"
-              onClick={() => handleCreation()}
-            >
+              onClick={() => handleCreation()}>
               Créer
             </button>
             </div>
