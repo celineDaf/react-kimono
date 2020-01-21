@@ -3,13 +3,15 @@ import "./category-selector.scss";
 import { CategoriesList, Category, CategoriesEnum } from '../../domain/category-types'
 
 interface Props {
-  onChangeCategory: (selectedCategory: Category) => void
+  category?: Category,
+  onChangeCategory: (selectedCategory: Category) => void,
   unselectAvailable?: boolean
 }
 
 const CategorySelector = (props: Props) => {
   const categories: Category[] = CategoriesList;
-  const [category, setCategory] = useState<Category>();
+  const categoryInit = props.category ? props.category : CategoriesEnum.NULL;
+  const [category, setCategory] = useState<Category>(categoryInit);
 
   const handleSelection = (selectedCategory: Category): void => {
     if (props.unselectAvailable && category === selectedCategory) {

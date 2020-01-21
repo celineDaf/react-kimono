@@ -1,25 +1,29 @@
 import React, { useState, useEffect } from "react";
 import "./admin-article.scss";
 import TagsManagement from "../tags-management/tags-management";
-import { IArticle } from "../../../domain/article-type";
+import { IArticle, ArticleInit } from '../../../domain/article-type'
 import { Category } from "../../../domain/category-types";
 import AdminTextManagement from "../admin-text-management/admin-text-management";
 import CategorySelector from "../../../shared/category-selector/category-selector";
 import firebase from '../../../firebase'
 import { History, Location } from 'history';
-import { withRouter, match } from 'react-router';
+import { withRouter, match } from 'react-router-dom';
 import { Link } from 'react-router-dom'
 
 interface Props {
   onChangeArticle: (article: IArticle) => void,
-  article: IArticle,
+  article?: IArticle,
   history: History,
   location: Location;
   match: match;
 }
 
+const regexAddArticle = new RegExp('/^(?!\/admin\/add\-article)');
+const regexArticles = new RegExp('/^(?!.*\/admin\/articles)');
+
 const AdminArticleUpdate = (props: Props) => {
-  const [article, setArticle] = useState<IArticle>(props.article);
+  const [article, setArticle] = useState<IArticle>(props.article || ArticleInit);
+  const params = props.match.params;
 
   const onChangeCategory = (selectedCategory: Category) => {
     setArticle({ ...article, category: selectedCategory });
@@ -44,13 +48,23 @@ const AdminArticleUpdate = (props: Props) => {
     props.history.push('/home')
   };
 
+  if (!article) return null;
   return (
     <div className="admin-article">
       <div className="admin-button">
       <Link className="button-float-right" to="/">&lsaquo;</Link>
-       <Link className="header-icon-list button-float-right ajust-icon" to="/admin"></Link>
+      {
+       ( (regexAddArticle.test(props.location.pathname)
+        || regexArticles.test(props.location.pathname) )
+        && <Link className="header-icon-list button-float-right ajust-icon" to="/admin"></Link> )
+      }
       </div>
-            <div className="admin-title">Nouvel Article</div>
+      {
+       ( params.hasOwnProperty('id') ? <div className="admin-title">Mise à jour de l'Article</div> : <div className="admin-title">Nouvel Article</div> )
+      }
+       {
+       ( params.hasOwnProperty('id') && <div className="indication float-right">{new Date(article.creationDate).toLocaleDateString()}</div> )
+      }
       <form className="row admin-article-update-form">
         <div className="column">
           <div className="section text-center">
@@ -59,6 +73,7 @@ const AdminArticleUpdate = (props: Props) => {
                 <input
                   type="text"
                   name="title"
+                  value={article.title}
                   onChange={event => onChangeTitle(event.target.value)}
                 />
                 <label className="label">Nom de l'article</label>
@@ -66,11 +81,11 @@ const AdminArticleUpdate = (props: Props) => {
             </div>
 
             <div className="sub-section">
-              <CategorySelector onChangeCategory={onChangeCategory} />
+              <CategorySelector onChangeCategory={onChangeCategory} category={article.category} />
             </div>
 
             <div className="sub-section">
-              <TagsManagement onChangeTags={onChangeTags} />
+              <TagsManagement onChangeTags={onChangeTags} tags={article.tags}/>
             </div>
 
             <div className="sub-section">
@@ -82,7 +97,7 @@ const AdminArticleUpdate = (props: Props) => {
         <div className="column">
           <section>
             <div className="sub-section">
-            <AdminTextManagement onChangeText={onChangeText} />
+            <AdminTextManagement onChangeText={onChangeText} text={article.text} />
             </div>
 
             <div className="sub-section">

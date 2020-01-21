@@ -3,12 +3,13 @@ import "./tags-management.scss";
 import TagsDisplayer from "../../../shared/tags-displayer/tags-displayer";
 
 interface Props {
+  tags?: string[],
   onChangeTags: (tags: string[]) => void
 }
 
 const TagsManagement = (props: Props) => {
   const [tag, setTag] = useState<string>("");
-  const [tags, setTags] = useState<string[]>([]);
+  const [tags, setTags] = useState<string[]>(props.tags || []);
 
   const handleAddTag = (): void => {
     if (!tag || tag.length === 0) {

@@ -14,7 +14,11 @@ interface PropsType {
 const ArticleCard = (props: PropsType) => {
 
     const handleclick = () => {
-        props.history.push(`/articles/${props.article.id}`);
+        if (/^\/admin/.test(props.location.pathname))  {
+            props.history.push(`/admin/articles/${props.article.id}`);
+        } else {
+            props.history.push(`/articles/${props.article.id}`);
+        }
     }
 
     return (

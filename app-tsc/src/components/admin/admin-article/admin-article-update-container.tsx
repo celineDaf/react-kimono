@@ -1,25 +1,55 @@
-import React, { useState }  from 'react';
-import "./../admin.scss"
-import AdminArticle from './admin-article-update';
-import { IArticle, ArticleInit } from '../../../domain/article-type'
+import React, { useState, useEffect } from "react";
+import "./../admin.scss";
+import AdminArticle from "./admin-article-update";
+import { IArticle, ArticleInit } from "../../../domain/article-type";
+import { History, Location } from "history";
+import firebase from "./../../../firebase";
+import { match } from "react-router-dom";
 
 interface PropsType {
-    article?: IArticle;
-  }
+  article?: IArticle;
+  history: History;
+  location: Location;
+  match: match;
+}
+
+function useArticle(params, props) {
+  const [article, setArticle] = useState();
+
+  useEffect(() => {
+    if (/^\/admin/.test(props.location.pathname) && params.id) {
+      const unsubscribe = firebase
+        .firestore()
+        .collection("articles")
+        .doc(params.id)
+        .onSnapshot(docSnapshot => {
+          const article = {
+            id: docSnapshot.id,
+            ...docSnapshot.data()
+          };
+          setArticle(article);
+        });
+      return () => unsubscribe();
+    } else {
+      setArticle(ArticleInit);
+    }
+  }, [params]);
+
+  return article;
+}
 
 const AdminArticleUpdateContainer = (props: PropsType) => {
+  let article: IArticle = useArticle(props.match.params, props);
 
-    const [article, setArticle] = useState(props.article || ArticleInit);
-        
-    const onChangeArticle = (updatedArticle:IArticle) => setArticle(updatedArticle);
+  const onChangeArticle = (updatedArticle: IArticle) =>
+    (article = updatedArticle);
 
-    return (
-        <div className="admin">
-    
-            <AdminArticle article={article} onChangeArticle={onChangeArticle}/>
-            
-        </div>
-    );
+  if (!article) return null;
+  return (
+    <div className="admin">
+      <AdminArticle article={article} onChangeArticle={onChangeArticle} />
+    </div>
+  );
 };
 
 export default AdminArticleUpdateContainer;
