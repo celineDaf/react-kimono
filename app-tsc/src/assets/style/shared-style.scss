@@ -7,6 +7,11 @@
         font-size:15;
     };
 
+.indication {
+  color: grey;
+  font-size: 0.7rem;
+}
+
 // block
 .main-section {
   min-height: calc(100vh - #{$footer} - #{header()});
