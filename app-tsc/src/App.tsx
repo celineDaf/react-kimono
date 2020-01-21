@@ -13,6 +13,7 @@ const App: React.FC = () => {
           <Switch>
             <Route path="/admin" exact component={Admin}/>
             <Route path="/admin/add-article" exact component={AdminArticleUpdateContainer}/>
+            <Route path="/admin/articles/:id" exact component={AdminArticleUpdateContainer}/>
             <Route path="/" component={AppContainer}/>
           </Switch>
       </BrowserRouter>
