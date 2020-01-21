@@ -10,7 +10,7 @@
   
   
   .article-card {
-    flex: 1 1 46%;
+    flex: 1 1 45%;
     margin: 10px;
     padding: 8px;
     border: solid 2px $violet;
@@ -35,12 +35,14 @@
       height: 110px;
       overflow: hidden;
       text-overflow: ellipsis;
+      white-space: pre-wrap;
     }
   }
 }
 
 .article-display {
   margin: 3% 5%;
+  color: grey;
 
   .title {
     color: $red;
@@ -87,5 +89,6 @@
   .body {
     padding: 1% 0;
     text-align: justify;
+    white-space: pre-line;
   }
 }
