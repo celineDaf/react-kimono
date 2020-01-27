@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 import "./admin-article.scss";
 import TagsManagement from "../tags-management/tags-management";
-import { IArticle, ArticleInit } from '../../../domain/article-type'
+import { IArticle, ArticleInit } from '../../../domain/article-type';
 import { Category } from "../../../domain/category-types";
 import AdminTextManagement from "../admin-text-management/admin-text-management";
 import CategorySelector from "../../../shared/category-selector/category-selector";
-import firebase from '../../../firebase'
+import firebase from '../../../firebase';
 import { History, Location } from 'history';
 import { withRouter, match } from 'react-router-dom';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import AdminPhotoInput from "./admin-photo-input";
 
 interface Props {
   onChangeArticle: (article: IArticle) => void,
@@ -90,6 +91,7 @@ const AdminArticleUpdate = (props: Props) => {
 
             <div className="sub-section">
               <div className="sub-title">Photos</div>
+             <AdminPhotoInput photos={article.photos} />
             </div>
           </div>
         </div>
