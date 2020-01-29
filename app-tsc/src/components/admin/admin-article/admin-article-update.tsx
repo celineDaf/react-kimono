@@ -9,7 +9,8 @@ import firebase from '../../../firebase';
 import { History, Location } from 'history';
 import { withRouter, match } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import AdminPhotoInput from "./admin-photo-input";
+import AdminPhotosManager from "./admin-photos-manager";
+import { Photos } from '../../../domain/photos-types'
 
 interface Props {
   onChangeArticle: (article: IArticle) => void,
@@ -24,6 +25,7 @@ const regexArticles = new RegExp('/^(?!.*\/admin\/articles)');
 
 const AdminArticleUpdate = (props: Props) => {
   const [article, setArticle] = useState<IArticle>(props.article || ArticleInit);
+
   const params = props.match.params;
 
   const onChangeCategory = (selectedCategory: Category) => {
@@ -37,6 +39,9 @@ const AdminArticleUpdate = (props: Props) => {
   };
   const onChangeTitle = (updatedTitle: string) => {
     setArticle({ ...article, title: updatedTitle });
+  };
+  const onChangePhotos = (photos: Photos) => {
+    setArticle({ ...article, photos: photos });
   };
 
   useEffect(() => {
@@ -91,7 +96,7 @@ const AdminArticleUpdate = (props: Props) => {
 
             <div className="sub-section">
               <div className="sub-title">Photos</div>
-             <AdminPhotoInput photos={article.photos} />
+             <AdminPhotosManager photos={article.photos} onChangePhotos={onChangePhotos}/>
             </div>
           </div>
         </div>

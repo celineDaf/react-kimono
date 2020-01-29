@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
 import firebase from "../../../firebase";
 import 'firebase/storage'; 
+import { Photo } from '../../../domain/photos-types'
 
-interface UploadDataResponse { metaData: firebase.storage.FullMetadata, downloadUrl: any };
 interface ProgressResponse { value: number }
 
 // the firebase reference to storage
 const storageRef = firebase.storage().ref();
 
 export function useFirebaseUpload(): [{
-    data: UploadDataResponse | undefined,
+    data: Photo | undefined,
     isLoading: boolean,
     isError: any,
     progress: ProgressResponse | null
@@ -17,7 +17,7 @@ export function useFirebaseUpload(): [{
     Function
 ] {
     // the data from the file upload response
-    const [data, setData] = useState<UploadDataResponse | undefined>();
+    const [data, setData] = useState<Photo | undefined>();
 
     // sets properties on the file to be uploaded
     const [fileData, setFileData] = useState<File | null>();
@@ -68,14 +68,8 @@ export function useFirebaseUpload(): [{
                         setIsError(false);
                         setIsLoading(false);
 
-                        // need to get the url to download the file
-                        let downloadUrl = await uploadTask.snapshot.ref.getDownloadURL();
-
                         // set the data when upload has completed
-                        setData({
-                            metaData: uploadTask.snapshot.metadata,
-                            downloadUrl
-                        });
+                        setData(fName);
 
                         // reset progress
                         setProgress(null);
@@ -89,6 +83,8 @@ export function useFirebaseUpload(): [{
 
         fileData && uploadData();
     }, [fileData]);
+
+    console.log('data', data);
 
     return [{ data, isLoading, isError, progress }, setFileData];
 }
