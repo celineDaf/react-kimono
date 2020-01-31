@@ -7,11 +7,12 @@
 .articles-list {
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
   
   
   .article-card {
     flex: 1 1 45%;
-    margin: 10px;
+    margin: 5px;
     padding: 8px;
     border: solid 2px $violet;
     border-radius: 10px;
