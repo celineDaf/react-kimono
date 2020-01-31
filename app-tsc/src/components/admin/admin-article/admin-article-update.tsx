@@ -26,7 +26,7 @@ const regexArticles = new RegExp('/^(?!.*\/admin\/articles)');
 const AdminArticleUpdate = (props: Props) => {
   const [article, setArticle] = useState<IArticle>(props.article || ArticleInit);
 
-  const params = props.match.params;
+  const params: {id?:string} = props.match.params;
 
   const onChangeCategory = (selectedCategory: Category) => {
     setArticle({ ...article, category: selectedCategory });
@@ -54,6 +54,13 @@ const AdminArticleUpdate = (props: Props) => {
     props.history.push('/home')
   };
 
+  const handleUpdate = () => {
+    if (params && params.id) {
+      firebase.firestore().collection('articles').doc(params.id).update(article).catch((e) => console.log('ERROR ARTICLE UPDATE', 'params', params, e));
+    props.history.push('/home')
+    } else { console.log('ERROR NO ID FOR ARTICLE UPDATE'); }
+  };
+
   if (!article) return null;
   return (
     <div className="admin-article">
@@ -68,9 +75,30 @@ const AdminArticleUpdate = (props: Props) => {
       {
        ( params.hasOwnProperty('id') ? <div className="admin-title">Mise à jour de l'Article</div> : <div className="admin-title">Nouvel Article</div> )
       }
-       {
-       ( params.hasOwnProperty('id') && <div className="indication float-right">{new Date(article.creationDate).toLocaleDateString()}</div> )
+      <div className="full-width">
+{
+       ( params.hasOwnProperty('id') && <div className="indication float-left">{new Date(article.creationDate).toLocaleDateString()}</div> )
       }
+       <div className="float-right">
+              {
+                !params || !params.id && <button
+                type="button"
+                className="button"
+                onClick={() => handleCreation()}>
+                Créer
+              </button>  
+              }
+
+              { params && params.id && <button
+                type="button"
+                className="button"
+                onClick={() => handleUpdate()}>
+                Mette à jour
+              </button>
+              }
+          </div>
+      </div>
+       
       <form className="row admin-article-update-form">
         <div className="column">
           <div className="section text-center">
@@ -107,14 +135,7 @@ const AdminArticleUpdate = (props: Props) => {
             <AdminTextManagement onChangeText={onChangeText} text={article.text} />
             </div>
 
-            <div className="sub-section">
-            <button
-              type="button"
-              className="button"
-              onClick={() => handleCreation()}>
-              Créer
-            </button>
-            </div>
+            
           </section>
         </div>
       </form>
