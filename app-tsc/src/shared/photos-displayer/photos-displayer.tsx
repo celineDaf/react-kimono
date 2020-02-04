@@ -2,6 +2,8 @@ import React, {useState, useEffect} from "react";
 import { Photos } from '../../domain/photos-types'
 import firebase from "../../firebase";
 import "firebase/storage";
+import "./photos-displayer";
+import { Carousel } from "../carousel/carousel";
 
 interface PropsType {
   photos: Photos;
@@ -28,12 +30,10 @@ export const PhotosDisplayer = (props: PropsType) => {
     })
   }, [photos]) 
 
-  return (
+  if (!previews || previews.length === 0) return null;
+  else return (
     <div className="container">
-     
-       {previews.map((url, i) => {
-        return <img className="photo-preview" key={`preview_${i}`} src={url} />;
-      })}
+          <Carousel imgUrls={previews} />
     </div>
   );
 };

@@ -1,0 +1,72 @@
+
+$shadowColor: darkgrey;
+$secondary: orange;
+$primary: blue;
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+
+  .carouselContent {
+    width: 100%;
+    display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  position: relative;
+  }
+
+
+
+  .preview {
+    height: 50px;
+  }
+  
+  .classic {
+    height: 200px;
+  }
+}
+
+.carouselIndicators {
+    position: absolute;
+  right: 0;
+  bottom: 0.5em;
+  left: 0;
+  z-index: 15;
+  display: flex;
+  justify-content: center;
+  padding-left: 0;
+  list-style: none;
+  margin: 0 auto;
+}
+
+.carouselIndicator { position: relative;
+    flex: 0 1 auto;
+    width: 1.5em;
+    height: 0.3em;
+    margin: 0 0.3em;
+    background: $shadowColor;
+    cursor: pointer;
+    &:hover {
+      background: $secondary;
+    }
+    &.active {
+      background: $primary;
+      cursor: default;
+    }}
+
+
+.slide {
+    height: 500px;
+    max-height: 70vh;
+    background-color: black;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+

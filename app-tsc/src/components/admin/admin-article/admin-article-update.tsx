@@ -122,10 +122,6 @@ const AdminArticleUpdate = (props: Props) => {
               <TagsManagement onChangeTags={onChangeTags} tags={article.tags}/>
             </div>
 
-            <div className="sub-section">
-              <div className="sub-title">Photos</div>
-             <AdminPhotosManager photos={article.photos} onChangePhotos={onChangePhotos}/>
-            </div>
           </div>
         </div>
 
@@ -134,10 +130,13 @@ const AdminArticleUpdate = (props: Props) => {
             <div className="sub-section">
             <AdminTextManagement onChangeText={onChangeText} text={article.text} />
             </div>
-
-            
           </section>
         </div>
+
+        <div className="row">
+              <div className="sub-title">Photos</div>
+             <AdminPhotosManager photos={article.photos} onChangePhotos={onChangePhotos}/>
+          </div>
       </form>
     </div>
   );

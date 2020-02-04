@@ -3,7 +3,8 @@ import './articles.scss';
 import { useState, useEffect } from 'react';
 import firebase from './../../../firebase';
 import { match } from 'react-router';
-import { IArticle } from '../../../domain/article-type'
+import { IArticle } from '../../../domain/article-type';
+import { PhotosDisplayer } from '../../../shared/photos-displayer/photos-displayer'
 
 interface Props {
     match: match
@@ -53,15 +54,10 @@ const ArticlesDisplay = (props) => {
                     </div>
                    
                     <div className="full-width">
-                        {
-                            article.photos && article.photos.map((photo: string, i : number) => {
-                                return (
-                                    <span  key={i}>{photo}</span>
-                                );
-                            })
-                        }
+                        <PhotosDisplayer photos={article.photos}/>
                     </div>
                     <div className="body">{article.text}</div>
+        
                 </div>
             );
 };

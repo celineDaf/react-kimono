@@ -2,7 +2,7 @@
 
 .admin {
     
-    padding: 0 2% 0 2%;
+    margin: 0 2% 10% 2%;
     
      
     .admin-title {
@@ -10,7 +10,7 @@
         color: $red;
         font-size: 3em;
         height: 100%;
-        margin-left: 8%;
+        margin-left: 14%;
         @media screen and (min-width: 300px) and (max-width: 800px) {
             margin-left: 18%;
             font-size: 2em;

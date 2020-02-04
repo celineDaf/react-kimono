@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./../admin.scss";
-import { Photos, Photo } from '../../../domain/photos-types'
-import { PhotosDisplayer } from "../../../shared/photos-displayer/photos-displayer";
+import { Photos, Photo } from '../../../domain/photos-types';
 import AdminFileInput from "./admin-file-input";
+import { PhotosDisplayer } from '../../../shared/photos-displayer/photos-displayer'
 
 interface PropsType {
   photos: Photos;
@@ -20,8 +20,10 @@ const AdminPhotosManager= (props: PropsType) => {
 
   return (
     <div className="admin-photo-input">
-    <AdminFileInput  photos={props.photos} onchangePhotoAdd={onchangePhotoAdd}/>
-    <PhotosDisplayer photos={photos} />
+      <AdminFileInput  photos={props.photos} onchangePhotoAdd={onchangePhotoAdd}/>
+      {
+        photos && photos.length > 0 && <PhotosDisplayer photos={photos} />
+      }
     </div>
   );
 };
