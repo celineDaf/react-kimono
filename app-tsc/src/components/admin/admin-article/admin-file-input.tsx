@@ -19,21 +19,23 @@ const AdminFileInput= (props: PropsType) => {
       props.onchangePhotoAdd(data);
     }
   }, [data]) 
-  
   return (
     <div>
       <input
-        type="file"
-        placeholder="Ajouter une photo"
+        type="file" id="file"
         onChange={(e: any) => {
           setFileData(e.target.files[0]);
-        }}
-      />
-        {isError && <div>ERROR: {isError.message}</div>}
+        }}/>
+      <label htmlFor="file" className='float-right'>
+        <span>Ajouter une photo</span>
+      
+      {isError && <div>ERROR: {isError.message}</div>}
 
-        {isLoading && progress && (
-          <div >progress : {progress.value} </div>
-        ) }
+          {isLoading && progress && (
+            <div >En cours : {Math.round(progress.value*100)} % </div>
+
+          )}
+            </label>
     </div>
   );
 };

@@ -39,4 +39,41 @@
       .admin-article-update-form {
           border-radius: 20px;
       }
+
+      [type="file"] {
+        height: 0;
+        overflow: hidden;
+        width: 0;
+      }
+      [type="file"] + label {
+        background: #f15d22;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+        display: inline-block;
+        margin-bottom: 1rem;
+        outline: none;
+        padding: 1rem 25px;
+        position: relative;
+        vertical-align: middle;
+        background-color: $red;
+        box-shadow: 0 6px darken($red, 10%);
+        transition: none;
+        text-align: center;
+
+        span {
+            font-weight: 600;
+        }
+
+        div {
+            font-size: 0.6rem;
+            }
+        
+        &:hover {
+          box-shadow: 0 4px darken($red, 10%);
+            top: 2px;
+        }
+          
+    }
 }
