@@ -19,7 +19,7 @@ const AdminPhotosManager= (props: PropsType) => {
   }
 
   return (
-    <div className="admin-photo-input">
+    <div className="admin-photo-input column">
       <AdminFileInput  photos={props.photos} onchangePhotoAdd={onchangePhotoAdd}/>
       {
         photos && photos.length > 0 && <PhotosDisplayer photos={photos} />
