@@ -1,51 +1,36 @@
-import React, {useState} from 'react';
-import './carousel.scss';
+import React,{ useState, useEffect } from 'react';
+import "./carousel.scss";
 
- interface PropsType {
- imgUrls: string[],
- type?:'preview' | 'classic'
+interface PropsType {
+  imgUrls: string[];
+  type?: "preview" | "classic";
 }
 
-export const Carousel = ( props: PropsType) => {
-  const slides = props.imgUrls;
+export const Carousel = (props: PropsType) => {
+  const slides: string[] =props.imgUrls ;
   const length = slides.length;
-  const [activeIndex, setActiveIndex] = useState<number>(length > 0 ? -1 : 0) 
-
-  const goToNextSlide = () => {
-    let index: number;
-    if (slides.length === 1) index = 0
-    else if (slides.length === activeIndex + 1 ) index = 0 
-    else {index = activeIndex + 1}
-
-    setActiveIndex(index);
+  const [currentSlide, setCurrentSlide] = useState<number>(0);
+  const type = props.type || "classic";
+  const nextSlide = () => {
+    console.log('click', 'currentSlide', currentSlide);
+      const nextSlide = currentSlide + 1 === length -1 ? 0 : currentSlide +1;
+      setCurrentSlide(nextSlide);
   }
 
   return (
-    length > 0 ? (
-      <div className="carousel">
-        <div className="carouselContent" onClick={goToNextSlide}>
-                {slides.map((slide, index) => 
-                  <CarouselChild key={index} slide={slide} 
-                    type={props.type || "classic"}
-                    mainSlide={index === activeIndex} 
-                    subSlide={index === activeIndex -1 || index === activeIndex +1}  />
-                )}
-        </div>
+    <div className={'carousel ' + type } >
+      <div>
+        {slides.map((slide, key) => (
+           <div className="slide faux-ui-facia "
+              style={{'opacity': key === currentSlide || type === 'preview' ? 1 : 0,
+              'cursor': key === currentSlide ? 'pointer' : 'none',
+              'zIndex': key === currentSlide || type === 'preview'? 10 : 0}} 
+               key={key} onClick={nextSlide}>
+              <img  src={slide}  alt={'Slide ' + key}/>
+             {type === 'classic' && <span className='counter' >{key+1} / {length}</span>}
+          </div>
+          ))}
       </div>
-    ): null
-  );
-};
-
-export interface CarouselChildProps {
-    type: 'preview' | 'classic',
-    slide: string,
-    key: number,
-    mainSlide: Boolean,
-    subSlide: Boolean
-}
-
-export const CarouselChild = ( props: CarouselChildProps) => (
-  <div className="carouselItem">
-      <img className={`${props.type} ${'mainSlide'}`} src={props.slide} />
     </div>
-);
+  )
+};
