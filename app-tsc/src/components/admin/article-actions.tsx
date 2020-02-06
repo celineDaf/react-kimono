@@ -7,6 +7,11 @@ export interface FirebaseMessage  {
     }
 };
 
+export interface FirebaseStorageError  {
+    name: String,
+    code: String,
+    message: String,
+};
 
 export type Action = {
     type: 'UPDATEMESSAGES',
