@@ -25,7 +25,7 @@ const regexArticles = new RegExp('/^(?!.*\/admin\/articles)');
 
 const AdminArticleUpdate = (props: Props) => {
   const [article, setArticle] = useState<IArticle>(props.article || ArticleInit);
-
+  let photoToSave: Boolean = false
   const params: {id?:string} = props.match.params;
 
   const onChangeCategory = (selectedCategory: Category) => {
@@ -41,6 +41,7 @@ const AdminArticleUpdate = (props: Props) => {
     setArticle({ ...article, title: updatedTitle });
   };
   const onChangePhotos = (photos: Photos) => {
+    photoToSave = true;
     setArticle({ ...article, photos: photos });
   };
 
@@ -99,7 +100,8 @@ const AdminArticleUpdate = (props: Props) => {
           </div>
       </div>
        
-      <form className="row admin-article-update-form">
+      <form className=" admin-article-update-form">
+        <div className="row">
         <div className="column">
           <div className="section text-center">
             <div className="sub-section">
@@ -132,10 +134,14 @@ const AdminArticleUpdate = (props: Props) => {
             </div>
           </section>
         </div>
-
+        </div>
         <div className="row">
-              <div className="sub-title">Photos</div>
+          <div className="column">
+              <div className="sub-title photos-title">{article.photos.length > 0 ? article.photos.length : 0}   Photos 
+                {photoToSave && <span>  &nbsp;&nbsp;&nbsp;&nbsp;==> Penser à enregistrer !</span>}
+              </div>
              <AdminPhotosManager photos={article.photos} onChangePhotos={onChangePhotos}/>
+          </div>
           </div>
       </form>
     </div>
