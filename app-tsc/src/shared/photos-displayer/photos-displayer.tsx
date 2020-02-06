@@ -37,7 +37,7 @@ export const PhotosDisplayer = (props: PropsType) => {
 if (errors && errors.length > 0) {
   return (<div className="firebase-error"> 
     {errors.map((erro, key) => (
-<div key={key}>{key} ==> {erro.message}</div>
+<div key={key}>{key+1} ==> {erro.message}</div>
     ))}
   </div>) 
   }
