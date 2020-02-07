@@ -5,10 +5,11 @@ import "firebase/storage";
 import "./photos-displayer.scss"
 import { Carousel } from "../carousel/carousel";
 import {FirebaseStorageError } from '../../components/admin/article-actions'
+import { CarouselDisplay } from '../../domain/carousel-display-type'
 
 interface PropsType {
   photos: Photos;
-  type?: 'preview' | 'classic'
+  type?: CarouselDisplay;
 }
 
 export const PhotosDisplayer = (props: PropsType) => {
