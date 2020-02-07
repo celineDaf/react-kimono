@@ -8,6 +8,7 @@ import {FirebaseStorageError } from '../../components/admin/article-actions'
 
 interface PropsType {
   photos: Photos;
+  type?: 'preview' | 'classic'
 }
 
 export const PhotosDisplayer = (props: PropsType) => {
@@ -44,7 +45,7 @@ if (errors && errors.length > 0) {
   if (!imgUrls || imgUrls.length === 0) return null;
   else return (
     <div className="container">
-          <Carousel imgUrls={imgUrls}/>
+          <Carousel imgUrls={imgUrls} type={props.type}/>
     </div>
   );
 };

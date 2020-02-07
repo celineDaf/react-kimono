@@ -19,18 +19,18 @@ export const Carousel = (props: PropsType) => {
 
   return (
     <div className={'carousel ' + type } >
-      <div>
+     <div className='slide-container'>
         {slides.map((slide, key) => (
-           <div className="slide faux-ui-facia "
+           <div className="slide"
               style={{'opacity': key === currentSlide || type === 'preview' ? 1 : 0,
-              'cursor': key === currentSlide ? 'pointer' : 'none',
+              'cursor': key === currentSlide || type === 'preview'? 'pointer' : 'none',
               'zIndex': key === currentSlide || type === 'preview'? 10 : 0}} 
                key={key} onClick={nextSlide}>
               <img  src={slide}  alt={'Slide ' + key}/>
              {type === 'classic' && <span className='counter' >{key+1} / {length}</span>}
           </div>
           ))}
-      </div>
+          </div>
     </div>
   )
 };
