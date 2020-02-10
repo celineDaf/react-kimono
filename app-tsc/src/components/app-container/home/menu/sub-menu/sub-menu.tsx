@@ -6,7 +6,6 @@ import firebase from '../../../../../firebase';
 import { IArticle } from '../../../../../domain/article-type'
 
 interface Props {
-    title: string,
     category: Category,
     colorBgClass: string,
     titleSide: 'left' | 'right'
@@ -41,9 +40,9 @@ const SubMenu = (props: Props) => {
     if (!articles) return null;
     return (
         <div className="sub-menu">
-            {props.titleSide === 'left' && <span className="title">{props.title}</span>}
+            {props.titleSide === 'left' && <div className='title'><div className={'icon icon-' + props.category}></div></div>}
                  <ArticlesPreviewSlider articles={articles} backgroundColorClass={props.colorBgClass}/>
-            {props.titleSide === 'right' && <span className="title">{props.title}</span> }
+            {props.titleSide === 'right' && <div className='title'><div className={'icon icon-' + props.category}></div></div>}
         </div>
     );
 };

@@ -1,0 +1,12 @@
+.icon {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: auto;
+    height: 80%;
+
+    &-Books {background-image: url('../icons/book-line.png');}
+    &-Job {background-image: url('../icons/web-programming.png');}
+    &-Japan {background-image: url('../icons/fuji-mountain.png');}
+    &-Kimono {background-image: url('../icons/kimono.png');}
+}
