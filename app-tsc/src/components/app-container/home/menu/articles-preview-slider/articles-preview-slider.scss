@@ -1,0 +1,21 @@
+.articles-previews-slider {
+    width: 100%;
+    height: inherit;
+    display: flex; 
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      -ms-overflow-style: -ms-autohiding-scrollbar;
+      ::-webkit-scrollbar {
+        display: none; }
+      
+
+      .slide {
+        flex: 0 0 auto; 
+        display: inline-block;
+        height: inherit;
+        img {
+          height: 100%;
+        }
+      }
+}
