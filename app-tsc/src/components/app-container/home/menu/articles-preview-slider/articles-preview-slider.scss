@@ -1,3 +1,6 @@
+ 
+ @import '../../../../../assets/style/variables.scss';
+
 .articles-previews-slider {
     height: inherit;
     display: flex; 
@@ -21,17 +24,53 @@
         position: relative;
         
 
-        img {
-          
-          position: absolute;
-          left: 50%; /* % of surrounding element */
-          top: 69%;
-          height: 100%;
-          min-width: 100%;
-          min-height: 31.25vw;
-          transform: translate(-50%, -50%);
+        div {
+          height: inherit;
+          width: inherit;
+          display: flex;
+          justify-content: center;
+          align-items: center;
           overflow: hidden;
-    
+          
+          .title {
+            color: white;
+            font-family: 'Titillium Web', sans-serif;
+            font-weight: 300;
+            position: absolute;
+            font-size: 1.4rem;
+            width: 100%;
+            z-index: 11;
+            flex: 0 0;
+            text-align: center;
+            text-transform: capitalize;
+            overflow: hidden;
+          }
+          
+
+          img {
+            opacity: .4;
+            position: absolute;
+            left: 50%; /* % of surrounding element */
+            top: 69%;
+            height: 100%;
+            min-width: 100%;
+            min-height: 33.25vw;
+            transform: translate(-50%, -50%);
+            overflow: hidden;
+           
+          }
         }
+      }
+
+      .slide:hover {
+        img {
+          opacity: .8;
+          min-height: 40vw;
+          ::-webkit-scrollbar {
+            display: none; 
+          }
+        }
+
+        .title {font-weight: 400;}
       }
 }

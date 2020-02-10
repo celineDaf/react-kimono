@@ -40,9 +40,7 @@ const SubMenu = (props: Props) => {
     if (!articles) return null;
     return (
         <div className="sub-menu">
-            {props.titleSide === 'left' && <div className='title'><div className={'icon icon-' + props.category}></div></div>}
-                 <ArticlesPreviewSlider articles={articles} backgroundColorClass={props.colorBgClass}/>
-            {props.titleSide === 'right' && <div className='title'><div className={'icon icon-' + props.category}></div></div>}
+            <ArticlesPreviewSlider articles={articles} backgroundColorClass={props.colorBgClass}/>
         </div>
     );
 };

@@ -18,8 +18,8 @@ const ArticlesPreviewSlider = (props: Props) => {
                 {props.articles.map((article, key) => (
                     <div className='slide' key={key}>
                         { article.photos && article.photos[0] ? 
-                        <ImageDisplay imageName={article.photos[0]}/> :
-                        <div>{article.title}</div>}
+                        <ImageDisplay imageName={article.photos[0]} title={article.title}/> :
+                        <div className="title">{article.title}</div>}
                     </div>
                  
                 ))}
