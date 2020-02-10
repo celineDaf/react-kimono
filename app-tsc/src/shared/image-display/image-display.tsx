@@ -4,7 +4,8 @@ import "firebase/storage";
 
 import './image-display.scss'
 interface Props {
-    imageName: string
+    imageName: string,
+    title
  }
 
  const ImageDisplay = (props: Props) => {
@@ -19,7 +20,10 @@ interface Props {
     
     if (!imgUrl) return null;
     return (
+        <div>
+            <span className="title">{props.title}</span>
         <img src={imgUrl}/>
+        </div>
     );
 
 };
