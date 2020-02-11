@@ -2,7 +2,7 @@
 
 $red: #db3d20;
 $yellow: #eecc34;
-$blue: #c9fefe;
+$blue: #B4E4E4;
 $violet: #ad959d;
 $green: #8eb14d;
 $brown: #3f3229;
@@ -10,14 +10,57 @@ $grey: #9ca6a7;
 
 // breakpoints
 // The container horizontal gap, which acts as the offset for breakpoints
+$breakpoint-to-ems: true;
+
 $gap: 32px !default;
 $screen-s: 300px;
 $screen-m: 769px !default;
 $screen-l: 960px + (2 * $gap) !default;
 $screen-xl: 1344px + (2 * $gap) !default;
 
+$breakpoint-subtract: 1px;
+
+$point: (
+    phablet: $screen-s,
+	tablet: $screen-m,
+	laptop: $screen-l,
+	desktop: $screen-xl
+);
+
 // container sizes
 $base-header-size: 60px;
 $mobile-header-size: 40px;
 $header-height: $base-header-size;
 $footer : 20vh;
+
+// Spacing
+// ---------------------------
+
+// min-width
+ $aa:	360px !default;
+ $a:		480px !default;
+ $ab: 	540px !default;
+ $b: 	600px !default;
+ $bc:	680px !default;
+ $c: 	768px !default;
+ $cd:	840px !default;
+ $d: 	960px !default;
+ $de:	1100px !default;
+ $e: 	1200px !default;
+ $ef:	1300px !default;
+ $f: 	1440px !default;
+
+
+$base-px: 12px !default;
+$line: $base-px*2 !default;
+$baseline: 24px !default;
+
+
+// Site width is 1200px, but it requires additional spacing so it works nicely
+$contain: 1230px;
+$site-width: $contain + ($line*6);
+$site-width-max: max-width $site-width - $breakpoint-subtract;
+
+$small-outer-gutter: 0;
+$medium-outer-gutter: 48px;
+$large-outer-gutter: 64px;
