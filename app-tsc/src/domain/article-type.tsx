@@ -1,6 +1,6 @@
 import { Category, CategoriesEnum } from './category-types'
 export interface IArticle {
-    id: string  | undefined;
+    id?: string;
     tags: string[];
     title: string | undefined;
     category: Category | CategoriesEnum.NULL;
@@ -9,4 +9,4 @@ export interface IArticle {
     photos: string[];
 }
 
-export let ArticleInit: IArticle = {id: undefined, tags: [], title: undefined, category: CategoriesEnum.NULL, creationDate: new Date().toDateString(), text: undefined, photos: []};
+export let ArticleInit: IArticle = { tags: [], title: undefined, category: CategoriesEnum.NULL, creationDate: new Date().toDateString(), text: undefined, photos: []};
