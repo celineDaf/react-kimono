@@ -19,7 +19,7 @@ function GetArticlesPreviews(props: Props) {
        const unsubscribe = firebase
            .firestore().collection('articles')
            .where('category', '==', props.category)
-           .limit(4)
+           .limit(5)
            .onSnapshot((snapshot)=> {
                const articles = snapshot.docs.map((doc)=> ({
                    id: doc.id,
@@ -40,7 +40,7 @@ const SubMenu = (props: Props) => {
     if (!articles) return null;
     return (
         <div className="sub-menu">
-            <ArticlesPreviewSlider articles={articles} backgroundColorClass={props.colorBgClass}/>
+            <ArticlesPreviewSlider articles={articles} backgroundColorClass={props.colorBgClass} category={props.category}/>
         </div>
     );
 };
