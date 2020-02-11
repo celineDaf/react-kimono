@@ -45,7 +45,7 @@ if (errors && errors.length > 0) {
   }
   if (!imgUrls || imgUrls.length === 0) return null;
   else return (
-    <div className="container">
+    <div className="column container">
           <Carousel imgUrls={imgUrls} type={props.type}/>
     </div>
   );
