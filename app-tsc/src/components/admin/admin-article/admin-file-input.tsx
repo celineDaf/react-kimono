@@ -20,7 +20,7 @@ const AdminFileInput= (props: PropsType) => {
     }
   }, [data]) 
   return (
-    <div>
+    <div className="column admin-file-input">
       <input
         type="file" id="file"
         onChange={(e: any) => {
