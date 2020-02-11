@@ -21,11 +21,14 @@ const AdminPhotosManager= (props: PropsType) => {
   }
 
   return (
-    <div className="admin-photo-input column">
-      <AdminFileInput  photos={props.photos} onchangePhotoAdd={onchangePhotoAdd}/>
-      {
-        photos && photos.length > 0 && <PhotosDisplayer photos={photos} type={preview}/>
-      }
+    <div className="column">
+      <div className="row">
+        {
+          photos && photos.length > 0 && <PhotosDisplayer photos={photos} type={preview}/>
+        }
+         <AdminFileInput photos={props.photos} onchangePhotoAdd={onchangePhotoAdd}/>
+      </div>
+     
     </div>
   );
 };
