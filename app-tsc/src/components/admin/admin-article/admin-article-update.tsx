@@ -16,8 +16,8 @@ interface Props {
   onChangeArticle: (article: IArticle) => void,
   article?: IArticle,
   history: History,
-  location: Location;
-  match: match;
+  location: Location,
+  match: match
 }
 
 const regexAddArticle = new RegExp('/^(?!\/admin\/add\-article)');
@@ -106,13 +106,14 @@ const AdminArticleUpdate = (props: Props) => {
           <div className="section text-center">
             <div className="sub-section">
               <span className="input-yellow">
+              <label className="label">Nom de l'article</label>
                 <input
                   type="text"
                   name="title"
-                  value={article.title}
+                  value={article.title || ''}
                   onChange={event => onChangeTitle(event.target.value)}
                 />
-                <label className="label">Nom de l'article</label>
+               
               </span>
             </div>
 
@@ -137,9 +138,10 @@ const AdminArticleUpdate = (props: Props) => {
         </div>
         <div className="row">
           <div className="column">
-              <div className="sub-title photos-title">{article.photos.length > 0 ? article.photos.length : 0}   Photos 
+              {article.photos && article.photos.length > 0 && 
+                <div className="sub-title photos-title">{article.photos.length} {article.photos.length === 1 ? 'Photo' : 'Photos'} 
                 {photoToSave && <span>  &nbsp;&nbsp;&nbsp;&nbsp;==> Penser à enregistrer !</span>}
-              </div>
+              </div>}
              <AdminPhotosManager photos={article.photos} onChangePhotos={onChangePhotos}/>
           </div>
           </div>
