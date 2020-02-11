@@ -2,12 +2,18 @@
 
 .footer {
     height: $footer;
-    background-color: $brown;
+    color: $violet;
     text-align: center;
-    font-size: 0.8rem;
+    font-size: 0.6rem;
+
     .content {
+        position: relative;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
         a {
-            color: white;
+            color: darken($color: $violet, $amount: 30%);
         }
     }
 
