@@ -1,29 +1,32 @@
  
  @import '../../../../../assets/style/variables.scss';
+ @import  '../../../../../assets/style/mixins.scss';
 
 .articles-previews-slider {
-    height: inherit;
-    display: flex; 
+      text-align: center;
+      text-transform: capitalize;
+      height: inherit;
+      width: inherit;
+      display: flex; 
       flex-wrap: nowrap;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      -ms-overflow-style: -ms-autohiding-scrollbar;
-      overflow: hidden;
-
-      ::-webkit-scrollbar {
-        display: none; }
       
-
       .slide {
-        flex: 0 0 auto; 
-        display: inline-block;
         width: 250px;
         height: inherit;
         cursor: pointer; 
-        overflow: hidden;
+        color: white;
+        font-family: 'Titillium Web', sans-serif;
+        font-weight: 300;
+        font-size: 1.2rem;
+        display: inline-block;
         position: relative;
-        
+        overflow: hidden;
+        flex: 0 0 auto; 
 
+        .title-alone {
+          @include gradient-dark-to-ligth(to top left, rgba(black, 0.1), rgba(white, 0.1));
+        }
+       
         div {
           height: inherit;
           width: inherit;
@@ -31,22 +34,21 @@
           justify-content: center;
           align-items: center;
           overflow: hidden;
-          
+
           .title {
-            color: white;
-            font-family: 'Titillium Web', sans-serif;
-            font-weight: 300;
             position: absolute;
-            font-size: 1.4rem;
             width: 100%;
             z-index: 11;
             flex: 0 0;
             text-align: center;
-            text-transform: capitalize;
             overflow: hidden;
+
+            &.all-articles {
+              font-size: .5rem;
+              height: inherit;
+            }
           }
           
-
           img {
             opacity: .4;
             position: absolute;
@@ -57,12 +59,13 @@
             min-height: 33.25vw;
             transform: translate(-50%, -50%);
             overflow: hidden;
-           
           }
         }
       }
 
       .slide:hover {
+        font-weight: 400;
+        @include alpha-attribute('background-color', rgba(black, 0.2), white);
         img {
           opacity: .8;
           min-height: 40vw;
@@ -70,7 +73,5 @@
             display: none; 
           }
         }
-
-        .title {font-weight: 400;}
       }
 }
