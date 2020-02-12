@@ -1,37 +1,63 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import "./header.scss";
 import { Link } from "react-router-dom";
-import { CategoriesEnum } from '../../../domain/category-types'
+import { CategoriesEnum, Category, CategoriesList } from '../../../domain/category-types'
+import { History, Location } from 'history';
+import { withRouter, match } from 'react-router-dom';
 
-const Header = () => {
+interface Props {
+  history: History,
+  location: Location,
+  match: match,
+}
+
+const Header = (props: Props) => {
+  const [categoryType, setCategoryType] = useState<Category|undefined>();
+
+  useEffect(() => {
+    const pathSplit = props.location.pathname.split('/');
+    const lastUrlPiece = pathSplit[pathSplit.length - 1];
+    const categoryMatch = CategoriesList.find(cat => cat === lastUrlPiece);
+    console.log('categoryMatch', categoryMatch);
+    setCategoryType(categoryMatch);
+  }, [true]);
+
+  const onSelect = (category: Category) => {setCategoryType(category)};
+
+  const emptySelect = () => {setCategoryType(undefined)};
+
   return (
     <div>
       <header className="header">
         <div className="header-admin-buttons-left">
-          <Link className="header-icon-home" to="/home"></Link>
+          <Link className="icon icon-home" to="/home" onClick={emptySelect}></Link>
         </div>
 
         <div className="header-admin-buttons">
           <div className="admin-button">
-            <Link className="header-icon-list" to="/admin"></Link>
+            <Link className="icon icon-list" to="/admin"></Link>
           </div>
           <div className="admin-button">
             <Link to="/admin/add-article">+</Link>
           </div>
         </div>
 
-        <div className="header-buttons ">
-          <button className="header-button red-bc white-text">
-            <Link className="header-icon-books"  to={`/articles/category/${CategoriesEnum.BOOKS}`}></Link>
+        <div className="header-buttons">
+          <button type="button" className={'header-button' + (categoryType === CategoriesEnum.BOOKS ? ' selected' : '')}
+             onClick={() => {onSelect(CategoriesEnum.BOOKS)}}>
+            <Link className="icon icon-Books"  to={`/articles/category/${CategoriesEnum.BOOKS}`}></Link>
           </button>
-          <button className="header-button red-bc white-text">
-            <Link className="header-icon-kimono" to={`/articles/category/${CategoriesEnum.KIMONO}`}></Link>
+          <button  type="button" className={'header-button' + (categoryType === CategoriesEnum.KIMONO ? ' selected' : '')}
+            onClick={() => {onSelect(CategoriesEnum.KIMONO)}}>
+            <Link className="icon  icon-Kimono" to={`/articles/category/${CategoriesEnum.KIMONO}`}></Link>
           </button>
-          <button className="header-button red-bc white-text">
-            <Link className="header-icon-japan" to={`/articles/category/${CategoriesEnum.JAPAN}`}> </Link>
+          <button  type="button" className={'header-button' + (categoryType === CategoriesEnum.JAPAN ? ' selected' : '')}
+            onClick={() => {onSelect(CategoriesEnum.JAPAN)}}>
+            <Link className="icon  icon-Japan" to={`/articles/category/${CategoriesEnum.JAPAN}`}> </Link>
           </button>
-          <button className="header-button red-bc white-text">
-            <Link className="header-icon-job" to={`/articles/category/${CategoriesEnum.JOB}`}></Link>
+          <button  type="button" className={'header-button' + (categoryType === CategoriesEnum.JOB ? ' selected' : '')}
+            onClick={() => {onSelect(CategoriesEnum.JOB)}}>
+            <Link className="icon  icon-Job" to={`/articles/category/${CategoriesEnum.JOB}`}></Link>
           </button>
         </div>
       </header>
@@ -39,4 +65,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default withRouter(Header);

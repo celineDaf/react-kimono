@@ -8,36 +8,21 @@
   @media (min-width: 0px) and (max-width: $screen-m) {
     height: $mobile-header-size;
   }
+  
   .header-admin-buttons-left {
     z-index: 11;
-    height: 60px;
+    height: inherit;
     width: 10%;
     float: left;
     @media (min-width: 0px) and (max-width: $screen-m) {
       height: 40px;
       width: 8%;
     }
-
-    .header-icon-home {
-      background-image: url(./../../../assets/icons/house-2.png);
-      background-size: contain;
-      background-repeat: no-repeat;
-      display: block;
-      margin: 14px;
-      height: 35px;
-      width: 35px;
-
-      @media (max-width: $screen-m) {
-        margin: 8px;
-        height: 28px;
-        width: 28px;
-      }
-    }
   }
 
   .header-admin-buttons {
     z-index: 11;
-    height: 60px;
+    height: inherit;
     width: 10%;
     float: right;
 
@@ -45,19 +30,13 @@
       display: none;
     }
 
-    .header-icon-list {
-      background-image: url(../../../assets/icons/list.png);
-      background-size: contain;
-      background-repeat: no-repeat;
-      display: block;
-      height: 29px;
-      width: 29px;
-    }
-
     .admin-button {
+      height: inherit;
       font-size: 250%;
+      width: 50%;
       display: inline-block;
       padding-right: 10px;
+
       a {
         color: $yellow;
       }
@@ -66,76 +45,36 @@
 
   .header-buttons {
     min-height: 5vh;
+    height: inherit;
     margin-left: 10%;
     width: 90%;
     z-index: 0;
 
     @media (min-width: 0px) and (max-width: $screen-m) {
+      height: 40px;
       margin-left: 0;
       width: 100%;
     }
 
     .header-button {
-      height: 60px;
-      width: 100px;
+      height: inherit;
+      width: 11%;
       border: none;
+      background-color:$red;
+
+      + .selected {
+        background-color: $darkRed;
+      }
+
+      + :hover {
+        background-color: $darkRed;
+      }
 
       @media (min-width: 0px) and (max-width: $screen-m) {
-        height: 40px;
+        height: inherit;
         width: 60px;
       }
-      .header-icon-books {
-        background-image: url(./../../../assets/icons/book-line.png);
-        background-size: contain;
-        background-repeat: no-repeat;
-        display: block;
-        margin: auto;
-        height: 55px;
-        width: 55px;
-        @media (min-width: 0px) and (max-width: $screen-m) {
-          height: 35px;
-          width: 35px;
-        }
-      }
-      .header-icon-kimono {
-        background-image: url(./../../../assets/icons/kimono.png);
-        background-size: contain;
-        background-repeat: no-repeat;
-        display: block;
-        margin: auto;
-        height: 55px;
-        width: 55px;
-        @media (min-width: 0px) and (max-width: $screen-m) {
-          height: 35px;
-          width: 35px;
-        }
-      }
-      .header-icon-japan {
-        background-image: url(./../../../assets/icons/fuji-mountain.png);
-        background-size: contain;
-        background-repeat: no-repeat;
-        display: block;
-        margin: auto;
-        height: 55px;
-        width: 55px;
-        @media (min-width: 0px) and (max-width: $screen-m) {
-          height: 35px;
-          width: 35px;
-        }
-      }
-      .header-icon-job {
-        background-image: url(./../../../assets/icons/web-programming.png);
-        background-size: contain;
-        background-repeat: no-repeat;
-        display: block;
-        margin: auto;
-        height: 55px;
-        width: 55px;
-        @media (min-width: 0px) and (max-width: $screen-m) {
-          height: 35px;
-          width: 35px;
-        }
-      }
+      
     }
   }
 }

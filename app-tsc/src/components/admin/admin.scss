@@ -17,24 +17,27 @@
           }
     }
 
-    .admin-button {
-        float: right;
-        padding-right: 10px;
-        a {
-          color: $yellow;
-        }
+    // .admin-button {
+    //     height: inherit;
+    //     float: right;
+    //     width: inherit;
+    //     padding-right: 10px;
+    //     a {
+    //       color: $yellow;
+    //       height: inherit;
+    //     }
 
-        .ajust-icon {
-            margin-top: 27px;
-        }
+    //     .ajust-icon {
+    //         margin-top: 27px;
+    //     }
 
-        @media screen and (min-width: 300px) and (max-width: 800px) {
-            padding-right: 0px;
-            .ajust-icon {
-                margin-top: 0px;
-            }
-          }
-      }
+    //     @media screen and (min-width: 300px) and (max-width: 800px) {
+    //         padding-right: 0px;
+    //         .ajust-icon {
+    //             margin-top: 0px;
+    //         }
+    //       }
+    //   }
 
       .admin-article-update-form {
           border-radius: 20px;
@@ -61,7 +64,7 @@
             position: relative;
             vertical-align: middle;
             background-color: $red;
-            box-shadow: 0 6px darken($red, 10%);
+            box-shadow: 0 6px $darkRed;
             transition: none;
             text-align: center;
     
@@ -74,7 +77,7 @@
                 }
             
             &:hover {
-              box-shadow: 0 4px darken($red, 10%);
+              box-shadow: 0 4px $darkRed;
                 top: 2px;
             }
               
