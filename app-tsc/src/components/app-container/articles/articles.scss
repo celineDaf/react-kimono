@@ -1,27 +1,72 @@
 @import "../../../assets/style/variables.scss";
+@import "../../../assets/style/mixins.scss";
 
 .articles-list-container {
   width: 100%;
+  min-height: inherit;
 }
 
 .articles-list {
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
-  
-  
-  .article-card {
-    flex: 1 1 45%;
-    margin: 5px;
-    padding: 10px;
-    border: solid 2px $violet;
-    border-radius: 10px;
+  min-height: inherit;
+  width: inherit;
+  align-items: center;
+  overflow: hidden;
 
+  &-Books {
+    background-color: $blue;
+  }
+  &-Kimono {
+    background-color: $yellow;
+  }
+  &-Japan {
+    background-color: $red;
+  }
+  &-Job {
+    background-color: $violet;
+  }
+
+  .article-card {
+    width: 32%;
+    margin: 5px;
+    height: 28vw;
+    border-radius: 10px;
+    overflow: hidden;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+
+    @media (min-width: 0px) and (max-width: $screen-m) {
+      flex: 1 100%;
+      max-width: 100%;
+      width: 100%;
+    }
+
+    .title-container {
+      display: flex;
+      align-items: center;
+      height: inherit;
+      width: 100%;
+      @include gradient-dark-to-ligth(
+        to top left,
+        rgba(black, 0.1),
+        rgba(white, 0.1)
+      );
+    }
 
     .title {
-      color: $red;
+      position: absolute;
+      width: 100%;
+      z-index: 11;
+      flex: 0 0;
+      text-align: center;
+      overflow: hidden;
+      text-transform: capitalize;
+      color: white;
       font-weight: 600;
-      font-size: 1.5rem;
+      font-size: 1.8rem;
+      background-color: rgba(gray, 0.3);
     }
 
     .category {
@@ -32,11 +77,17 @@
     }
 
     .preview {
-      color: grey;
-      height: 80px;
+      color: gray;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: pre-wrap;
+    }
+
+    &:hover {
+      .title {
+        font-size: 1.9rem;
+        background-color: rgba(gray, 0.5);
+      }
     }
   }
 }
@@ -48,48 +99,55 @@
   .title {
     color: $red;
     font-weight: 600;
-    font-size: 1.5rem;
+    font-size: 3.5rem;
     text-align: center;
+    width: 100%;
   }
   .heading {
-    width: 100%;
+    width: 30%;
     height: 100%;
-    margin: 1% 0;
+    margin: 10px 0;
+    text-align: center;
 
     .category {
-      float: right;
       color: $green;
       font-weight: 800;
-      width: 50%;
-      text-align: right;
+      width: 100%;
     }
-  
+
     .date {
-      float: left;
-      width: 50%;
+      width: 100%;
       color: grey;
     }
     .tags {
       width: 100%;
       margin: 1% 0;
-      text-align: center;
       margin-top: 5px;
     }
 
     .tag {
       padding: 4px 3px 5px 3px;
       background-color: white;
-      color:$yellow;
+      color: $yellow;
       line-height: 0.5;
     }
-  
+
+    div {
+      margin: 10px 0 20px 0;
+    }
   }
 
- 
+  .photos {
+    height: 800px;
+    width: 70%;
+    float: right;
+    margin: 0 10px 20px 10px;
+  }
 
-  .body {
+  .article-body {
     padding: 1% 0;
     text-align: justify;
     white-space: pre-line;
+    width: 100%;
   }
 }
