@@ -1,23 +1,36 @@
 .icon {
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    width: auto;
-    height: 80%;
-    max-height: 100px;
-    display: flex;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  max-height: 100px;
+  display: flex;
 
-    @media (min-width: 0px) and (max-width: $screen-m) {
-        height: 35px;
-        width: 35px;
-      }
-    
-    &-Books {background-image: url('../icons/book-line.png');}
-    &-Job {background-image: url('../icons/web-programming.png');}
-    &-Japan {background-image: url('../icons/fuji-mountain.png');}
-    &-Kimono {background-image: url('../icons/kimono.png');}
-    &-double-chevron {background-image: url('../icons/double-chevron-white.png');}
-    &-home {background-image: url('../icons/house-2.png');}
-    &-list {background-image: url('../icons/list.png');}
-    
+  @media (min-width: 0px) and (max-width: $screen-m) {
+    height: 35px;
+    width: 35px;
+  }
+
+  &-Books {
+    background-image: url("../icons/book-line.png");
+  }
+  &-Job {
+    background-image: url("../icons/web-programming.png");
+  }
+  &-Japan {
+    background-image: url("../icons/fuji-mountain.png");
+  }
+  &-Kimono {
+    background-image: url("../icons/kimono.png");
+  }
+  &-double-chevron {
+    background-image: url("../icons/double-chevron-white.png");
+  }
+  &-home {
+    background-image: url("../icons/house-2.png");
+  }
+  &-list {
+    background-image: url("../icons/list.png");
+  }
 }
