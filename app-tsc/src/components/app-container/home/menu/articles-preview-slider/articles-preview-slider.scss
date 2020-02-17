@@ -1,77 +1,62 @@
- 
- @import '../../../../../assets/style/variables.scss';
- @import  '../../../../../assets/style/mixins.scss';
+@import "../../../../../assets/style/variables.scss";
+@import "../../../../../assets/style/mixins.scss";
 
 .articles-previews-slider {
-      text-align: center;
-      text-transform: capitalize;
-      height: inherit;
-      width: inherit;
-      display: flex; 
-      flex-wrap: nowrap;
-      
-      .slide {
-        width: 250px;
-        height: inherit;
-        cursor: pointer; 
-        color: white;
-        font-family: 'Titillium Web', sans-serif;
-        font-weight: 300;
-        font-size: 1.2rem;
-        display: inline-block;
-        position: relative;
-        overflow: hidden;
-        flex: 0 0 auto; 
+  text-align: center;
+  text-transform: capitalize;
+  height: inherit;
+  width: inherit;
+  display: flex;
+  flex-wrap: nowrap;
 
-        .title-alone {
-          @include gradient-dark-to-ligth(to top left, rgba(black, 0.1), rgba(white, 0.1));
-        }
-       
-        div {
-          height: inherit;
-          width: inherit;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          overflow: hidden;
+  .slide {
+    width: 340px;
+    height: inherit;
+    cursor: pointer;
+    color: white;
+    font-family: "Titillium Web", sans-serif;
+    font-weight: 700;
+    font-size: 1.8rem;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    flex: 0 0 auto;
+    text-align: center;
+    text-transform: capitalize;
 
-          .title {
-            position: absolute;
-            width: 100%;
-            z-index: 11;
-            flex: 0 0;
-            text-align: center;
-            overflow: hidden;
+    .icon-all-articles {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      font-size: 0.5rem;
+      height: 100%;
+      position: absolute;
+      width: 100%;
+      z-index: 11;
+    }
 
-            &.all-articles {
-              font-size: .5rem;
-              height: inherit;
-            }
-          }
-          
-          img {
-            opacity: .4;
-            position: absolute;
-            left: 50%; /* % of surrounding element */
-            top: 69%;
-            height: 100%;
-            min-width: 100%;
-            min-height: 33.25vw;
-            transform: translate(-50%, -50%);
-            overflow: hidden;
-          }
-        }
+    .title-container {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      @include gradient-dark-to-ligth(
+        to top left,
+        rgba(black, 0.1),
+        rgba(white, 0.1)
+      );
+
+      .title-alone {
+        width: 100%;
+        z-index: 11;
+        background-color: rgba(gray, 0.3);
       }
+    }
+  }
 
-      .slide:hover {
-        font-weight: 400;
-        @include alpha-attribute('background-color', rgba(black, 0.2), white);
-        img {
-          opacity: .8;
-          min-height: 40vw;
-          ::-webkit-scrollbar {
-            display: none; 
-          }
-        }
-      }
+  .slide:hover {
+    font-size: 1.9rem;
+    @include alpha-attribute("background-color", rgba(black, 0.1), white);
+  }
 }
