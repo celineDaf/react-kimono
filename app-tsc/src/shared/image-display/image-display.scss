@@ -1,0 +1,47 @@
+@import "../../assets/style/variables.scss";
+@import "../../assets/style/mixins.scss";
+
+.image-display {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  .title {
+    position: absolute;
+    width: 100%;
+    z-index: 11;
+    flex: 0 0;
+    text-align: center;
+    overflow: hidden;
+    text-transform: capitalize;
+    background-color: rgba(gray, 0.3);
+  }
+
+  img {
+    opacity: 0.5;
+    position: absolute;
+    left: 50%;
+    top: 69%;
+    height: 100%;
+    min-width: 100%;
+    min-height: 33.25vw;
+    transform: translate(-50%, -63%);
+    overflow: hidden;
+  }
+
+  &:hover {
+    .title {
+      background-color: rgba(gray, 0.5);
+    }
+    img {
+      opacity: 0.8;
+      min-height: 40vw;
+      ::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+}
