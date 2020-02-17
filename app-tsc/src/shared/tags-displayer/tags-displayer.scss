@@ -1,17 +1,16 @@
 @import "./../../assets/style/variables.scss";
 
 .tags-displayer {
-
   margin-bottom: 10px;
-
+  position: absolute;
   .tag {
-    position:relative;
+    position: relative;
     border: 2px solid $yellow;
     border-radius: 9999em;
     padding: 5px 7px 9px 7px;
     background-color: white;
     color: $grey;
-    line-height:0.5;
-
+    line-height: 0.5;
+    z-index: 100;
   }
 }
