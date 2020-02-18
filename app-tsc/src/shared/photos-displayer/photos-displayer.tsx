@@ -63,10 +63,5 @@ export const PhotosDisplayer = (props: PropsType) => {
     );
   }
   if (!imgUrls || imgUrls.length === 0) return null;
-  else
-    return (
-      <div className="column">
-        <Carousel imgUrls={imgUrls} type={props.type} />
-      </div>
-    );
+  else return <Carousel imgUrls={imgUrls} type={props.type} />;
 };

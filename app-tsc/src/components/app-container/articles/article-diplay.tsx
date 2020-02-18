@@ -39,29 +39,24 @@ const ArticlesDisplay = props => {
     : "";
   return (
     <div className="article-display">
+      <div className="title">{article.title}</div>
       {article.photos && article.photos.length > 0 && (
         <div className="photos">
           <PhotosDisplayer photos={article.photos} />
         </div>
       )}
       <div className="heading">
-        <div>
-          <span className="category">{article.category}</span> - &nbsp;
-          <span className="date">{date}</span>
-        </div>
-
-        <div className="title">{article.title}</div>
-        <div>
-          <div className="tags">
-            {article.tags &&
-              article.tags.map((tag: string, i: number) => {
-                return (
-                  <div className="tag" key={i}>
-                    {tag}
-                  </div>
-                );
-              })}
-          </div>
+        <span className="category">{article.category}</span> - &nbsp;
+        <span className="date">{date}</span>
+        <div className="tags">
+          {article.tags &&
+            article.tags.map((tag: string, i: number) => {
+              return (
+                <span className="tag" key={i}>
+                  {tag}
+                </span>
+              );
+            })}
         </div>
       </div>
 
