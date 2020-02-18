@@ -23,6 +23,12 @@
     flex: 0 0 auto;
     text-align: center;
     text-transform: capitalize;
+    @media (min-width: 0px) and (max-width: $screen-m) {
+      width: 14em;
+    }
+    @media (min-width: 0px) and (max-width: $screen-s) {
+      width: 12em;
+    }
 
     .icon-all-articles {
       display: flex;

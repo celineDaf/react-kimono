@@ -30,6 +30,12 @@
     min-height: 33.25vw;
     transform: translate(-50%, -63%);
     overflow: hidden;
+    @media (min-width: 0px) and (max-width: $screen-m) {
+      left: 50%;
+      top: 70%;
+      min-height: 67vw;
+      height: 160%;
+    }
   }
 
   &:hover {

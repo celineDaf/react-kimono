@@ -7,10 +7,10 @@
   max-height: 100px;
   display: flex;
 
-  @media (min-width: 0px) and (max-width: $screen-m) {
-    height: 35px;
-    width: 35px;
-  }
+  // @media (min-width: 0px) and (max-width: $screen-m) {
+  //   height: 35px;
+  //   width: 35px;
+  // }
 
   &-Books {
     background-image: url("../icons/book-line.png");

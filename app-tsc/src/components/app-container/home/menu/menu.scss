@@ -1,14 +1,15 @@
 @import "../../../../assets/style/variables.scss";
 
 .menu {
-    width: 100%;
-    
-    .menu-item {
-        height: 38vh;
-        @media only screen and (max-width: $screen-m)  {
-            margin: 0;
-           }
+  width: 100%;
+
+  .menu-item {
+    height: 38vh;
+    @media only screen and (max-width: $screen-m) {
+      height: 20em;
     }
-    
-    
+    @media (min-width: 0px) and (max-width: $screen-s) {
+        height: 18em;
+    }
+    }
 }
