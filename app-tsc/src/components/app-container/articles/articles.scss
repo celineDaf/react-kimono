@@ -11,9 +11,12 @@
   flex-wrap: wrap;
   min-height: inherit;
   width: inherit;
-  align-items: center;
+  align-items: flex-start;
   overflow: hidden;
-  justify-content: space-between;
+
+  @media (min-width: 0px) and (max-width: $screen-m) {
+    justify-content: space-beetween;
+  }
 
   &-Books {
     background-color: $blue;
@@ -38,7 +41,7 @@
     cursor: pointer;
 
     @media (min-width: 0px) and (max-width: $screen-m) {
-      height: 38vw;
+      height: 20em;
       flex: 1 1 44%;
       max-width: 48%;
       margin: 5px 5px;
@@ -72,8 +75,11 @@
       text-transform: capitalize;
       color: white;
       font-weight: 600;
-      font-size: 1.8rem;
+      font-size: 1.5em;
       background-color: rgba(gray, 0.3);
+      @media (min-width: 0px) and (max-width: $screen-m) {
+        font-size: 1.8em;
+      }
     }
 
     .category {
