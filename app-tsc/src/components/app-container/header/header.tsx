@@ -36,7 +36,7 @@ const Header = (props: Props) => {
   return (
     <div>
       <header className="header">
-        <div className="header-admin-buttons-left">
+        <div className="header-buttons-left">
           <Link
             className="icon icon-home"
             to="/home"
@@ -44,20 +44,22 @@ const Header = (props: Props) => {
           ></Link>
         </div>
 
-        <div className="header-admin-buttons">
-          <div className="admin-button">
-            <Link className="icon icon-list" to="/admin"></Link>
-          </div>
-          <div className="admin-button">
-            <Link to="/admin/add-article">+</Link>
-          </div>
-        </div>
 
         <div className="header-buttons">
+          {/* put home button in bar when on mobile */}
+          <button type="button" 
+            className="header-button-home header-button">
+            <Link
+              className="icon icon-home"
+              to="/home"
+              onClick={emptySelect}
+            ></Link>
+          </button>
+
           <button
             type="button"
             className={
-              "header-button" +
+              "header-button red" +
               (categoryType === CategoriesEnum.BOOKS ? " selected" : "")
             }
             onClick={() => {
@@ -72,7 +74,7 @@ const Header = (props: Props) => {
           <button
             type="button"
             className={
-              "header-button" +
+              "header-button red " +
               (categoryType === CategoriesEnum.KIMONO ? " selected" : "")
             }
             onClick={() => {
@@ -87,7 +89,7 @@ const Header = (props: Props) => {
           <button
             type="button"
             className={
-              "header-button" +
+              "header-button red " +
               (categoryType === CategoriesEnum.JAPAN ? " selected" : "")
             }
             onClick={() => {
@@ -104,7 +106,7 @@ const Header = (props: Props) => {
           <button
             type="button"
             className={
-              "header-button" +
+              "header-button red " +
               (categoryType === CategoriesEnum.JOB ? " selected" : "")
             }
             onClick={() => {

@@ -8,15 +8,18 @@
   @media (min-width: 0px) and (max-width: $screen-m) {
     height: $mobile-header-size;
   }
-  
-  .header-admin-buttons-left {
+
+  .header-buttons-left {
     z-index: 11;
-    height: inherit;
     width: 10%;
     float: left;
+    height: inherit;
     @media (min-width: 0px) and (max-width: $screen-m) {
-      height: 40px;
-      width: 8%;
+      width: 2.5em;
+      padding-left: 10px;
+    }
+    @media (min-width: 0px) and (max-width: $screen-s) {
+      display: none;
     }
   }
 
@@ -25,10 +28,6 @@
     height: inherit;
     width: 10%;
     float: right;
-
-    @media (min-width: 0px) and (max-width: $screen-m) {
-      display: none;
-    }
 
     .admin-button {
       height: inherit;
@@ -46,12 +45,10 @@
   .header-buttons {
     min-height: 5vh;
     height: inherit;
-    margin-left: 10%;
     width: 90%;
     z-index: 0;
 
     @media (min-width: 0px) and (max-width: $screen-m) {
-      height: 40px;
       margin-left: 0;
       width: 100%;
     }
@@ -60,7 +57,10 @@
       height: inherit;
       width: 11%;
       border: none;
-      background-color:$red;
+
+      + .red {
+        background-color: $red;
+      }
 
       + .selected {
         background-color: $darkRed;
@@ -72,9 +72,17 @@
 
       @media (min-width: 0px) and (max-width: $screen-m) {
         height: inherit;
-        width: 60px;
+        width: 20%;
+        max-width: 88px;
       }
-      
+    }
+  }
+
+  .header-button-home {
+    background-color: white !important;
+
+    @media (min-width: $screen-s) {
+      display: none;
     }
   }
 }
