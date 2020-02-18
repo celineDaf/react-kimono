@@ -13,6 +13,7 @@
   width: inherit;
   align-items: center;
   overflow: hidden;
+  justify-content: space-between;
 
   &-Books {
     background-color: $blue;
@@ -33,14 +34,20 @@
     height: 28vw;
     border-radius: 10px;
     overflow: hidden;
-    display: inline-block;
     position: relative;
     cursor: pointer;
 
     @media (min-width: 0px) and (max-width: $screen-m) {
-      flex: 1 100%;
-      max-width: 100%;
+      height: 38vw;
+      flex: 1 1 44%;
+      max-width: 48%;
+      margin: 5px 5px;
+    }
+    @media (min-width: 0px) and (max-width: $screen-s) {
+      flex: 1 1 100%;
       width: 100%;
+      height: 18em;
+      max-width: 100%;
     }
 
     .title-container {
