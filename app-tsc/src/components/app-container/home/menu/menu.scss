@@ -5,11 +5,12 @@
 
   .menu-item {
     height: 38vh;
+    max-height: 406px;
     @media only screen and (max-width: $screen-m) {
       height: 20em;
     }
     @media (min-width: 0px) and (max-width: $screen-s) {
-        height: 18em;
+      height: 18em;
     }
-    }
+  }
 }
