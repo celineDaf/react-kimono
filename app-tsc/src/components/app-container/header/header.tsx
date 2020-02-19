@@ -44,11 +44,9 @@ const Header = (props: Props) => {
           ></Link>
         </div>
 
-
         <div className="header-buttons">
           {/* put home button in bar when on mobile */}
-          <button type="button" 
-            className="header-button-home header-button">
+          <button type="button" className="header-button header-button-home">
             <Link
               className="icon icon-home"
               to="/home"
