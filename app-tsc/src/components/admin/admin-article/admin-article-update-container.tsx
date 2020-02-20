@@ -5,6 +5,7 @@ import { IArticle, ArticleInit } from "../../../domain/article-type";
 import { History, Location } from "history";
 import firebase from "./../../../firebase";
 import { match } from "react-router-dom";
+import ArticleService from "../../../services/article-service";
 
 interface PropsType {
   article?: IArticle;
@@ -18,18 +19,11 @@ function useArticle(params, props) {
 
   useEffect(() => {
     if (/^\/admin/.test(props.location.pathname) && params.id) {
-      const unsubscribe = firebase
-        .firestore()
-        .collection("articles")
-        .doc(params.id)
-        .onSnapshot(docSnapshot => {
-          const article = {
-            id: docSnapshot.id,
-            ...docSnapshot.data()
-          };
-          setArticle(article);
-        });
-      return () => unsubscribe();
+      const f = async () => {
+        const response = await ArticleService.getArticlesById(params.id);
+        setArticle(response.content);
+      };
+      f();
     } else {
       setArticle(ArticleInit);
     }

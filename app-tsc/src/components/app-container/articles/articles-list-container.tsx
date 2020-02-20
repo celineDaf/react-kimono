@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import ArticlesList from "./article-list";
 import { useState } from "react";
-import firebase from "./../../../firebase";
 import "./articles.scss";
 import { match } from "react-router";
 import { Category } from "../../../domain/category-types";
+import ArticleService from "../../../services/article-service";
 
 interface Props {
   match: match;
@@ -14,18 +14,12 @@ function useArticles(params) {
   const [articles, setArticles] = useState();
 
   useEffect(() => {
-    const unsubscribe = firebase
-      .firestore()
-      .collection("articles")
-      .where("category", "==", params.category)
-      .onSnapshot(snapshot => {
-        const articles = snapshot.docs.map(doc => ({
-          id: doc.id,
-          ...doc.data()
-        }));
-        setArticles(articles);
-      });
-    return () => unsubscribe();
+
+    const f = async () => {
+      const response = await ArticleService.getArticlesByCategory(params.category);
+      setArticles(response.content);
+    };
+    f();
   }, [params]);
 
   return articles;

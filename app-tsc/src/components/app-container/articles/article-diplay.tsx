@@ -1,38 +1,37 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./articles.scss";
-import { useState, useEffect } from "react";
-import firebase from "./../../../firebase";
 import { match } from "react-router";
 import { IArticle } from "../../../domain/article-type";
 import { PhotosDisplayer } from "../../../shared/photos-displayer/photos-displayer";
+import ArticleService from "../../../services/article-service";
 
 interface Props {
   match: match;
 }
 
-function useArticle(params) {
+function useArticle(params, setError) {
   const [article, setArticle] = useState();
+
   useEffect(() => {
-    const unsubscribe = firebase
-      .firestore()
-      .collection("articles")
-      .doc(params.id)
-      .onSnapshot(docSnapshot => {
-        const article = {
-          id: docSnapshot.id,
-          ...docSnapshot.data()
-        };
-        setArticle(article);
-      });
-    return () => unsubscribe();
+    const f = async () => {
+      const response = await ArticleService.getArticlesById(params.id);
+      if (response.messageError) {
+        setError(response.messageError);
+        return;
+      }
+      setArticle(response.content);
+    };
+    f();
   }, [params]);
 
   return article;
 }
 
 const ArticlesDisplay = props => {
-  const article: IArticle = useArticle(props.match.params);
+  const [error, setError] = useState();
+  const article: IArticle = useArticle(props.match.params, setError);
 
+  if (error) return <div>{error}</div>;
   if (!article) return null;
   const date: string = article.creationDate
     ? new Date(article.creationDate).toLocaleDateString()

@@ -1,48 +1,45 @@
-import React, {useState, useEffect} from 'react';
-import './sub-menu.scss';
-import ArticlesPreviewSlider from '../articles-preview-slider/articles-preview-slider'
-import { Category } from '../../../../../domain/category-types'
-import firebase from '../../../../../firebase';
-import { IArticle } from '../../../../../domain/article-type'
+import React, { useState, useEffect } from "react";
+import "./sub-menu.scss";
+import ArticlesPreviewSlider from "../articles-preview-slider/articles-preview-slider";
+import { Category } from "../../../../../domain/category-types";
+import { IArticle } from "../../../../../domain/article-type";
+import ArticleService from "../../../../../services/article-service";
 
 interface Props {
-    category: Category,
-    colorBgClass: string,
-    titleSide: 'left' | 'right'
+  category: Category;
+  colorBgClass: string;
+  titleSide: "left" | "right";
 }
 
 function GetArticlesPreviews(props: Props) {
+  const [articles, setArticles] = useState();
 
-    const [articles, setArticles]  = useState();
+  useEffect(() => {
+    const f = async () => {
+      const response = await ArticleService.getArticlesByCategoryLimit5(
+        props.category
+      );
+      setArticles(response.content);
+    };
+    f();
+  }, []);
 
-    useEffect(() => { 
-       const unsubscribe = firebase
-           .firestore().collection('articles')
-           .where('category', '==', props.category)
-           .limit(5)
-           .onSnapshot((snapshot)=> {
-               const articles = snapshot.docs.map((doc)=> ({
-                   id: doc.id,
-                   ...doc.data()
-               }));
-               setArticles(articles as IArticle[]);
-           })
-          return () => unsubscribe();
-    }, []); 
-
-    return articles;
+  return articles;
 }
 
 const SubMenu = (props: Props) => {
+  const articles: IArticle[] = GetArticlesPreviews(props);
 
-    const articles: IArticle[] = GetArticlesPreviews(props);
-
-    if (!articles) return null;
-    return (
-        <div className="sub-menu">
-            <ArticlesPreviewSlider articles={articles} backgroundColorClass={props.colorBgClass} category={props.category}/>
-        </div>
-    );
+  if (!articles) return null;
+  return (
+    <div className="sub-menu">
+      <ArticlesPreviewSlider
+        articles={articles}
+        backgroundColorClass={props.colorBgClass}
+        category={props.category}
+      />
+    </div>
+  );
 };
 
 export default SubMenu;
