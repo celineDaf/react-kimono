@@ -4,7 +4,7 @@ import firebase from "../../firebase";
 import "firebase/storage";
 import "./photos-displayer.scss";
 import { Carousel } from "../carousel/carousel";
-import { FirebaseStorageError } from "../../components/admin/article-actions";
+import { FirebaseStorageError } from "../../helpers/firebase-helpers";
 import { CarouselDisplay } from "../../domain/carousel-display-type";
 
 interface PropsType {
