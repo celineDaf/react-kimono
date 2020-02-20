@@ -29,7 +29,7 @@ const ArticleCard = (props: PropsType) => {
         props.article.photos.length > 0 && (
           <ImageDisplay
             imageName={props.article.photos[0]}
-            title={props.article.title || ""}
+            title={props.article.title}
           />
         )}
       {props.article &&
