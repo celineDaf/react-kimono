@@ -1,5 +1,5 @@
-@import "../../../../../assets/style/variables.scss";
-@import "../../../../../assets/style/mixins.scss";
+@import '../../../../../assets/style/variables.scss';
+@import '../../../../../assets/style/mixins.scss';
 
 .articles-previews-slider {
   text-align: center;
@@ -10,11 +10,11 @@
   flex-wrap: nowrap;
 
   .slide {
-    width: 38vh;
+    width: 36vh;
     height: inherit;
     cursor: pointer;
     color: white;
-    font-family: "Titillium Web", sans-serif;
+    font-family: 'Titillium Web', sans-serif;
     font-weight: 700;
     font-size: 1.8rem;
     display: inline-block;
@@ -47,11 +47,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      @include gradient-dark-to-ligth(
-        to top left,
-        rgba(black, 0.1),
-        rgba(white, 0.1)
-      );
+      @include gradient-dark-to-ligth(to top left, rgba(black, 0.1), rgba(white, 0.1));
 
       .title-alone {
         width: 100%;
@@ -63,6 +59,6 @@
 
   .slide:hover {
     font-size: 1.9rem;
-    @include alpha-attribute("background-color", rgba(black, 0.1), white);
+    @include alpha-attribute('background-color', rgba(black, 0.1), white);
   }
 }
