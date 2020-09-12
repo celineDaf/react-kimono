@@ -4,29 +4,16 @@ import "firebase/storage";
 import "./image-display.scss";
 
 interface Props {
-  imageName: string;
+  url: string;
   title: string;
 }
 
 const ImageDisplay = (props: Props) => {
-  const [imgUrl, setImgUrl] = useState<string>();
-  const storage = firebase.storage();
-
-  useEffect(() => {
-    storage
-      .ref()
-      .child(`images/${props.imageName}`)
-      .getDownloadURL()
-      .then(url => {
-        setImgUrl(url);
-      });
-  }, []);
-
-  if (!imgUrl) return null;
+  if (!props.url) return null;
   return (
     <div className="image-display">
       <span className="title">{props.title}</span>
-      <img src={imgUrl} />
+      <img src={props.url} />
     </div>
   );
 };
