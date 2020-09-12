@@ -1,4 +1,4 @@
-export interface FirebaseMessage {
+export interface Message {
   token: String;
   notification: {
     title: String;
@@ -6,34 +6,18 @@ export interface FirebaseMessage {
   };
 }
 
-export interface FirebaseStorageError {
+export interface StorageError {
   name: String;
   code: String;
   message: String;
 }
 
-export type Action = {
-  type: "UPDATEMESSAGES";
-  data: {
-    messages: FirebaseMessage[];
-  };
-};
-
-export function updateMessage(messages: FirebaseMessage[]): Action {
-  return {
-    type: "UPDATEMESSAGES",
-    data: {
-      messages: messages
-    }
-  };
-}
-
-export interface FirebaseResponseType<T> {
+export interface ResponseType<T> {
   content: T | undefined;
   messageError: string | undefined;
 }
 
-export class FirebaseResponseInit<T> {
+export class ResponseInit<T> {
   content: T | undefined;
   messageError: string | undefined;
 
