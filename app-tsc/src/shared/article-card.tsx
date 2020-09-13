@@ -4,9 +4,10 @@ import TagsDisplayer from "./tags-displayer/tags-displayer";
 import { History, Location } from "history";
 import { withRouter, match } from "react-router";
 import ImageDisplay from "./image-display/image-display";
+import { Document } from 'prismic-javascript/types/documents';
 
 interface PropsType {
-  article: IArticle;
+  article: Document;
   history: History;
   location: Location;
   match: match;
@@ -28,7 +29,7 @@ const ArticleCard = (props: PropsType) => {
         props.article.data.thumbnail && (
           <ImageDisplay
             url={props.article.data.thumbnail.url}
-            title={props.article.data.thumbnail.alt}
+            title={props.article.data.title[0].text}
           />
         )}
       {props.article &&
