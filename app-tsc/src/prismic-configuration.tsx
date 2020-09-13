@@ -30,7 +30,14 @@ class Service {
   getArticlesByCategories(category: Category, limit?: number): Promise<ApiSearchResponse> {
     return client.query(
       Prismic.Predicates.at('document.tags', [category]),
-      { orderings: '[my.document.date desc]', pageSize: limit || 20 }
+      { orderings: '[document.first_publication_date desc]', pageSize: limit || 10 }
+    )
+  }
+
+  getArticles(): Promise<ApiSearchResponse> {
+    return client.query(
+      Prismic.Predicates.at('document.type', 'article'),
+      { orderings: '[document.first_publication_date desc]', pageSize: 20 }
     )
   }
 
