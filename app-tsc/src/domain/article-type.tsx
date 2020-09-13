@@ -1,4 +1,3 @@
-import { Category, CategoriesEnum } from "./category-types";
 import { IPrismicImage, IPrismicVideo } from './priscmic-types';
 
 export interface IArticle {
