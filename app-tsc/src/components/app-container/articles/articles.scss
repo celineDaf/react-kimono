@@ -1,5 +1,5 @@
-@import "../../../assets/style/variables.scss";
-@import "../../../assets/style/mixins.scss";
+@import '../../../assets/style/variables.scss';
+@import '../../../assets/style/mixins.scss';
 
 .articles-list-container {
   width: 100%;
@@ -58,11 +58,7 @@
       align-items: center;
       height: inherit;
       width: 100%;
-      @include gradient-dark-to-ligth(
-        to top left,
-        rgba(black, 0.1),
-        rgba(white, 0.1)
-      );
+      @include gradient-dark-to-ligth(to top left, rgba(black, 0.1), rgba(white, 0.1));
     }
 
     .title {
@@ -108,6 +104,23 @@
 .article-display {
   margin: 3% 5%;
   color: grey;
+
+  .block-img {
+    text-align: center;
+    img {
+      max-width: 90vw;
+      // width: 100%;
+    }
+  }
+
+  .article-top-image {
+    width: 100%;
+    text-align: center;
+
+    img {
+      max-height: 70vh;
+    }
+  }
 
   .title {
     color: $red;
