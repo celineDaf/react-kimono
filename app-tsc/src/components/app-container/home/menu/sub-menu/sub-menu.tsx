@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import "./sub-menu.scss";
 import ArticlesPreviewSlider from "../articles-preview-slider/articles-preview-slider";
 import { Category } from "../../../../../domain/category-types";
-import { IArticle } from "../../../../../domain/article-type";
 import ArticleService from "../../../../../services/article-service";
+import { IArticle } from '../../../../../domain/article-type';
 
 interface Props {
   category: Category;
@@ -11,24 +11,25 @@ interface Props {
   titleSide: "left" | "right";
 }
 
-function GetArticlesPreviews(props: Props) {
-  const [articles, setArticles] = useState();
-
-  useEffect(() => {
-    const f = async () => {
-      const response = await ArticleService.getArticlesByCategoryLimit5(
-        props.category
-      );
-      setArticles(response.content);
-    };
-    f();
-  }, []);
-
-  return articles;
-}
-
 const SubMenu = (props: Props) => {
-  const articles: IArticle[] = GetArticlesPreviews(props);
+  const articles = GetArticlesPreviews(props);
+
+  function GetArticlesPreviews(props: Props) {
+    const [articles, setArticles] = useState<any>();
+
+    useEffect(() => {
+      const f = async () => {
+        const response = await ArticleService.getArticlesByCategoryLimit5(
+          props.category
+        );
+        const results = response.results;
+        setArticles(results);
+      };
+      f();
+    }, []);
+
+    return articles;
+  }
 
   if (!articles) return null;
   return (
