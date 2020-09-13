@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import firebase from "../../firebase";
-import "firebase/storage";
 import "./image-display.scss";
 
 interface Props {
