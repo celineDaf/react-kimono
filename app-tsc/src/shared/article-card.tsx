@@ -25,17 +25,16 @@ const ArticleCard = (props: PropsType) => {
     <div className="article-card" onClick={() => handleclick()}>
       <TagsDisplayer tags={props.article.tags} canRemove={false} />
       {props.article &&
-        props.article.photos &&
-        props.article.photos.length > 0 && (
+        props.article.data.thumbnail && (
           <ImageDisplay
-            imageName={props.article.photos[0]}
-            title={props.article.title}
+            url={props.article.data.thumbnail.url}
+            title={props.article.data.thumbnail.alt}
           />
         )}
       {props.article &&
-        (!props.article.photos || props.article.photos.length === 0) && (
+        (!props.article.data.thumbnail) && (
           <div className="title-container">
-            <span className="title">{props.article.title}</span>
+            <span className="title">{props.article.data.title[0].text}</span>
           </div>
         )}
     </div>

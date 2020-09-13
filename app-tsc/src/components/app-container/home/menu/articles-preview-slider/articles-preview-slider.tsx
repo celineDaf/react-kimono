@@ -23,6 +23,7 @@ const ArticlesPreviewSlider = (props: Props) => {
   const goToArticle = id => {
     props.history.push("/articles/" + id);
   };
+
   return (
     <div
       className={
@@ -36,13 +37,13 @@ const ArticlesPreviewSlider = (props: Props) => {
           key={key}
           onClick={() => goToArticle(article.id)}
         >
-          {article.photos && article.photos[0] ? (
-            <ImageDisplay imageName={article.photos[0]} title={article.title} />
+          {article.data.thumbnail ? (
+            <ImageDisplay url={article.data.thumbnail.url} title={article.data.title[0].text} />
           ) : (
-            <div className="title-container">
-              <div className="title-alone">{article.title}</div>
-            </div>
-          )}
+              <div className="title-container">
+                <div className="title-alone">{article.data.title[0].text}</div>
+              </div>
+            )}
         </div>
       ))}
       <div className="slide flex flex-column" onClick={goToArticleList}>
