@@ -1,5 +1,5 @@
-@import "../../assets/style/variables.scss";
-@import "../../assets/style/mixins.scss";
+@import '../../assets/style/variables.scss';
+@import '../../assets/style/mixins.scss';
 
 .image-display {
   height: 100%;
@@ -27,7 +27,7 @@
     top: 69%;
     height: 100%;
     min-width: 100%;
-    min-height: 33.25vw;
+    min-height: 36.25vw;
     transform: translate(-50%, -63%);
     overflow: hidden;
     @media (min-width: 0px) and (max-width: $screen-m) {
