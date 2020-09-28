@@ -3,10 +3,11 @@ import "./articles.scss";
 import { match } from "react-router";
 import { PhotosDisplayer } from "../../../shared/photos-displayer/photos-displayer";
 import ArticleService from "../../../services/article-service";
-import { Date, Link, RichText } from 'prismic-reactjs';
+import { Date, RichText } from 'prismic-reactjs';
 import { Document } from 'prismic-javascript/types/documents';
-import ImageDisplay from '../../../shared/image-display/image-display';
 import { IArticle } from '../../../domain/article-type';
+import { CategoriesEnum, CategoriesList, Category } from '../../../domain/category-types';
+import { useHistory } from "react-router-dom";
 
 interface Props {
   match: match;
@@ -20,6 +21,7 @@ function useArticle(params) {
       const response: Document = await ArticleService.getArticleById(params.id)
       if (response) {
         setArticle(response)
+        console.log(response)
       }
     }
 
@@ -30,21 +32,45 @@ function useArticle(params) {
 }
 
 const ArticlesDisplay = props => {
+  const history = useHistory();
   const article: Document | undefined = useArticle(props.match.params) as IArticle;
-
   if (!article) return null;
+  const category: Category = article.tags.map((t) => CategoriesList.find(c => { return c === t }))[0] || CategoriesEnum.BOOKS;
   const date = article && article.first_publication_date ? Date(article.first_publication_date).toLocaleDateString() : Date();
+
+  const nextArticle = () => {
+    ArticleService.getNexArticle(category, article.id).then((r) => {
+      if (!r || (r && r.results && r.results.length === 0)) {
+        ArticleService.getFirstArticleCategory(category).then((b) => {
+          history.push(`${b?.results[0].id}`)
+        })
+      } else {
+        history.push(`${r?.results[0].id}`)
+      }
+    })
+  }
 
   return (
     <div className="article-display">
       <div className="title">{article.data.title[0].text}</div>
 
-      <div className="article-top-image">
-        <img src={article.data.thumbnail.url} />
+      <div>
+        <button typeof="button" className='button' onClick={(() => nextArticle())}>NEXT</button>
       </div>
+      {article.data.contentimages && article.data.contentimages.length > 0 ? (
+        <div className="photos">
+          <PhotosDisplayer photos={article.data.contentimages} />
+        </div>
+      ) : (
+          <div className="article-top-image">
+            <img src={article.data.thumbnail.url} />
+          </div>
+        )
+      }
+
 
       <div className="heading">
-        {/* <span className="category">{article.tags.map(t => CategoriesList.find((c) => { t === c; return c; }))}</span> - &nbsp; */}
+        {<span className="category">{category}</span>} - &nbsp;
         <span className="date">{date}</span>
         <div className="tags">
           {article.tags &&
@@ -60,12 +86,8 @@ const ArticlesDisplay = props => {
 
       <div className="article-body">{RichText.render(article.data.content)}</div>
 
-      {article.data.contentImages && (
-        <div className="photos">
-          <PhotosDisplayer photos={article.data.contentImages} />
-        </div>
-      )}
-    </div>
+
+    </div >
   );
 };
 
