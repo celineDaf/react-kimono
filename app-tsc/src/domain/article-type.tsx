@@ -1,4 +1,4 @@
-import { IPrismicImage, IPrismicVideo } from './priscmic-types';
+import { IPrismicImage, IPrismicVideo } from './prismic-types';
 
 export interface IArticle {
   id: string,
@@ -21,8 +21,8 @@ export interface IArticle {
       }
     ],
     content: any[],
-    contentVideos: IPrismicVideo[],
-    contentImages: IPrismicImage[]
+    contentvideos: IPrismicVideo[],
+    contentimages: Array<{ image: IPrismicImage, text: any[] }>
     thumbnail: IPrismicImage
   }
 }
