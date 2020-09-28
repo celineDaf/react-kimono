@@ -1,7 +1,4 @@
 import Prismic from 'prismic-javascript'
-import { Category } from './domain/category-types';
-import { Document } from 'prismic-javascript/types/documents';
-import ApiSearchResponse from 'prismic-javascript/types/ApiSearchResponse';
 const accessToken = ''
 const apiEndpoint = "https://react-kimono.cdn.prismic.io/api/v2";
 
@@ -21,26 +18,3 @@ Prismic.getApi(apiEndpoint).then(function (api) {
   console.log("Something went wrong: ", err);
 });
 
-class Service {
-
-  getArticleById(id: string): Promise<Document> {
-    return client.getByID(id, {})
-  }
-
-  getArticlesByCategories(category: Category, limit?: number): Promise<ApiSearchResponse> {
-    return client.query(
-      Prismic.Predicates.at('document.tags', [category]),
-      { orderings: '[document.first_publication_date desc]', pageSize: limit || 10 }
-    )
-  }
-
-  getArticles(): Promise<ApiSearchResponse> {
-    return client.query(
-      Prismic.Predicates.at('document.type', 'article'),
-      { orderings: '[document.first_publication_date desc]', pageSize: 20 }
-    )
-  }
-
-}
-const PrismicService = new Service();
-export default PrismicService;
