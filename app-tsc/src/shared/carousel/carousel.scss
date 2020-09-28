@@ -1,4 +1,4 @@
-@import "../../assets/style/variables.scss";
+@import '../../assets/style/variables.scss';
 
 .carousel {
   width: 100%;
@@ -27,13 +27,37 @@
           max-width: 90vw;
         }
       }
-      .counter {
+      .info {
         position: absolute;
-        bottom: 1em;
+        bottom: 2em;
         right: 5em;
         z-index: 2;
         color: #ad959d;
         font-size: 1rem;
+        max-width: 20vw;
+        text-align: right;
+
+        p {
+          margin: 0;
+        }
+
+        @media (min-width: 0px) and (max-width: $screen-m) {
+          right: -1em;
+          max-width: 60vw;
+          background-color: rgba(#ad959d, 0.8);
+          padding: 10px;
+          border-radius: 10px;
+          color: white;
+          min-width: 80px;
+        }
+
+        @media (min-width: 0px) and (max-width: $screen-s) {
+          right: 0em;
+          max-width: 80vw;
+          background-color: rgba(azure, 0.9);
+          padding: 10px;
+          border-radius: 10px;
+        }
       }
     }
   }
