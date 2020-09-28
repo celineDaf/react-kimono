@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./image-display.scss";
 
 interface Props {
@@ -11,7 +11,7 @@ const ImageDisplay = (props: Props) => {
   return (
     <div className="image-display">
       <span className="title">{props.title}</span>
-      <img src={props.url} />
+      <img src={props.url} alt={props.title} />
     </div>
   );
 };

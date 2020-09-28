@@ -1,5 +1,4 @@
 import React from "react";
-import { IArticle } from "../domain/article-type";
 import TagsDisplayer from "./tags-displayer/tags-displayer";
 import { History, Location } from "history";
 import { withRouter, match } from "react-router";

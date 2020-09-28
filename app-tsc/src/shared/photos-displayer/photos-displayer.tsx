@@ -14,7 +14,7 @@ export const PhotosDisplayer = (props: PropsType) => {
   const [content, setContent] = useState<ISlideContent[]>([]);
   useEffect(() => {
     setContent(props.photos.map((p) => { return { url: p.image.url, text: p.text } }));
-  }, [])
+  }, [props.photos])
 
   if (!content || content.length === 0) return null;
   else return <Carousel content={content} type={props.type} />;

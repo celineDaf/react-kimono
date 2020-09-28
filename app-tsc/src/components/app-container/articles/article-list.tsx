@@ -3,7 +3,6 @@ import React from "react";
 import ArticleCard from "../../../shared/article-card";
 import "./articles.scss";
 import { Category } from "../../../domain/category-types";
-import { IArticle } from '../../../domain/article-type';
 import { Document } from 'prismic-javascript/types/documents';
 
 interface PropsType {

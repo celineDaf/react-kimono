@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./articles.scss";
+import "./article-display.scss";
 import { match } from "react-router";
 import { PhotosDisplayer } from "../../../shared/photos-displayer/photos-displayer";
 import ArticleService from "../../../services/article-service";
@@ -8,6 +8,7 @@ import { Document } from 'prismic-javascript/types/documents';
 import { IArticle } from '../../../domain/article-type';
 import { CategoriesEnum, CategoriesList, Category } from '../../../domain/category-types';
 import { useHistory } from "react-router-dom";
+import ArticlesNextButton from './article-next-button';
 
 interface Props {
   match: match;
@@ -54,15 +55,17 @@ const ArticlesDisplay = props => {
     <div className="article-display">
       <div className="title">{article.data.title[0].text}</div>
 
-      <div>
-        <button typeof="button" className='button' onClick={(() => nextArticle())}>NEXT</button>
-      </div>
+
+
       {article.data.contentimages && article.data.contentimages.length > 0 ? (
-        <div className="photos">
+        <div className="photos p-relative">
+          {/* <button typeof="button" className='next-button' onClick={(() => nextArticle())}>(✪‿✪)ノ ==&gt; </button> */}
+          <span className=' p-absolute p-right'><ArticlesNextButton nextArticle={nextArticle} /></span>
           <PhotosDisplayer photos={article.data.contentimages} />
         </div>
       ) : (
-          <div className="article-top-image">
+          <div className="article-top-image p-relative">
+            <span className=' p-absolute p-right'><ArticlesNextButton nextArticle={nextArticle} /></span>
             <img src={article.data.thumbnail.url} />
           </div>
         )
@@ -84,11 +87,14 @@ const ArticlesDisplay = props => {
         </div>
       </div>
 
-      <div className="article-body">{RichText.render(article.data.content)}</div>
-
+      <div className="article-body">
+        {RichText.render(article.data.content)}
+        <ArticlesNextButton nextArticle={nextArticle} />
+      </div>
 
     </div >
   );
 };
 
 export default ArticlesDisplay;
+

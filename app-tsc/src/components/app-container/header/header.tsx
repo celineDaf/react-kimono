@@ -23,7 +23,7 @@ const Header = (props: Props) => {
     const lastUrlPiece = pathSplit[pathSplit.length - 1];
     const categoryMatch = CategoriesList.find(cat => cat === lastUrlPiece);
     setCategoryType(categoryMatch);
-  }, [true]);
+  }, [props.location.pathname]);
 
   const onSelect = (category: Category) => {
     setCategoryType(category);

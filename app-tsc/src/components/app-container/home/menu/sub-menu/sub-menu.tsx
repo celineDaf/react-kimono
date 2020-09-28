@@ -3,7 +3,6 @@ import "./sub-menu.scss";
 import ArticlesPreviewSlider from "../articles-preview-slider/articles-preview-slider";
 import { Category } from "../../../../../domain/category-types";
 import ArticleService from "../../../../../services/article-service";
-import { IArticle } from '../../../../../domain/article-type';
 
 interface Props {
   category: Category;
