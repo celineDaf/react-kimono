@@ -23,6 +23,7 @@ const SubMenu = (props: Props) => {
           props.category, 5
         );
         const results = response.results;
+        console.log(response)
         setArticles(results);
       };
       f();
