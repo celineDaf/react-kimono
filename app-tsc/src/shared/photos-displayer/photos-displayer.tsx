@@ -2,22 +2,24 @@ import React, { useState, useEffect } from "react";
 import "./photos-displayer.scss";
 import { Carousel } from "../carousel/carousel";
 import { CarouselDisplay } from "../../domain/carousel-display-type";
-import { IPrismicImage } from '../../domain/priscmic-types';
+import { IPrismicImage } from '../../domain/prismic-types';
 
 
 interface PropsType {
-  photos: IPrismicImage[];
+  photos: Array<{ image: IPrismicImage, text: any }>;
   type?: CarouselDisplay;
 }
 
 export const PhotosDisplayer = (props: PropsType) => {
-  const [imgUrls, setImgUrls] = useState<string[]>([]);
-
+  const [content, setContent] = useState<ISlideContent[]>([]);
   useEffect(() => {
-    const urls = props.photos.map((p) => p.url);
-    setImgUrls(urls);
-  }, [props.photos])
+    setContent(props.photos.map((p) => { return { url: p.image.url, text: p.text } }));
+  }, [])
 
-  if (!imgUrls || imgUrls.length === 0) return null;
-  else return <Carousel imgUrls={imgUrls} type={props.type} />;
+  if (!content || content.length === 0) return null;
+  else return <Carousel content={content} type={props.type} />;
 };
+
+export interface ISlideContent {
+  url: string, text: any[]
+}
