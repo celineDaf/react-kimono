@@ -43,6 +43,13 @@ const Header = (props: Props) => {
             onClick={emptySelect}
           ></Link>
         </div>
+        <div className="header-buttons-right">
+          <Link
+            className="icon icon-cv"
+            to="/cv"
+            onClick={emptySelect}
+          ></Link>
+        </div>
 
         <div className="header-buttons">
           {/* put home button in bar when on mobile */}
@@ -117,6 +124,8 @@ const Header = (props: Props) => {
             ></Link>
           </button>
         </div>
+
+
       </header>
     </div>
   );
