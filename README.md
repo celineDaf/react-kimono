@@ -4,7 +4,7 @@
 ## Programming, Japan, Kimono, Books, photo and drawings 
 ## By Céline DAFFE / FRANCE
 
-### Typescript, React, Firebase
+### Typescript, React, Prismic
 
 ## Available Scripts
  - ### `npm start`
