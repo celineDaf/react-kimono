@@ -1,0 +1,149 @@
+@import './../../../assets/style/variables.scss';
+
+.cvPage {
+  padding-bottom: 2rem;
+  width: 90%;
+  margin: auto;
+  color: $grey;
+  border: 2rem solid $darkRed;
+  position: relative;
+  z-index: 10;
+
+  // triangle
+  .triangle-topright {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 40vw solid $darkRed;
+    border-right: 40vw solid transparent;
+    z-index: 0;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+  h2 {
+    font-size: 2.2rem;
+    font-weight: lighter;
+    font-style: oblique;
+  }
+
+  a {
+    display: inline !important;
+    color: $green;
+    &:hover {
+      color: $brown;
+    }
+  }
+
+  .introduction {
+    position: relative;
+    z-index: 22;
+    width: 100%;
+    z-index: 30;
+    padding-bottom: 2rem;
+    .myPic {
+      text-align: center;
+      position: relative;
+      width: 45%;
+      display: inline-block;
+      z-index: 30;
+      img {
+        width: 100%;
+        position: relative;
+        z-index: 30;
+      }
+    }
+    .cv-head {
+      // overflow: hidden;
+      width: 50%;
+      padding: 1rem;
+      float: right;
+      .cv-head-1 {
+        width: 60%;
+        display: inline-block;
+      }
+      .cv-head-2 {
+        color: $violet;
+        text-align: right;
+        width: 40%;
+        display: inline-block;
+        transform: translate(0, 80%);
+      }
+
+      .dynamic {
+        padding: 1rem;
+        position: relative;
+        width: 100%;
+        text-align: center;
+        display: none;
+        .slash {
+          // height: 160%;
+        }
+      }
+
+      &:hover {
+        .dynamic {
+          display: block;
+        }
+        .cv-head-2 {
+          transform: translate(0, 0);
+        }
+      }
+    }
+  }
+  .content {
+    padding: 1rem;
+
+    .title {
+      color: $darkRed;
+      font-weight: bold;
+    }
+
+    .column-separator {
+      &.column {
+        border-right: 4px solid $red;
+      }
+    }
+  }
+
+  .cv-footer {
+    height: 200px;
+    position: relative;
+    width: 100%;
+
+    .icon-left {
+      display: inline-block;
+      position: absolute;
+      height: 150px;
+      width: 150px;
+      left: 5%;
+      top: -10%;
+    }
+
+    .icon-middle {
+      display: inline-block;
+      position: absolute;
+      height: 90px;
+      width: 90px;
+      left: 66%;
+      bottom: -10%;
+    }
+
+    .icon-right {
+      display: inline-block;
+      position: absolute;
+      height: 200px;
+      width: 200px;
+      right: 10%;
+    }
+  }
+
+  .icon-element {
+    width: 30%;
+    display: inline-block;
+  }
+  .slash {
+    width: 10%;
+  }
+}
