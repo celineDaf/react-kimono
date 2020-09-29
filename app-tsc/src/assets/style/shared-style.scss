@@ -1,5 +1,5 @@
-@import "./variables.scss";
-@import "./mixins.scss";
+@import './variables.scss';
+@import './mixins.scss';
 
 // container sections
 
@@ -21,6 +21,18 @@
 .indication {
   color: grey;
   font-size: 0.7rem;
+}
+
+.text-violet {
+  color: $violet;
+}
+
+.text-red {
+  color: $red;
+}
+
+.text-right {
+  text-align: right;
 }
 
 // block

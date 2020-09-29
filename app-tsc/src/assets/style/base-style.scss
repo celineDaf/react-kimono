@@ -2,10 +2,11 @@
 
 // Fonts
 // ---------------------------
-$emoji: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-$system: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+$emoji: 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+$system: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+  'Droid Sans', 'Helvetica Neue', sans-serif;
 $sans: Averta, $system !global;
-$serif: "freight-text-pro", serif, $emoji !global;
+$serif: 'freight-text-pro', serif, $emoji !global;
 $heading: $sans !global;
 $body: $serif !global;
 $form: $sans !global;
@@ -33,55 +34,79 @@ $default: (
   radius: 4px,
   display: inline-block,
   state: normal,
-  transition-duration: .2s
+  transition-duration: 0.2s,
 );
 
 body {
   margin: 0;
+
+  ul {
+    list-style-type: none;
+    list-style-position: outside;
+    margin: 0;
+    padding: 0;
+  }
 }
 // colors background
 .red-bc {
-    background-color: $red;
-  }
-  .yellow-bc {
-    background-color: $yellow;
-  }
-  .blue-bc {
-    background-color: $blue;
-  }
-  .violet-bc {
-    background-color: $violet;
-  }
-  .green-bc {
-    background-color: $green;
-  }
-  
+  background-color: $red;
+}
+.yellow-bc {
+  background-color: $yellow;
+}
+.blue-bc {
+  background-color: $blue;
+}
+.violet-bc {
+  background-color: $violet;
+}
+.green-bc {
+  background-color: $green;
+}
+
 //  text style
-  .text-center {
-    text-align: center;
-  }
+.text-center {
+  text-align: center;
+}
 
-  .white-text {
-    color: white;
-  }
+.white-text {
+  color: white;
+}
 
-  // text color
-  .red {
-    color: $red;
-  }
-  .yellow {
-    color: $yellow;
-  }
-  .blue {
-    color: $blue;
-  }
-  .violet {
-    color: $violet;
-  }
-  .green {
-    color: $green;
-  }
+.text-oblique {
+  font-style: oblique;
+}
 
-  .margin-l {
-    margin-left: 20px;
-  }
+.text-bold {
+  font-weight: bolder;
+}
+
+// text color
+.red {
+  color: $red;
+}
+.darkred {
+  color: $darkRed;
+}
+.yellow {
+  color: $yellow;
+}
+.blue {
+  color: $blue;
+}
+.violet {
+  color: $violet;
+}
+.green {
+  color: $green;
+}
+.black {
+  color: black;
+}
+.brown {
+  color: $brown;
+}
+
+.margin-l {
+  margin-left: 20px;
+}
