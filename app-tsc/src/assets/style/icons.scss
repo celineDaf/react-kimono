@@ -4,33 +4,45 @@
   background-position: center;
   width: 100%;
   height: 100%;
-  max-height: 100px;
   display: flex;
 
-  // @media (min-width: 0px) and (max-width: $screen-m) {
-  //   height: 35px;
-  //   width: 35px;
-  // }
-
   &-Books {
-    background-image: url("../icons/book-line.png");
+    background-image: url('../icons/book-line.png');
   }
   &-Job {
-    background-image: url("../icons/web-programming.png");
+    background-image: url('../icons/web-programming.png');
   }
   &-Japan {
-    background-image: url("../icons/fuji-mountain.png");
+    background-image: url('../icons/fuji-mountain.png');
   }
   &-Kimono {
-    background-image: url("../icons/kimono.png");
+    background-image: url('../icons/kimono.png');
   }
   &-double-chevron {
-    background-image: url("../icons/double-chevron-white.png");
+    background-image: url('../icons/double-chevron-white.png');
   }
   &-home {
-    background-image: url("../icons/house-2.png");
+    background-image: url('../icons/house-2.png');
   }
   &-list {
-    background-image: url("../icons/list.png");
+    background-image: url('../icons/list.png');
+  }
+  &-cv {
+    background-image: url('../icons/cv.png');
+  }
+  &-airplane {
+    mask: url('../icons/airplane.svg') no-repeat 50% 50%;
+    background-color: $darkRed;
+    mask-size: contain;
+  }
+  &-tea-cup {
+    mask: url('../icons/tea-cup.svg') no-repeat 50% 50%;
+    background-color: $darkRed;
+    mask-size: contain;
+  }
+  &-open-book {
+    mask: url('../icons/open-book.svg') no-repeat 50% 50%;
+    background-color: $darkRed;
+    mask-size: contain;
   }
 }
