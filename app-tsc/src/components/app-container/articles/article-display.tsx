@@ -16,16 +16,17 @@ interface Props {
 
 function useArticle(params) {
   const [article, setArticle] = useState<Document>();
-
+  const history = useHistory();
   useEffect(() => {
     const getArticle = async () => {
       const response: Document = await ArticleService.getArticleById(params.id)
       if (response) {
         setArticle(response)
         console.log(response)
+      } else {
+        history.push('/home')
       }
     }
-
     getArticle()
   }, [params]);
 
@@ -34,7 +35,7 @@ function useArticle(params) {
 
 const ArticlesDisplay = props => {
   const history = useHistory();
-  const article: Document | undefined = useArticle(props.match.params) as IArticle;
+  const article: Document = useArticle(props.match.params) as IArticle;
   if (!article) return null;
   const category: Category = article.tags.map((t) => CategoriesList.find(c => { return c === t }))[0] || CategoriesEnum.BOOKS;
   const date = article && article.first_publication_date ? Date(article.first_publication_date).toLocaleDateString() : Date();
@@ -50,6 +51,8 @@ const ArticlesDisplay = props => {
       }
     })
   }
+
+
 
   return (
     <div className="article-display">
