@@ -36,14 +36,12 @@ const CVPage = props => {
             </div>
 
             <div className='full-width content'>
-                <div className="row text-right space-bottom-30">
+                <div className="row space-bottom-30">
                     {/* top left */}
-                    <div className='column column-separator no-padding'>
-                        <div className="title column">EXPÉRIENCES</div>
+                    <div className='column text-right column-separator no-padding d-block'>
+                        <div className="title column fix-height ">EXPÉRIENCES</div>
+                        <div className='column'><strong className='brown inner-space-bottom-20'>Freelance - Depuis septembre 2019</strong></div>
                         <div className='column '>
-                            <strong className='brown inner-space-bottom-20'>Freelance - Depuis septembre 2019</strong>
-                            <br />
-
                             <div><strong className='brown'><a href="https://www.chateauedmus.com/">Château Edmus</a> -</strong> Refonte du site </div>
                             <div className="darkred text-oblique">Gatsby, ReactJs, Prismic et SpectreCSS</div>
                             <div><strong className='brown'>Multiven -</strong> Mission d’intégration pour une plateforme de vente
@@ -53,12 +51,14 @@ const CVPage = props => {
                             plateforme de gestion d’intérimaires</div>
                             <div className="darkred text-oblique">React, NodeJs</div>
                         </div>
-                        <div className='column'>
-                            <strong className='brown inner-space-bottom-20'>2016 - 2018</strong>
-                            <br />
+                    </div>
 
+                    {/* top right */}
+                    <div className="column no-padding d-block">
+                        <div className="title column fix-height"> </div>
+                        <div className="column"><strong className='brown  inner-space-bottom-20'>Développeuse Front-end 2016 - 2018</strong></div>
+                        <div className='column'>
                             <div><strong className='brown'><a href="https://www.4sh.fr/">4SH France</a></strong>
-                                <div className='text-bold brown'> Développeuse Front-end</div>
                                 <div>Missions principalement sur des applications métier, en déploiement continue (SCRUM), dans des secteurs très divers : gestion de flux d’avions et de marchandises; immobilier; serious game.</div>
                                 <div>Century21, Aéroport de la réunion, Arkhé, AcaNexia, Sud Ouest</div>
                                 <div className="darkred text-oblique">Typescript, Angular, AngularJs, Javascript, Ionic, bonnes pratiques, Foundation, Sass, responsive.</div>
@@ -66,17 +66,16 @@ const CVPage = props => {
                             <br />
                     Mérignac
                     </div>
-                    </div>
 
-                    {/* top right */}
-                    <div className="column no-padding"></div>
+                    </div>
                 </div>
 
                 <div className="row space-top-30 space-bottom-30">
                     {/* bottom left */}
                     <div className="column column-separator text-right  no-padding">
                         <div className="title column">FORMATION</div>
-                        <div className='column'><span className="text-oblique brown">WildCodeSchool</span>Bootcamp de 5 mois spécialisé en Javascript (AngularJs, NodeJs, Sass, MongoDB, Ionic, Cordova) <br />  La Loupe - Sep. 2015 à Jan. 2016</div>
+                        <div className='column'><span className="text-oblique brown">WildCodeSchool</span>Bootcamp de 5 mois spécialisé en Javascript <br />
+                         AngularJs, NodeJs, Sass, MongoDB, Ionic, Cordova <br />  La Loupe - Sep. 2015 à Jan. 2016</div>
                         <div className='column'><span className="text-oblique brown">Master Conception et Direction de Projets Culturels</span> Université Paris 3, Sorbonne Nouvelle <br /> Paris - 2011</div>
                         <div className='column'><span className="text-oblique brown">Licence de Conception et Mise en Oeuvre de Projets Culturels</span> Université Paris 3 <br /> Paris - 2009</div>
                         <div className='column'><span className="text-oblique brown">Bac STI Arts Appliqués</span>École Supérieure des Arts Appliqués et du Textile <br /> Roubaix (59) -2005</div>

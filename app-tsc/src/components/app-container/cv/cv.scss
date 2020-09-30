@@ -108,6 +108,14 @@
         border-right: 4px solid $red;
       }
     }
+
+    .fix-height {
+      height: 60px;
+    }
+
+    .d-block {
+      display: block;
+    }
   }
 
   .cv-footer {
