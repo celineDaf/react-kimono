@@ -36,6 +36,11 @@
     }
   }
 
+  .separation-line {
+    border-top: 1px solid $grey;
+    padding-top: 30px;
+  }
+
   .introduction {
     position: relative;
     z-index: 22;
@@ -93,8 +98,6 @@
     }
   }
   .content {
-    padding: 1rem;
-
     .title {
       color: $darkRed;
       font-weight: bold;

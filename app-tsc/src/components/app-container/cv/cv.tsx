@@ -36,10 +36,11 @@ const CVPage = props => {
             </div>
 
             <div className='full-width content'>
-                <div className="row text-right">
-                    <div className='column'>
+                <div className="row text-right space-bottom-30">
+                    {/* top left */}
+                    <div className='column column-separator no-padding'>
                         <div className="title column">EXPÉRIENCES</div>
-                        <p className='column column-separator '>
+                        <div className='column '>
                             <strong className='brown inner-space-bottom-20'>Freelance - Depuis septembre 2019</strong>
                             <br />
 
@@ -50,48 +51,51 @@ const CVPage = props => {
                             <div className="darkred text-oblique">Angular</div>
                             <div><strong className='brown'><a href="https://app.wizim.io/">Wizim</a> -</strong> Mission de développement de nouvelles fonctionnalités pour une
                             plateforme de gestion d’intérimaires</div>
-                            <div className="darkred text-oblique">React,NodeJs</div>
-                        </p>
-                        <p className='column column-separator '>
+                            <div className="darkred text-oblique">React, NodeJs</div>
+                        </div>
+                        <div className='column'>
                             <strong className='brown inner-space-bottom-20'>2016 - 2018</strong>
                             <br />
 
                             <div><strong className='brown'><a href="https://www.4sh.fr/">4SH France</a></strong>
                                 <div className='text-bold brown'> Développeuse Front-end</div>
-Missions principalement sur des applications métier, en déploiement continue (SCRUM), dans des secteurs très divers de la gestion de flux d’avions et de marchandises, jusqu’à de l’immobilier et du serious game (ex: Century21, Aéroport de la réunion, Arkhé, AcaNexia, Sud Ouest).</div>
-                            <div className="darkred text-oblique">Typescript, Angular, AngularJs, Javascript, Ionic, bonnes pratiques, Foundation, Sass, responsive.</div>
-                    Collaboration avec l’équipe fonctionnelle, designer et bien sûr le client.
-                    <br />
+                                <div>Missions principalement sur des applications métier, en déploiement continue (SCRUM), dans des secteurs très divers : gestion de flux d’avions et de marchandises; immobilier; serious game.</div>
+                                <div>Century21, Aéroport de la réunion, Arkhé, AcaNexia, Sud Ouest</div>
+                                <div className="darkred text-oblique">Typescript, Angular, AngularJs, Javascript, Ionic, bonnes pratiques, Foundation, Sass, responsive.</div>
+                    Collaboration avec l’équipe fonctionnelle, designer et bien sûr le client.</div>
+                            <br />
                     Mérignac
-                    </p>
                     </div>
-                    <div className="column"></div>
-                </div>
-                {/* left */}
-                <div className="row ">
+                    </div>
 
-                    <div className="column column-separator text-right">
+                    {/* top right */}
+                    <div className="column no-padding"></div>
+                </div>
+
+                <div className="row space-top-30 space-bottom-30">
+                    {/* bottom left */}
+                    <div className="column column-separator text-right  no-padding">
                         <div className="title column">FORMATION</div>
                         <div className='column'><span className="text-oblique brown">WildCodeSchool</span>Bootcamp de 5 mois spécialisé en Javascript (AngularJs, NodeJs, Sass, MongoDB, Ionic, Cordova) <br />  La Loupe - Sep. 2015 à Jan. 2016</div>
                         <div className='column'><span className="text-oblique brown">Master Conception et Direction de Projets Culturels</span> Université Paris 3, Sorbonne Nouvelle <br /> Paris - 2011</div>
                         <div className='column'><span className="text-oblique brown">Licence de Conception et Mise en Oeuvre de Projets Culturels</span> Université Paris 3 <br /> Paris - 2009</div>
-                        <div className='column'><span className="text-oblique brown">LBac STI Arts Appliqués</span>Ecole Supérieure des Arts Appliqués et du Textile <br /> Roubaix (59) -2005</div>
+                        <div className='column'><span className="text-oblique brown">Bac STI Arts Appliqués</span>École Supérieure des Arts Appliqués et du Textile <br /> Roubaix (59) -2005</div>
                         <div className='column'></div>
                     </div>
 
-                    {/* right */}
+                    {/*  bottom right */}
 
-                    <div className="column ">
-                        <div className="title column">LES +</div>
-                        <div className='column'> Présidente pendant 2 ans de l’association Bordeaux Développer Experience qui organise
+                    <div className="column  no-padding">
+                        <div className="title column ">LES +</div>
+                        <div className='column space-bottom-30'> Présidente pendant 2 ans de l’association Bordeaux Développer Experience qui organise
                         depuis 2013 <a href="https://www.bdxio.fr/">BDX I/O</a> une conférence dédié au monde du développement. Participation régulière aux meetups Bordeaux JS et d’autres à l’occasion.</div>
 
-                        <div className="title column">QUALITÉS</div>
+                        <div className="title column separation-line">QUALITÉS</div>
                         <br />
                         <div className='column'>Réactivité, adaptabilité, bonne communication, autonomie</div>
-                        <div className='column'><span className="brown d-inline">Anglais courant écrit et parlé </span>(voyage en Australie de 7 mois)</div>
+                        <div className='column space-bottom-30'><span className="brown d-inline">Anglais courant écrit et parlé </span>(voyage en Australie de 7 mois)</div>
                         <br />
-                        <div className="title column"> INTÉRÊTS</div>
+                        <div className="title column separation-line"> INTÉRÊTS</div>
                         <div className='column'> <ul> <li>React, UX-UI</li> <li>Pyton, Kotlin, NodeJs</li>
                             <li>Japon, voyage</li> <li>Science-fiction, littérature contemporaine</li> </ul></div>
                     </div>
