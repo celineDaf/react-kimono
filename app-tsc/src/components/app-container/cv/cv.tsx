@@ -39,7 +39,7 @@ const CVPage = props => {
                 <div className="row space-bottom-30">
                     {/* top left */}
                     <div className='column text-right column-separator no-padding d-block'>
-                        <div className="title column fix-height ">EXPÉRIENCES</div>
+                        <div className="title column fix-height">EXPÉRIENCES</div>
                         <div className='column'><strong className='brown inner-space-bottom-20'>Freelance - Depuis septembre 2019</strong></div>
                         <div className='column '>
                             <div><strong className='brown'><a href="https://www.chateauedmus.com/">Château Edmus</a> -</strong> Refonte du site </div>
@@ -55,7 +55,7 @@ const CVPage = props => {
 
                     {/* top right */}
                     <div className="column no-padding d-block">
-                        <div className="title column fix-height"> </div>
+                        <div className="title column fix-height"></div>
                         <div className="column"><strong className='brown  inner-space-bottom-20'>Développeuse Front-end 2016 - 2018</strong></div>
                         <div className='column'>
                             <div><strong className='brown'><a href="https://www.4sh.fr/">4SH France</a></strong>
