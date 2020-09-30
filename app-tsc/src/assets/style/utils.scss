@@ -1,0 +1,97 @@
+// blocks utils
+.full-width {
+    width: 100%;
+}
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.p-relative {
+    position: relative;
+}
+.p-absolute {
+    position: absolute;
+}
+.p-right {
+    right: -2rem;
+}
+.d-inline {
+    display: inline !important;
+}
+.d-block {
+    display: block;
+}
+
+// text utils
+.sub-title {
+    color: $red;
+    font-size: 15;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-oblique {
+    font-style: oblique;
+}
+
+.text-bold {
+    font-weight: bolder;
+}
+
+// text color
+.red {
+    color: $red;
+}
+.darkred {
+    color: $darkRed;
+}
+.yellow {
+    color: $yellow;
+}
+.blue {
+    color: $blue;
+}
+.violet {
+    color: $violet;
+}
+.green {
+    color: $green;
+}
+.black {
+    color: black;
+}
+.brown {
+    color: $brown;
+}
+
+// colors background
+.red-bc {
+    background-color: $red;
+}
+.yellow-bc {
+    background-color: $yellow;
+}
+.blue-bc {
+    background-color: $blue;
+}
+.violet-bc {
+    background-color: $violet;
+}
+.green-bc {
+    background-color: $green;
+}
+
+// margin utils
+.no-margin {
+    margin: 0;
+}

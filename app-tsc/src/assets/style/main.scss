@@ -1,7 +1,10 @@
-@import "./variables.scss";
-@import "./mixins.scss";
-@import "./base-style.scss";
-@import "./shared-style.scss";
-@import "./icons.scss";
-@import "./helper.scss";
-@import "../../App.scss";
+@import './mixins.scss';
+@import './variables.scss';
+@import './utils.scss';
+@import './grid.scss';
+@import './base-style.scss';
+@import './shared-style.scss';
+@import './scroll.scss';
+@import './icons.scss';
+@import './helper.scss';
+@import '../../App.scss';

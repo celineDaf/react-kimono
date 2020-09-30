@@ -77,3 +77,20 @@
     }
   }
 }
+
+// button
+
+.button-float-right {
+  z-index: 11;
+  font-size: 300%;
+  width: 50px;
+  text-align: center;
+  float: right;
+  color: $yellow;
+
+  @media screen and (min-width: $screen-s) and (max-width: $screen-m) {
+    font-size: 200%;
+    height: 30px;
+    width: 30px;
+  }
+}

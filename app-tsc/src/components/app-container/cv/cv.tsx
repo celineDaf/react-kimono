@@ -20,7 +20,7 @@ const CVPage = props => {
                     </div>
 
                     <div className="cv-head-1">
-                        <h1 className='black text-red no-margin'>CÉLINE DAFFE</h1>
+                        <h1 className='black red no-margin'>CÉLINE DAFFE</h1>
                         <h2 className='darkred no-margin'>Développeuse</h2>
                         <h3 className='darkred'>Freelance</h3>
                         <h4 className='black'>Ex-présidente BDX I/O</h4>

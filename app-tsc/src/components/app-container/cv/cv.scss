@@ -60,7 +60,6 @@
       }
     }
     .cv-head {
-      // overflow: hidden;
       width: 50%;
       padding: 1rem;
       float: right;
@@ -82,9 +81,6 @@
         width: 100%;
         text-align: center;
         display: none;
-        .slash {
-          // height: 160%;
-        }
       }
 
       &:hover {
@@ -111,10 +107,6 @@
 
     .fix-height {
       height: 60px;
-    }
-
-    .d-block {
-      display: block;
     }
   }
 

@@ -1,0 +1,76 @@
+@import './variables.scss';
+@import './mixins.scss';
+
+// Scroll padding
+// ---------------------------
+// Padding starts off at a gutter size, eventually increasing to a point
+// where it restricts the width to a grid, but to still allow the items
+// to scroll off screen rather than cut off
+
+.contain-scroll {
+  padding-left: $small-outer-gutter;
+
+  @include breakpoint($c) {
+    padding-left: $line;
+  }
+
+  @include breakpoint($d) {
+    padding-left: ($line * 2);
+  }
+
+  @include breakpoint($e) {
+    padding-left: ($line * 3);
+  }
+
+  @include breakpoint($site-width) {
+    padding-left: calc(50% - (#{$contain / 2}));
+  }
+}
+
+// Scroll
+// ---------------------------
+.scroll {
+  display: grid;
+  grid-gap: 32px $small-outer-gutter;
+  overflow: hidden;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+
+  @include breakpoint($b) {
+    grid-gap: 48px 32px;
+  }
+
+  @include breakpoint($c) {
+    grid-gap: 48px 32px;
+  }
+
+  @include breakpoint($e) {
+    grid-gap: 48px;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  & .no-gap {
+    grid-gap: 0;
+  }
+}
+
+.scroll-medium {
+  grid-template-columns: repeat(13, 250px);
+
+  // 252 -> 378
+  // @include breakpoint($c) {
+  //   grid-template-columns: repeat(13, 378px); }
+}
+
+.scroll-small {
+  grid-template-columns: repeat(13, 168px);
+
+  // 168 -> 244
+  @include breakpoint($c) {
+    grid-template-columns: repeat(13, 244px);
+  }
+}

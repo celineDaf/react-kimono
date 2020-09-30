@@ -1,0 +1,61 @@
+@import './variables.scss';
+@import './mixins.scss';
+
+// grid system
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+@media only screen and (min-width: $screen-m) {
+  .column {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+    padding: 10px;
+  }
+}
+
+@media only screen and (max-width: $screen-m) {
+  .column {
+    all: none;
+    padding: 10px;
+  }
+}
+
+.flex-row-container {
+  display: flex;
+  flex-flow: row wrap;
+
+  &.center {
+    justify-content: center;
+  }
+
+  div {
+    margin: 5px 0 0 0;
+  }
+
+  div:not(:last-child) {
+    margin-right: 20px;
+  }
+}
+
+// Flex
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-auto {
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 0;
+}
