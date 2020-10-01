@@ -1,29 +1,47 @@
 @import './variables.scss';
 @import './mixins.scss';
 
-// grid system
+// grid system //////////////////////////////////////////////////
 
 .row {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
-}
-
-@media only screen and (min-width: $screen-m) {
-  .column {
-    display: flex;
-    flex-direction: column;
-    flex-basis: 100%;
-    flex: 1;
-    padding: 10px;
+  @include breakpoint(desktop) {
+    .column {
+      display: flex;
+      flex-direction: column;
+      flex-basis: 100%;
+      flex: 1;
+      padding: 10px;
+    }
   }
-}
+  @include breakpoint(laptop) {
+    .column {
+      display: flex;
+      flex-direction: column;
+      flex-basis: 100%;
+      flex: 1;
+      padding: 10px;
+    }
+  }
 
-@media only screen and (max-width: $screen-m) {
-  .column {
-    all: none;
-    padding: 10px;
+  @include breakpoint(tablet) {
+    .column {
+      display: flex;
+      flex-direction: column;
+      flex-basis: 100%;
+      flex: 1;
+      padding: 10px;
+    }
+  }
+
+  @include breakpoint(phablet) {
+    .column {
+      all: none;
+      padding: 10px;
+    }
   }
 }
 
@@ -58,4 +76,75 @@
   flex: 1 1 auto;
   min-width: 0;
   min-height: 0;
+}
+
+// show responsive //////////////////////////////////////////////////
+.phone-only {
+  display: none;
+  @include breakpoint(phone) {
+    display: block;
+  }
+}
+.phablet-only {
+  display: none;
+  @include breakpoint(phablet) {
+    display: block;
+  }
+}
+.tablet-only {
+  display: none;
+  @include breakpoint(tablet) {
+    display: block;
+  }
+}
+.laptop-only {
+  display: none;
+  @include breakpoint(laptop) {
+    display: block;
+  }
+}
+.desktop-only {
+  display: none;
+  @include breakpoint(desktop) {
+    display: block;
+  }
+}
+
+.max-phablet {
+  display: none;
+  @media (min-width: 0) and (max-width: $screen-m - 1) {
+    display: block;
+  }
+}
+
+// hide responsive //////////////////////////////////////////////////
+.hide-phone-only {
+  display: block;
+  @include breakpoint(phone) {
+    display: none;
+  }
+}
+.hide-phablet-only {
+  display: block;
+  @include breakpoint(phablet) {
+    display: none;
+  }
+}
+.hide-tablet-only {
+  display: block;
+  @include breakpoint(tablet) {
+    display: none;
+  }
+}
+.hide-laptop-only {
+  display: block;
+  @include breakpoint(laptop) {
+    display: none;
+  }
+}
+.hide-desktop-only {
+  display: block;
+  @include breakpoint(desktop) {
+    display: none;
+  }
 }

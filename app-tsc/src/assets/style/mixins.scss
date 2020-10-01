@@ -1,49 +1,54 @@
 @mixin header-size() {
-    @media only screen and (min-width: $screen-m){
-      $header-height: $mobile-header-size;
-    }
-  
-    @media only screen and (max-width: $screen-m - 1px){
-      $header-height: $base-header-size;
-    }
-  
-  }
-  
-  @function header() {
-    @return $header-height;
+  @media only screen and (min-width: $screen-m) {
+    $header-height: $mobile-header-size;
   }
 
-  @mixin alpha-attribute($attribute, $color, $background) {
-    $percent: alpha($color) * 100%;
-    $opaque: opacify($color, 1);
-    $solid-color: mix($opaque, $background, $percent);
-    #{$attribute}: $solid-color;
-    #{$attribute}: $color;
+  @media only screen and (max-width: $screen-m - 1px) {
+    $header-height: $base-header-size;
   }
+}
 
-  @mixin gradient-dark-to-ligth($direction, $color-stops...) {
-    background: nth(nth($color-stops, 1), 1);
-    background: -webkit-linear-gradient(legacy-direction($direction), $color-stops);
-    background: linear-gradient($direction, $color-stops);
-  }
+@function header() {
+  @return $header-height;
+}
 
+@mixin alpha-attribute($attribute, $color, $background) {
+  $percent: alpha($color) * 100%;
+  $opaque: opacify($color, 1);
+  $solid-color: mix($opaque, $background, $percent);
+  #{$attribute}: $solid-color;
+  #{$attribute}: $color;
+}
+
+@mixin gradient-dark-to-ligth($direction, $color-stops...) {
+  background: nth(nth($color-stops, 1), 1);
+  background: -webkit-linear-gradient(legacy-direction($direction), $color-stops);
+  background: linear-gradient($direction, $color-stops);
+}
 
 // BREAKPOINTS
 // *********************/
 
- @mixin breakpoint($point) {
-   @if $point == desktop {
-     @media (min-width: 70em) { @content ; }
-  }
-   @else if $point == laptop {
-     @media (min-width: 64em) { @content ; }
-  }
-    @else if $point == tablet {
-     @media (min-width: 50em) { @content ; }
-  }
-   @else if $point == phablet {
-     @media (min-width: 37.5em)  { @content ; }
+@mixin breakpoint($point) {
+  @if $point == desktop {
+    @media (min-width: $screen-xl) {
+      @content;
+    }
+  } @else if $point == laptop {
+    @media (min-width: $screen-l) and (max-width: $screen-xl - 1) {
+      @content;
+    }
+  } @else if $point == tablet {
+    @media (min-width: $screen-m) and (max-width: $screen-l - 1) {
+      @content;
+    }
+  } @else if $point == phablet {
+    @media (min-width: $screen-s) and (max-width: $screen-m - 1) {
+      @content;
+    }
+  } @else if ($point == phone) {
+    @media (min-width: 0) and (max-width: $screen-s - 1) {
+      @content;
+    }
   }
 }
-
-

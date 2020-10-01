@@ -1,5 +1,22 @@
-@import './variables.scss';
 @import './mixins.scss';
+
+$base-px: 12px !default;
+$line: $base-px * 2 !default;
+$baseline: 24px !default;
+
+$b: 600px !default;
+$c: 768px !default;
+$d: 960px !default;
+$e: 1200px !default;
+
+// Site width is 1200px, but it requires additional spacing so it works nicely
+$contain: 1230px;
+$site-width: $contain + ($line * 6);
+$site-width-max: max-width $site-width - $breakpoint-subtract;
+
+$small-outer-gutter: 0;
+$medium-outer-gutter: 48px;
+$large-outer-gutter: 64px;
 
 // Scroll padding
 // ---------------------------
@@ -29,6 +46,7 @@
 
 // Scroll
 // ---------------------------
+
 .scroll {
   display: grid;
   grid-gap: 32px $small-outer-gutter;
@@ -60,16 +78,11 @@
 
 .scroll-medium {
   grid-template-columns: repeat(13, 250px);
-
-  // 252 -> 378
-  // @include breakpoint($c) {
-  //   grid-template-columns: repeat(13, 378px); }
 }
 
 .scroll-small {
   grid-template-columns: repeat(13, 168px);
 
-  // 168 -> 244
   @include breakpoint($c) {
     grid-template-columns: repeat(13, 244px);
   }

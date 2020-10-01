@@ -14,8 +14,8 @@ $grey: #868c8d;
 $breakpoint-to-ems: true;
 
 $gap: 32px !default;
-$screen-s: 350px;
-$screen-m: 769px !default;
+$screen-s: 400px;
+$screen-m: 760px !default;
 $screen-l: 960px + (2 * $gap) !default;
 $screen-xl: 1344px + (2 * $gap) !default;
 
@@ -33,33 +33,3 @@ $base-header-size: 60px;
 $mobile-header-size: 50px;
 $header-height: $base-header-size;
 $footer: 13vh;
-
-// Spacing
-// ---------------------------
-
-// min-width
-$aa: 360px !default;
-$a: 480px !default;
-$ab: 540px !default;
-$b: 600px !default;
-$bc: 680px !default;
-$c: 768px !default;
-$cd: 840px !default;
-$d: 960px !default;
-$de: 1100px !default;
-$e: 1200px !default;
-$ef: 1300px !default;
-$f: 1440px !default;
-
-$base-px: 12px !default;
-$line: $base-px * 2 !default;
-$baseline: 24px !default;
-
-// Site width is 1200px, but it requires additional spacing so it works nicely
-$contain: 1230px;
-$site-width: $contain + ($line * 6);
-$site-width-max: max-width $site-width - $breakpoint-subtract;
-
-$small-outer-gutter: 0;
-$medium-outer-gutter: 48px;
-$large-outer-gutter: 64px;

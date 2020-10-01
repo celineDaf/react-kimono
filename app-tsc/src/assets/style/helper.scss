@@ -62,10 +62,10 @@ $inner-spacing-value: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 30, 35, 40, 
 }
 
 // ~ Min width helper
-$min-width-value: 25, 50, 75, 100, 125, 150, 175, 200, 225, 250, 275, 300;
+$width-value: 25, 50, 75, 100, 125, 150, 175, 200, 225, 250, 275, 300;
 
-@each $value in $min-width-value {
-  .min-width-#{$value} {
-    min-width: #{$value}px;
+@each $value in $width-value {
+  .width-#{$value} {
+    width: #{$value + '%'};
   }
 }

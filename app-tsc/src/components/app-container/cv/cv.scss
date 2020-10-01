@@ -1,32 +1,40 @@
 @import './../../../assets/style/variables.scss';
+@import './../../../assets/style/mixins.scss';
+// triangle
+.triangle-topright {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 40vw solid $darkRed;
+  border-right: 40vw solid transparent;
+  z-index: 0;
+  @include breakpoint(phone) {
+    border-top: 90vw solid $darkRed;
+    border-right: 90vw solid transparent;
+  }
+  @include breakpoint(phablet) {
+    border-top: 90vw solid $darkRed;
+    border-right: 90vw solid transparent;
+  }
+  @include breakpoint(tablet) {
+    border-top: 47vw solid $darkRed;
+    border-right: 47vw solid transparent;
+  }
+  @include breakpoint(laptop) {
+    border-top: 30vw solid $darkRed;
+    border-right: 30vw solid transparent;
+  }
+  @include breakpoint(desktop) {
+    border-top: 40vw solid $darkRed;
+    border-right: 40vw solid transparent;
+  }
+}
 
 .cvPage {
   padding-bottom: 2rem;
-  width: 90%;
-  margin: auto;
   color: $grey;
-  border: 2rem solid $darkRed;
   position: relative;
   z-index: 10;
-
-  // triangle
-  .triangle-topright {
-    position: absolute;
-    width: 0;
-    height: 0;
-    border-top: 40vw solid $darkRed;
-    border-right: 40vw solid transparent;
-    z-index: 0;
-  }
-
-  h1 {
-    font-size: 3rem;
-  }
-  h2 {
-    font-size: 2.2rem;
-    font-weight: lighter;
-    font-style: oblique;
-  }
 
   a {
     display: inline !important;
@@ -38,7 +46,25 @@
 
   .separation-line {
     border-top: 1px solid $grey;
-    padding-top: 30px;
+    margin: 20px 0 20px 0;
+    width: 100%;
+  }
+
+  @include breakpoint(phone) {
+    border: 0;
+    width: 100%;
+  }
+  @include breakpoint(phablet) {
+    border: 1rem solid $darkRed;
+  }
+  @include breakpoint(tablet) {
+    border: 2rem solid $darkRed;
+  }
+  @include breakpoint(laptop) {
+    border: 2rem solid $darkRed;
+  }
+  @include breakpoint(desktop) {
+    border: 2rem solid $darkRed;
   }
 
   .introduction {
@@ -47,66 +73,217 @@
     width: 100%;
     z-index: 30;
     padding-bottom: 2rem;
+    @include breakpoint(laptop) {
+      padding-bottom: 4rem;
+    }
+    @include breakpoint(desktop) {
+      padding-bottom: 0rem;
+    }
     .myPic {
       text-align: center;
       position: relative;
-      width: 45%;
       display: inline-block;
       z-index: 30;
+
       img {
         width: 100%;
         position: relative;
         z-index: 30;
       }
+
+      @include breakpoint(phone) {
+        width: 100%;
+        margin: 1rem 0;
+      }
+      @include breakpoint(phablet) {
+        width: 100%;
+        img {
+          width: 60%;
+          margin: auto;
+        }
+      }
+      @include breakpoint(tablet) {
+        width: 45%;
+      }
+      @include breakpoint(laptop) {
+        width: 33%;
+        padding-bottom: 3rem;
+      }
+      @include breakpoint(desktop) {
+        width: 45%;
+        padding-bottom: 3rem;
+      }
     }
     .cv-head {
-      width: 50%;
       padding: 1rem;
       float: right;
+
+      @include breakpoint(phone) {
+        width: 100%;
+        display: block;
+        padding: 0;
+      }
+      @include breakpoint(phablet) {
+        width: 100%;
+        display: block;
+        padding: 0;
+      }
+      @include breakpoint(tablet) {
+        width: 50%;
+      }
+      @include breakpoint(laptop) {
+        width: 61%;
+      }
+      @include breakpoint(desktop) {
+        width: 52%;
+      }
+
       .cv-head-1 {
         width: 60%;
         display: inline-block;
+        text-align: left;
+        @include breakpoint(phone) {
+          width: 100%;
+          margin: auto;
+          display: block;
+          text-align: center;
+        }
+        @include breakpoint(phablet) {
+          width: 100%;
+          margin: auto;
+          display: block;
+          text-align: center;
+        }
+        @include breakpoint(tablet) {
+          width: 60%;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+          margin: 0;
+        }
+        h4 {
+          font-weight: lighter;
+        }
       }
       .cv-head-2 {
         color: $violet;
-        text-align: right;
         width: 40%;
+        text-align: right;
         display: inline-block;
-        transform: translate(0, 80%);
-      }
-
-      .dynamic {
-        padding: 1rem;
-        position: relative;
-        width: 100%;
-        text-align: center;
-        display: none;
-      }
-
-      &:hover {
-        .dynamic {
+        @include breakpoint(phone) {
+          width: 100%;
+          transform: none;
+          margin: auto;
           display: block;
+          text-align: center;
+          margin: 1rem 0;
         }
-        .cv-head-2 {
-          transform: translate(0, 0);
+        @include breakpoint(phablet) {
+          text-align: right;
+          width: 50%;
+          display: block;
+          margin: 1rem 0;
+        }
+        @include breakpoint(tablet) {
+          text-align: right;
+          display: inline-block;
+          transform: translate(0, 200%);
+        }
+      }
+      .animation {
+        transform: none;
+      }
+      .dynamic {
+        margin: 1rem;
+        position: relative;
+        text-align: center;
+        @include breakpoint(phone) {
+          margin: 1rem 0 1rem 0;
+        }
+        @include breakpoint(tablet) {
+          margin: 1rem 0 1rem 0;
         }
       }
     }
   }
   .content {
-    .title {
-      color: $darkRed;
-      font-weight: bold;
-    }
-
+    padding: 20px;
     .column-separator {
       &.column {
         border-right: 4px solid $red;
+        @include breakpoint(phone) {
+          border: none;
+          text-align: left;
+        }
+        @include breakpoint(phablet) {
+          border: none;
+          text-align: left;
+        }
+      }
+      .row {
+        @include breakpoint(tablet) {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          width: 100%;
+          .column {
+            flex-direction: column;
+            flex-basis: 100%;
+            flex: 1 1;
+          }
+        }
+        @include breakpoint(laptop) {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          width: 100%;
+          .column {
+            flex-direction: column;
+            flex-basis: 100%;
+            flex: 1 1;
+          }
+        }
+        @include breakpoint(desktop) {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          width: 100%;
+          .column {
+            flex-direction: column;
+            flex-basis: 100%;
+            flex: 1 1;
+          }
+        }
       }
     }
 
     .fix-height {
       height: 60px;
+      @include breakpoint(phone) {
+        height: auto;
+      }
+      @include breakpoint(phablet) {
+        display: flex;
+      }
+      @include breakpoint(tablet) {
+        display: flex;
+      }
+    }
+    .title {
+      color: $darkRed;
+      font-weight: bold;
+      @include breakpoint(phone) {
+        text-align: center;
+        padding-bottom: 1rem;
+      }
+      @include breakpoint(phablet) {
+        text-align: center;
+        font-size: 1.2rem;
+        padding-bottom: 1rem;
+      }
     }
   }
 
@@ -115,38 +292,75 @@
     position: relative;
     width: 100%;
 
+    // plane
     .icon-left {
       display: inline-block;
       position: absolute;
       height: 150px;
       width: 150px;
-      left: 5%;
-      top: -10%;
+      left: -5%;
+      top: -30%;
+      @include breakpoint(phone) {
+        width: 4rem;
+        height: 4rem;
+        top: 16%;
+      }
+      @include breakpoint(phablet) {
+        width: 3rem;
+        height: 3rem;
+        top: 16%;
+        left: 5%;
+      }
     }
-
+    // tea-cup
     .icon-middle {
       display: inline-block;
       position: absolute;
       height: 90px;
       width: 90px;
-      left: 66%;
       bottom: -10%;
+      @include breakpoint(phone) {
+        width: 3rem;
+        height: 3rem;
+        right: 46%;
+      }
+      @include breakpoint(phablet) {
+        width: 2rem;
+        height: 2rem;
+        right: 36%;
+      }
+      @include breakpoint(tablet) {
+        right: 36%;
+      }
     }
-
+    // book
     .icon-right {
       display: inline-block;
       position: absolute;
       height: 200px;
       width: 200px;
       right: 10%;
+      @include breakpoint(phone) {
+        width: 8rem;
+        height: 8rem;
+        right: 0;
+        bottom: -5%;
+      }
+      @include breakpoint(phablet) {
+        width: 6rem;
+        height: 6rem;
+        right: 5%;
+        bottom: 0;
+      }
     }
   }
 
   .icon-element {
-    width: 30%;
+    width: 17vw;
     display: inline-block;
   }
   .slash {
-    width: 10%;
+    width: 5.5vw;
+    display: inline-block;
   }
 }
