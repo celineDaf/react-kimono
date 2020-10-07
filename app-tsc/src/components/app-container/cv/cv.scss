@@ -138,7 +138,19 @@
         width: 52%;
       }
 
-      .cv-head-1 {
+      .dynamic {
+        margin: 1rem;
+        position: relative;
+        text-align: center;
+        @include breakpoint(phone) {
+          margin: 1rem 0 1rem 0;
+        }
+        @include breakpoint(tablet) {
+          margin: 1rem 0 1rem 0;
+        }
+      }
+
+      .cv-head-first {
         width: 60%;
         display: inline-block;
         text-align: left;
@@ -156,6 +168,14 @@
         }
         @include breakpoint(tablet) {
           width: 60%;
+          display: inline-block;
+          text-align: left;
+        }
+
+        @media Print {
+          width: 60%;
+          display: inline-block;
+          text-align: left;
         }
 
         h1,
@@ -168,11 +188,13 @@
           font-weight: lighter;
         }
       }
-      .cv-head-2 {
+      .cv-head-second {
         color: $violet;
         width: 40%;
         text-align: right;
         display: inline-block;
+        transform: translate(0, 200%);
+
         @include breakpoint(phone) {
           width: 100%;
           transform: none;
@@ -180,81 +202,148 @@
           display: block;
           text-align: center;
           margin: 1rem 0;
+          transform: translate(0, 0);
         }
         @include breakpoint(phablet) {
           text-align: right;
           width: 50%;
           display: block;
           margin: 1rem 0;
+          transform: translate(0, 0);
         }
-        @include breakpoint(tablet) {
-          text-align: right;
+
+        @media Print {
+          width: 40%;
           display: inline-block;
+          text-align: left;
           transform: translate(0, 200%);
         }
       }
       .animation {
         transform: none;
       }
-      .dynamic {
-        margin: 1rem;
-        position: relative;
-        text-align: center;
-        @include breakpoint(phone) {
-          margin: 1rem 0 1rem 0;
-        }
-        @include breakpoint(tablet) {
-          margin: 1rem 0 1rem 0;
-        }
-      }
     }
   }
+
   .content {
-    padding: 20px;
-    .column-separator {
-      &.column {
-        border-right: 4px solid $red;
-        @include breakpoint(phone) {
-          border: none;
-          text-align: left;
+    // padding: 20px;
+    // text-align: left;
+    @include breakpoint(phone) {
+      text-align: center;
+    }
+    @include breakpoint(phablet) {
+      // text-align: center;
+    }
+    @include breakpoint(tablet) {
+      text-align: left;
+    }
+    @media Print {
+      text-align: left;
+    }
+    .sub-title {
+      color: $brown;
+      padding-bottom: 20px;
+    }
+
+    .row {
+      margin-bottom: 20px;
+      @include breakpoint(phone) {
+        .experience2 {
+          margin-top: 10px;
         }
-        @include breakpoint(phablet) {
-          border: none;
+        .title {
+          text-align: center;
+        }
+      }
+      @include breakpoint(phablet) {
+        .title {
+          text-align: center;
+        }
+      }
+      @include breakpoint(tablet) {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        .column {
+          flex-direction: column;
+          flex-basis: 100%;
+          flex: 1 1;
+        }
+        .title {
+          text-align: center;
+        }
+      }
+      @include breakpoint(laptop) {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        .column {
+          flex-direction: column;
+          flex-basis: 100%;
+          flex: 1 1;
+        }
+        .title {
           text-align: left;
         }
       }
-      .row {
-        @include breakpoint(tablet) {
-          display: flex;
-          flex-direction: row;
-          flex-wrap: wrap;
-          width: 100%;
-          .column {
-            flex-direction: column;
-            flex-basis: 100%;
-            flex: 1 1;
+      @include breakpoint(desktop) {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        .column {
+          flex-direction: column;
+          flex-basis: 100%;
+          flex: 1 1;
+        }
+      }
+
+      .column-separator {
+        &.column {
+          border-right: 4px solid $red;
+          @include breakpoint(phone) {
+            border: none;
+            width: 100%;
+          }
+          @include breakpoint(phablet) {
+            border: none;
+            width: 100%;
+          }
+          @include breakpoint(tablet) {
+            border-right: 4px solid $red;
+            text-align: right;
+            .title {
+              text-align: right;
+            }
+          }
+          @include breakpoint(laptop) {
+            border-right: 4px solid $red;
+            text-align: right;
+            .title {
+              text-align: right;
+            }
+          }
+          @include breakpoint(desktop) {
+            border-right: 4px solid $red;
+            text-align: right;
+            .title {
+              text-align: right;
+            }
+          }
+          @media Print {
+            border-right: 4px solid $red;
+            text-align: right;
+            .title {
+              text-align: right;
+            }
           }
         }
-        @include breakpoint(laptop) {
-          display: flex;
-          flex-direction: row;
-          flex-wrap: wrap;
-          width: 100%;
-          .column {
-            flex-direction: column;
-            flex-basis: 100%;
-            flex: 1 1;
-          }
-        }
-        @include breakpoint(desktop) {
-          display: flex;
-          flex-direction: row;
-          flex-wrap: wrap;
-          width: 100%;
-          .column {
-            flex-direction: column;
-            flex-basis: 100%;
-            flex: 1 1;
+
+        @media Print {
+          .column:nth-child(1) {
+            text-align: right;
           }
         }
       }
@@ -263,26 +352,33 @@
     .fix-height {
       height: 60px;
       @include breakpoint(phone) {
-        height: auto;
+        height: 30px;
       }
       @include breakpoint(phablet) {
-        display: flex;
+        height: 30px;
       }
       @include breakpoint(tablet) {
         display: flex;
+      }
+      @media Print {
+        height: 10px;
       }
     }
     .title {
       color: $darkRed;
       font-weight: bold;
+
       @include breakpoint(phone) {
-        text-align: center;
         padding-bottom: 1rem;
       }
       @include breakpoint(phablet) {
-        text-align: center;
         font-size: 1.2rem;
         padding-bottom: 1rem;
+      }
+
+      @media Print {
+        font-size: 1rem;
+        padding-bottom: 15px;
       }
     }
   }
@@ -321,7 +417,7 @@
         width: 11rem;
         height: 11rem;
         left: 2%;
-        top: -25%;
+        top: -15%;
       }
       @include breakpoint(desktop) {
         width: 12rem;
@@ -399,6 +495,28 @@
         height: 10rem;
         right: 5%;
         bottom: 0;
+      }
+    }
+
+    @media Print {
+      height: 119px;
+      .icon-left {
+        width: 98px;
+        left: -7.55px;
+        top: -40px;
+        display: block;
+      }
+      .icon-middle {
+        width: 50px;
+        right: 165.8px;
+        bottom: 3%;
+        display: block;
+      }
+      .icon-right {
+        width: 93px;
+        right: -9px;
+        bottom: 6px;
+        display: block;
       }
     }
   }

@@ -8,7 +8,13 @@
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
-  @include breakpoint(desktop) {
+
+  @include breakpoint(phablet) {
+    .column {
+      padding: 10px;
+    }
+  }
+  @include breakpoint(tablet) {
     .column {
       display: flex;
       flex-direction: column;
@@ -26,8 +32,7 @@
       padding: 10px;
     }
   }
-
-  @include breakpoint(tablet) {
+  @include breakpoint(desktop) {
     .column {
       display: flex;
       flex-direction: column;
@@ -36,11 +41,13 @@
       padding: 10px;
     }
   }
-
-  @include breakpoint(phablet) {
+  @media print {
     .column {
-      all: none;
-      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      flex-basis: 100%;
+      flex: 1;
+      padding: 0 10px 0 10px;
     }
   }
 }
@@ -145,6 +152,13 @@
 .hide-desktop-only {
   display: block;
   @include breakpoint(desktop) {
+    display: none;
+  }
+}
+
+.hide-max-phablet {
+  display: block;
+  @media (min-width: 0) and (max-width: $screen-m - 1) {
     display: none;
   }
 }

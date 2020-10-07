@@ -1,0 +1,95 @@
+@import './../../../assets/style/variables.scss';
+@import './../../../assets/style/mixins.scss';
+
+@media print {
+  @page {
+    margin: 0cm;
+  }
+  // widows: 0;
+  body {
+    font-size: 13px;
+    width: 746px;
+    height: 1000px;
+    .header,
+    .print-button,
+    .footer {
+      display: none;
+    }
+    .triangle-topright {
+      border-top: 250px solid $darkRed;
+      border-right: 250px solid transparent;
+    }
+    h1 {
+      font-size: 1.5rem;
+    }
+    h2 {
+      font-size: 1.3rem;
+    }
+    h3 {
+      font-size: 1.2rem;
+    }
+    h4 {
+      font-size: 1.1rem;
+    }
+
+    .max-phablet,
+    .hide-phablet-only {
+      display: none;
+    }
+  }
+  .cvPrint {
+    padding-bottom: 0;
+    border: 10px solid $darkRed;
+
+    .introduction {
+      padding-bottom: 0rem;
+
+      .myPic {
+        width: 242px;
+        img {
+          padding-bottom: 0;
+          width: 100%;
+        }
+      }
+      .separation-line {
+        display: none;
+      }
+      .cv-head {
+        width: 455px;
+        padding: 0 10px 0 0;
+
+        .dynamic {
+          margin-bottom: 5px;
+        }
+        .cv-head-first  {
+          margin-bottom: 40px;
+          text-align: left;
+          display: inline-block;
+        }
+        .cv-head-second  {
+          display: inline-block;
+        }
+
+        .icon-element {
+          width: 80px;
+        }
+        .slash {
+          width: 26px;
+        }
+      }
+
+      .content {
+        text-align: left;
+        padding: 20px 0 20px 0;
+
+        .sub-title {
+          padding: 10px 0;
+        }
+
+        .row:nth-child(2) {
+          padding: 10px 0;
+        }
+      }
+    }
+  }
+}

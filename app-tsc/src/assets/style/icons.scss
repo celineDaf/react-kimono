@@ -4,6 +4,8 @@
   background-position: center;
   width: 100%;
   height: 100%;
+  min-width: 50px;
+  min-height: 50px;
   display: flex;
 
   &-Books {
@@ -43,6 +45,11 @@
   &-open-book {
     mask: url('../icons/open-book.svg') no-repeat 50% 50%;
     background-color: $darkRed;
+    mask-size: contain;
+  }
+  &-download {
+    mask: url('../icons/download.svg') no-repeat 50% 50%;
+    background-color: $violet;
     mask-size: contain;
   }
 }

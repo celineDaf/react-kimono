@@ -1,19 +1,25 @@
+
+import "./cv.scss";
 import React, { Fragment, useState } from "react";
 import MyselfPic from "./../../../assets/pictures/moi-rond.png";
-import "./cv.scss";
+import "./cv-print.scss";
 
 const CVPage = props => {
 
     const [seeAnimation, SetSeeAnimation] = useState(false);
 
+    const Print = () => {
+        window.print()
+    }
+
     return (
 
         <Fragment>
-            <div className=' triangle-topright phablet-only phablet-only'></div>
-            <div className="cvPage">
+            <div className=' triangle-topright phablet-only'></div>
+            <div className="cvPage cvPrint">
                 <div className="introduction" onMouseEnter={() => { SetSeeAnimation(true) }}>
                     <div className=' triangle-topright hide-phone-only hide-phablet-only '></div>
-                    <div className='full-width'>
+                    <div >
                         <div className="myPic">
                             <img src={MyselfPic} className='responsive' />
                         </div>
@@ -26,18 +32,18 @@ const CVPage = props => {
                                     <RightChevron />
                                 </div>
                             }
-                            <div className="cv-head-1">
+                            <div className="cv-head-first">
                                 <h1 className='red no-margin'>CÉLINE DAFFE</h1>
                                 <h2 className='darkred no-margin'>Développeuse Front</h2>
                                 <h3 className='black'>Freelance</h3>
                                 <h4 className='black'>Ex-présidente BDX I/O</h4>
 
                             </div>
-                            <div className={seeAnimation ? 'cv-head-2 animation' : 'cv-head-2'}>
+                            <div className={seeAnimation ? 'cv-head-second animation' : 'cv-head-second'}>
                                 <div>Mérignac</div>
                                 <div>06 198 198 50</div>
                                 <div>celinedaffe@live.fr</div>
-                                <div> Github: @atakikoo</div>
+                                <div> Github: <a href="https://github.com/Atakikoo">@atakikoo</a></div>
                             </div>
                         </div>
 
@@ -45,12 +51,12 @@ const CVPage = props => {
                 </div>
 
                 <div className='content'>
-                    <div className="row">
+                    <div className="row ">
                         {/* top left */}
                         <div className=' separation-line max-phablet'></div>
-                        <div className='column text-right column-separator no-padding d-block'>
+                        <div className='column column-separator no-padding d-block'>
                             <div className="title column fix-height">EXPÉRIENCES</div>
-                            <div className='column'><strong className='brown inner-space-bottom-20'>Freelance - Depuis septembre 2019</strong></div>
+                            <div className='column'><strong className='sub-title'>Freelance - Depuis septembre 2019</strong></div>
                             <div className='column '>
                                 <div><strong className='brown'><a href="https://www.chateauedmus.com/">Château Edmus</a> -</strong> Refonte du site </div>
                                 <div className="darkred text-oblique">Gatsby, ReactJs, Prismic et SpectreCSS</div>
@@ -64,9 +70,9 @@ const CVPage = props => {
                         </div>
 
                         {/* top right */}
-                        <div className="column no-padding d-block">
-                            <div className="title column fix-height"></div>
-                            <div className="column"><strong className='brown  inner-space-bottom-20'>Développeuse Front-end 2016 - 2018</strong></div>
+                        <div className="column no-padding d-block experience2">
+                            <div className="title column fix-height hide-max-phablet"></div>
+                            <div className="column"><strong className='sub-title'>Développeuse Front-end 2016 - 2018</strong></div>
                             <div className='column'>
                                 <div><strong className='brown'><a href="https://www.4sh.fr/">4SH France</a></strong>
                                     <div>Missions principalement sur des applications métier, en déploiement continue (SCRUM), dans des secteurs très divers : gestion de flux d’avions et de marchandises; immobilier; serious game.</div>
@@ -80,44 +86,54 @@ const CVPage = props => {
                         </div>
                     </div>
                     <div className="row">
-                        <div className='separation-line max-phablet'></div>
+
                         {/* bottom left */}
-                        <div className="column column-separator text-right no-padding">
-                            <div className="title column">FORMATION</div>
-                            <div className='column'><span className="text-oblique brown">WildCodeSchool </span> <br className='max-phablet' /> Bootcamp de 5 mois spécialisé en Javascript <br />
+                        <div className="column column-separator no-padding ">
+                            <div className=' separation-line max-phablet'></div>
+                            <div className="title column ">FORMATION</div>
+                            <div className='column space-top-10'><span className="text-oblique brown">WildCodeSchool </span> <br className='max-phablet' /> Bootcamp de 5 mois spécialisé en Javascript <br />
                          AngularJs, NodeJs, Sass, MongoDB, Ionic, Cordova <br />  La Loupe - Sep. 2015 à Jan. 2016</div>
-                            <div className='column'><span className="text-oblique brown">Master Conception et Direction de Projets Culturels</span> <br className='max-phablet' />Université Paris 3, Sorbonne Nouvelle <br /> Paris - 2011</div>
-                            <div className='column'><span className="text-oblique brown">Licence de Conception et Mise en Oeuvre de Projets Culturels</span> <br className='max-phablet' />Université Paris 3 <br /> Paris - 2009</div>
-                            <div className='column'><span className="text-oblique brown">Bac STI Arts Appliqués</span><br className='max-phablet' />École Supérieure des Arts Appliqués et du Textile <br /> Roubaix (59) -2005</div>
-                            <div className='column'></div>
+                            <div className='column space-top-10'><span className="text-oblique brown">Master Conception et Direction de Projets Culturels</span> <br className='max-phablet' />Université Paris 3, Sorbonne Nouvelle <br /> Paris - 2011</div>
+                            <div className='column space-top-10'><span className="text-oblique brown">Licence de Conception et Mise en Oeuvre de Projets Culturels</span> <br className='max-phablet' />Université Paris 3 <br /> Paris - 2009</div>
+                            <div className='column space-top-10'><span className="text-oblique brown">Bac STI Arts Appliqués</span><br className='max-phablet' />École Supérieure des Arts Appliqués et du Textile <br /> Roubaix (59) -2005</div>
+                            <div className='column space-top-10'></div>
+
+
                         </div>
 
                         {/*  bottom right */}
-                        <div className='separation-line max-phablet'></div>
-                        <div className="column  no-padding">
-                            <div className="title column">LES +</div>
-                            <div className='column space-bottom-30'> Présidente pendant 2 ans de l’association Bordeaux Développer Experience qui organise
-                        depuis 2013 <a href="https://www.bdxio.fr/">BDX I/O</a> une conférence dédié au monde du développement. Participation régulière aux meetups Bordeaux JS et d’autres à l’occasion.</div>
+                        <div className="column">
                             <div className=' separation-line max-phablet'></div>
-                            <div className="title column">QUALITÉS</div>
-
-                            <div className='column'>Réactivité, adaptabilité, bonne communication, autonomie</div>
-                            <div className='column space-bottom-30'><span className="brown d-inline">Anglais courant écrit et parlé </span>(voyage en Australie de 7 mois)</div>
-                            <div className=' separation-line max-phablet'></div>
-                            <div className="title column"> INTÉRÊTS</div>
-                            <div className='column'> <ul> <li>React, UX-UI</li> <li>Pyton, Kotlin, NodeJs</li>
-                                <li>Japon, voyage</li> <li>Science-fiction, littérature contemporaine</li> </ul></div>
+                            <div className="column">
+                                <div className="title ">LES +</div>
+                                <div className=' '> Présidente pendant 2 ans de l’association Bordeaux Développer Experience qui organise
+                        depuis 2013, <a href="https://www.bdxio.fr/">BDX I/O</a>, une conférence dédié au monde du développement. Participation régulière aux meetups Bordeaux JS et d’autres à l’occasion.</div>
+                                <div className=' separation-line max-phablet'></div>
+                            </div>
+                            <div className="column space-top-20">
+                                <div className="title ">QUALITÉS</div>
+                                <div className=''>Réactivité, adaptabilité, bonne communication, autonomie</div>
+                                <div className=''><span className="brown d-inline">Anglais courant écrit et parlé </span>(voyage en Australie de 7 mois)</div>
+                                <div className=' separation-line max-phablet'></div>
+                            </div>
+                            <div className="column space-top-20">
+                                <div className="title "> INTÉRÊTS</div>
+                                <div className=''> <ul> <li>React, UX-UI</li> <li>Pyton, Kotlin, NodeJs</li>
+                                    <li>Japon, voyage</li> <li>Science-fiction, littérature contemporaine</li> </ul></div>
+                            </div>
                         </div>
                     </div>
-                    <div className='cv-footer'>
+                    <div className='cv-footer '>
                         <div className='icon-left'><span className='icon icon-airplane'></span></div>
                         <div className='icon-middle'><span className='icon icon-tea-cup'></span></div>
                         <div className='icon-right'><span className='icon icon-open-book'></span></div>
                     </div>
-
                 </div>
             </div >
 
+            <div className=" print-button row  space-top-30" onClick={() => Print()} >
+                <i className=" icon icon-download" />
+            </div>
         </Fragment>
     )
 };
