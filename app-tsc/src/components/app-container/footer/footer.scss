@@ -1,19 +1,22 @@
-@import "./../../../assets/style/variables.scss";
+@import './../../../assets/style/variables.scss';
 
 .footer {
-  height: $footer;
-  color: $violet;
+  min-height: $footer;
+  color: $brown;
   text-align: center;
-  font-size: 0.6rem;
-
+  background-color: $grey;
+  padding: 10px;
+  a {
+    color: $blue;
+    display: inline;
+  }
   .content {
-    position: relative;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+    .icons {
+      font-size: 0.6rem;
+    }
     a {
-      color: darken($color: $violet, $amount: 30%);
+      color: $blue;
+      display: inline;
     }
   }
 }
