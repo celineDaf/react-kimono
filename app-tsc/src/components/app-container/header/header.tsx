@@ -108,7 +108,7 @@ const Header = (props: Props) => {
               {" "}
             </Link>
           </button>
-          <button
+          {/* <button
             type="button"
             className={
               "header-button red " +
@@ -122,7 +122,7 @@ const Header = (props: Props) => {
               className="icon  icon-Job"
               to={`/articles/category/${CategoriesEnum.JOB}`}
             ></Link>
-          </button>
+          </button> */}
         </div>
 
 

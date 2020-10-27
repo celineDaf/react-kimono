@@ -19,7 +19,7 @@ const SubMenu = (props: Props) => {
     useEffect(() => {
       const f = async () => {
         const response = await ArticleService.getArticlesByCategory(
-          props.category, 5
+          props.category, 4
         );
         const results = response.results;
         console.log(response)
