@@ -56,9 +56,7 @@ const ArticlesDisplay = props => {
 
   return (
     <div className="article-display">
-      <div className="title">{article.data.title[0].text}</div>
-
-
+      <h1 className="title">{article.data.title[0].text}</h1>
 
       {article.data.contentimages && article.data.contentimages.length > 0 ? (
         <div className="photos p-relative">

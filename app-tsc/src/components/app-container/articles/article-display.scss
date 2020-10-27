@@ -74,6 +74,38 @@
     padding: 1% 0;
     text-align: justify;
     white-space: pre-line;
+    margin: auto;
     width: 100%;
+
+    @include breakpoint(phone) {
+      width: 100%;
+      img {
+        width: 100%;
+      }
+    }
+    @include breakpoint(phablet) {
+      width: 100%;
+      img {
+        width: 100%;
+      }
+    }
+    @include breakpoint(tablet) {
+      width: 80%;
+      img {
+        width: 100%;
+      }
+    }
+    @include breakpoint(laptop) {
+      width: 60%;
+      img {
+        width: 100%;
+      }
+    }
+    @include breakpoint(desktop) {
+      width: 60%;
+      img {
+        width: 100%;
+      }
+    }
   }
 }
