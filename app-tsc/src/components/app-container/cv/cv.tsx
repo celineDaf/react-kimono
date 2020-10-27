@@ -18,7 +18,7 @@ const CVPage = props => {
             <div className=' triangle-topright phablet-only'></div>
             <div className="cvPage cvPrint">
                 <div className="introduction" onMouseEnter={() => { SetSeeAnimation(true) }}>
-                    <div className=' triangle-topright hide-phone-only hide-phablet-only '></div>
+                    <div className='triangle-topright hide-phone-only hide-phablet-only '></div>
                     <div >
                         <div className="myPic">
                             <img src={MyselfPic} className='responsive' />
@@ -131,7 +131,7 @@ const CVPage = props => {
                 </div>
             </div >
 
-            <div className=" print-button row  space-top-30" onClick={() => Print()} >
+            <div className=" print-button row  space-top-30  space-bottom-50" onClick={() => Print()} >
                 <i className=" icon icon-download" />
             </div>
         </Fragment>
